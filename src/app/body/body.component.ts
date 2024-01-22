@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CONTACTS } from '../contacts-db';
 
 @Component({
   selector: 'app-body',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class BodyComponent {
 
+
+  contactss = [...CONTACTS];
+
+  openAlert(event: any) {
+    alert(event);
+
+  }
+
+  searchTerm : string = '';
 }

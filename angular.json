@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngProject": {
+    "PhoneBookProject": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ang-project",
+            "outputPath": "dist/phone-book-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -65,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AngProject:build:production"
+              "browserTarget": "PhoneBookProject:build:production"
             },
             "development": {
-              "browserTarget": "AngProject:build:development"
+              "browserTarget": "PhoneBookProject:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngProject:build"
+            "browserTarget": "PhoneBookProject:build"
           }
         },
         "test": {
@@ -93,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -102,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": "5fd3f8f1-cdd6-4c38-8be0-f2929fd28d79"
+    "analytics": "6f07cd6e-4c59-43e3-bec2-50b04cb5d92a"
   }
 }

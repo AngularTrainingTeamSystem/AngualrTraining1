@@ -1,0 +1,38 @@
+<div class="card-container" *ngIf="contact.isActive">
+    <div class="card">
+      <div  class="card-header">
+    
+      </div >
+      <div  [ngClass]="contact.isFavorite ? 'green' : 'gray' " class="card-body">
+        <div class="info-item">
+          <label hidden>{{contact.contactId}}</label>
+          <label>Mobile Number:</label>
+          <span>{{contact.mobilenumber}}</span>
+        </div>
+        <div class="info-item">
+          <!-- <label (click)="updateContact(contact)" >Name:</label> -->
+          <label [routerLink]="['contact-list/edit-contact' , contact.contactId]" >Name:</label>
+
+          <span>{{contact.name}}</span>
+        </div>
+        <div class="info-item">
+          <label>Birthday:</label>
+          <span>{{contact.contactDateCreated | date}}</span>
+        </div>
+    
+        <!-- <hr> -->
+
+        <!-- <input type="text" [(ngModule)]="inputValue"  placeholder="Type something..."> -->
+
+        <!-- <hr> -->
+
+        <!-- <button (click)="onGetInfo()">Get info</button> -->
+      </div>
+    </div>
+    
+
+    <!-- *ngIf="contact.isActive" -->
+
+
+
+

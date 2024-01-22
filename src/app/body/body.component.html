@@ -1,14 +1,22 @@
 
 
-
-
-    <header>
-        <h1>Contact List </h1>
-    </header>
+    <div class="search-container">
+    <input type="text" class="search-input" [(ngModel)]="searchTerm" placeholder="Search by name" />
+</div>
 
     <section class="container contact-list-container">
-       
+        <div  *ngFor="let con of contactss | searchFilter:searchTerm" class="contactes" >
+   
+  
+            <app-contact-card [contact]="con"  (sendData)="openAlert($event)">
+              
+            </app-contact-card>
+            
+        
+        
+        </div>
     </section>
 
 
+   
 

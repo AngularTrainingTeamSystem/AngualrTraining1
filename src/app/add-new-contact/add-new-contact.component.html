@@ -1,0 +1,66 @@
+<div mat-dialog-title>
+    <h1>Contact Form</h1>
+</div>
+
+<form [formGroup]="contactFrom" (ngSubmit)="onFormSubmit()">
+
+    <div mat-dialog-content class="content">
+  
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Contact Id</mat-label>
+          <input matInput type="text" placeholder="Ex. Elvis" formControlName="contactId">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput type="text" placeholder="Ex. Elvis"  formControlName="Fullname">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile Number</mat-label>
+          <input matInput type="text" placeholder="EX. 069" formControlName="mobileNumber">
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="isActive">
+          <mat-label>Active</mat-label>
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="isFavorite">
+          <mat-label>Favorite</mat-label>
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="isDeleted">
+          <mat-label>Deleted</mat-label>
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Contact Created</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="contactDateCreated">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+  
+      <div mat-dialog-actions class="action">
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </div>
+  
+    </div>
+  
+  </form>
+  
