@@ -1,62 +1,72 @@
 .container {
-    max-width: 400px; 
-    margin-top:  40px;
-    padding: 20px;
-    background-color: #fce3e3; 
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ffb6b6; 
-    border-radius: 5px;
-    background-color: #fff; 
-  }
-  
-  .form-check {
-    margin-bottom: 15px;
-  }
-  
-  .form-check-input {
-    margin-right: 5px;
-  }
-  
-  label {
-    color: #ff5c5c; 
-  }
-  
+  padding: 20px;
+  margin-top: 50px;
+ 
 
-  .form-check-input:checked {
-    background-color: #ff5c5c; 
-    border-color: #ff5c5c; 
-  }
-  
-  
-  .form-check-input:hover {
-    cursor: pointer;
-  }
-  
-  
-  .form-check-label {
-    font-weight: normal;
-  }
+  .row {
+    display: flex;
+    justify-content: center;
 
-  .form-group-submit button[type="submit"] {
-    background-color: #ff66b3; 
-    color: black;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    accent-color: #232323;
+    .col-12 {
+      background-color: pink;
+      padding: 40px;
+      border-radius: 8px;
+
+      form {
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+
+          .form-group {
+            width: 100%;
+
+            input {
+              margin-bottom: 10px;
+              padding: 10px;
+              border: 1px solid #ffb6c1;
+              border-radius: 4px;
+
+              &.form-check-input {
+                margin-right: 5px;
+              }
+            }
+
+            .error-message {
+              color: #ff1493;
+              margin-top: 5px;
+            }
+          }
+
+          .form-check {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 10px;
+
+            input {
+              margin-right: 5px;
+            }
+          }
+
+          .form-group-submit {
+            width: 100%;
+            margin-top: 15px;
+
+            button {
+              background-color: #ff1493;
+              color: white;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+
+              &:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
-
-
-  
-  
