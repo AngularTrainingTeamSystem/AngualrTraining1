@@ -1,0 +1,62 @@
+.container {
+    max-width: 400px; 
+    margin-top:  40px;
+    padding: 20px;
+    background-color: #fce3e3; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffb6b6; 
+    border-radius: 5px;
+    background-color: #fff; 
+  }
+  
+  .form-check {
+    margin-bottom: 15px;
+  }
+  
+  .form-check-input {
+    margin-right: 5px;
+  }
+  
+  label {
+    color: #ff5c5c; 
+  }
+  
+
+  .form-check-input:checked {
+    background-color: #ff5c5c; 
+    border-color: #ff5c5c; 
+  }
+  
+  
+  .form-check-input:hover {
+    cursor: pointer;
+  }
+  
+  
+  .form-check-label {
+    font-weight: normal;
+  }
+
+  .form-group-submit button[type="submit"] {
+    background-color: #ff66b3; 
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    accent-color: #232323;
+}
+
+
+  
+  

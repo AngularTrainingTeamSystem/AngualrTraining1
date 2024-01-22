@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form *ngIf="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group">
+            <input formControlName="name" class="form-control" placeholder="Name" />
+            <div *ngIf="contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched" class="error-message">
+              Name is required.
+            </div>
+            <input formControlName="contactId" class="form-control" placeholder="Id" />
+            <div *ngIf="contactForm.get('contactId')?.hasError('required') && contactForm.get('contactId')?.touched" class="error-message">
+              Id is required.
+            </div>
+            <div *ngIf="contactForm.get('contactId')?.hasError('pattern') && contactForm.get('contactId')?.touched" class="error-message">
+              Id must be a number.
+            </div>
+            <input formControlName="mobilenumber" class="form-control" placeholder="MobileNumber" />
+            <div *ngIf="contactForm.get('mobilenumber')?.hasError('required') && contactForm.get('mobilenumber')?.touched" class="error-message">
+              Mobile Number is required.
+            </div>
+            <div *ngIf="contactForm.get('mobilenumber')?.hasError('pattern') && contactForm.get('mobilenumber')?.touched" class="error-message">
+              Mobile Number must be a number.
+            </div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="isFavorite" />
+            <label for="isFavorite">Favourite</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="isDeleted" />
+            <label for="isDeleted">Deleted</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="isActive" />
+            <label for="isActive">Active</label>
+          </div>
+          <div class="form-group-submit">
+            <button type="submit" class="btn btn-primary" [routerLink]="['']" [disabled]="!contactForm.valid">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

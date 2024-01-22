@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h2>List of all the users</h2>
+  <div class="container">
+    <ng-container *ngFor="let user of users">
+      <button *ngIf="!user.isDeleted" class="btn" type="button" [routerLink]="['/users', user.id]" [ngStyle]="{ 'background-color': user.isActive ? 'green' : 'gray', 'color': 'white' }">
+        {{ user.name }}
+      </button>
+    </ng-container>
+    <div class="divider"></div>
+  </div>
+</div>

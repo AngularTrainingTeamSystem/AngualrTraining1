@@ -1,0 +1,11 @@
+<h3 [ngStyle]="{'color': 'blue', 'font-size': '20px', 'font-weight': 'bold'}">Contact Details</h3>
+
+
+<div *ngIf="contact">
+  {{ contact.mobilenumber }} <br>  
+  {{ contact.isActive ? 'Active' : 'Not Active' }} <br>  
+  {{ contact.isFavorite ? 'Favorite' : 'Not Favorite' }} <br>
+  {{ contact.isDeleted ? 'Deleted' : 'Not Deleted' }}
+</div>
+
+  

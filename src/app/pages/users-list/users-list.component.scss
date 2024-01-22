@@ -1,0 +1,36 @@
+.wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  place-items: center;
+  gap: 30px;
+  padding: 50px;
+  background-color: #ffb6c1; 
+  color:deeppink;
+
+  .container {
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center;
+    padding: 20px;
+    gap: 10px;
+    max-height: 80vh;
+    overflow-y: scroll;
+    place-items: center;
+  }
+
+  .btn {
+    width: 300px;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    justify-content: start;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fdfdfd; 
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+}

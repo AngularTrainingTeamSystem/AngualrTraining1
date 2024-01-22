@@ -1,0 +1,35 @@
+<div class="wrapper" *ngIf="user">
+  <div class="button">
+    <button type="button" class="btn" (click)="goBack()">
+      Check Other Users
+    </button>
+  </div>
+  <div class="container">
+    <h2>{{ userForm.get('name')?.value }}</h2>
+    <div class="divider"></div>
+    <div class="details">
+      <p>Number:</p>
+      <p>{{ userForm.get('mobilenumber')?.value }}</p>
+    </div>
+    <div class="details">
+      <p>Name:</p>
+      <p>{{ userForm.get('name')?.value }}</p>
+    </div>
+    <div class="details">
+      <p>Status:</p>
+      <p>{{ userForm.get('isActive')?.value ? 'Active' : 'Not Active' }}</p>
+    </div>
+    <div class="details">
+      <p>Fav:</p>
+      <p>{{ userForm.get('isFavorite')?.value ? 'Favourite' : 'Not Favourite' }}</p>
+    </div>
+    <div class="details">
+      <p>Deleted:</p>
+      <p>{{ userForm.get('isDeleted')?.value ? 'Deleted' : 'Not Deleted' }}</p>
+    </div>
+    <div class="details">
+      <p>Date Created:</p>
+      <p>{{ userForm.get('contactDateCreated')?.value | date }}</p>
+    </div>
+  </div>
+</div>

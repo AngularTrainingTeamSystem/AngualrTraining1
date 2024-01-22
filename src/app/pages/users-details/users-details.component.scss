@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  background-color: #ffc0cb; 
+  padding: 10px;
+  max-width: 500px;
+  margin: auto; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #ff69b4; 
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: auto;
+  margin: auto;
+  text-align: center;
+}
+
+
+h2 {
+  color: #ff69b4; 
+}
+
+
+.divider {
+  height: 2px;
+  margin: 20px 0;
+}
+
+
+.details {
+  margin-bottom: 10px;
+}
+
+
+.details p:first-child {
+  font-weight: bold;
+}
+
+.details p:last-child {
+  font-style: italic;
+}
+
+
+
