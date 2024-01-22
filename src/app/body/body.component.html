@@ -1,14 +1,12 @@
+<header>
+    <h1>Contact List </h1>
+</header>
 
-
-
-
-    <header>
-        <h1>Contact List </h1>
-    </header>
-
-    <section class="container contact-list-container">
-       
-    </section>
-
-
-
+<section class="container contact-list-container">
+    <span><strong>Search contact: </strong></span>
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name" />
+    <div *ngFor="let contact of contacts | contactfilter:searchTerm">
+        <app-contact-card [contact]="contact" (cardButtonClick)="showAlert($event)"></app-contact-card>
+    </div>
+    <button routerLink="/main/add-contact">Add Contact</button>
+</section>

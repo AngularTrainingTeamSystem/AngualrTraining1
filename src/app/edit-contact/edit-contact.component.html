@@ -1,0 +1,23 @@
+<h2>Edit Contact</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="contactForm.get('name')?.hasError('required')" class="error">Name is required.</div>
+      <div *ngIf="contactForm.get('name')?.hasError('pattern')" class="error">Name should contain only letters.</div>
+    </div>
+  
+    <div>
+      <label for="mobilenumber">Mobile Number:</label>
+      <input id="mobilenumber" formControlName="mobilenumber" />
+      <div *ngIf="contactForm.get('mobilenumber')?.hasError('required')" class="error">Mobile Number is required.</div>
+      <div *ngIf="contactForm.get('mobilenumber')?.hasError('pattern')" class="error">Mobile Number should contain only numbers.</div>
+    </div>
+  
+    <button type="submit" [disabled]="!contactForm.valid">Save Changes</button>
+    <button (click)="toHome()">Home</button>
+    
+  </form>
+  

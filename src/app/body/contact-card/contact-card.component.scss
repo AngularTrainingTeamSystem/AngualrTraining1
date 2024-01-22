@@ -1,0 +1,22 @@
+.contact-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #eee;
+  }
+  .favorite {
+    background-color: lightgreen;
+  }
+  .active {
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  button {
+    margin-top: 5px;
+  }
+
+  input::placeholder{
+    text-align: center;
+  }

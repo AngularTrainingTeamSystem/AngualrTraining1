@@ -1,0 +1,11 @@
+<div [ngClass]="{'favorite': contact.isFavorite, 'active': contact.isActive}" class="contact-card">
+    <a [routerLink]="['/main/edit-contact', contact.contactId]">
+        <strong *ngIf="contact.isActive; else inactive">{{ contact.name }}</strong>
+        <ng-template #inactive>{{ contact.name }}</ng-template>
+    </a>
+    <p>{{ contact.mobilenumber }}</p>
+    <input type="text" [(ngModel)]="inputField" placeholder="Comment">
+    <div>
+        <button (click)="onButtonClick()">Contact</button>
+    </div>
+</div>

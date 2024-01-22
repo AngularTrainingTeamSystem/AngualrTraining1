@@ -1,0 +1,39 @@
+<h2>Add Contact</h2>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" name="name" [(ngModel)]="model.name" required pattern="[a-zA-Z\s]*" #name="ngModel"/>
+    <div *ngIf="!name.valid && name.touched" class="error">Name should contain only characters and not be blank.</div>
+  </div>
+
+  <div>
+    <label for="mobilenumber">Mobile Number:</label>
+    <input id="mobilenumber" name="mobilenumber" [(ngModel)]="model.mobilenumber" required pattern="\d*" #mobilenumber="ngModel"/>
+    <div *ngIf="!mobilenumber.valid && mobilenumber.touched" class="error">Mobile Number should contain only numbers and not be blank.</div>
+  </div>
+
+  <div>
+    <label>Is Active:</label>
+    <input type="radio" name="isActive" value="true" [(ngModel)]="model.isActive"> Yes
+    <input type="radio" name="isActive" value="false" [(ngModel)]="model.isActive"> No
+  </div>
+
+  <div>
+    <label>Is Favorite:</label>
+    <input type="radio" name="isFavorite" value="true" [(ngModel)]="model.isFavorite"> Yes
+    <input type="radio" name="isFavorite" value="false" [(ngModel)]="model.isFavorite"> No
+  </div>
+
+  <div>
+    <label>Is Deleted:</label>
+    <input type="radio" name="isDeleted" value="true" [(ngModel)]="model.isDeleted"> Yes
+    <input type="radio" name="isDeleted" value="false" [(ngModel)]="model.isDeleted"> No
+  </div>
+
+  <div>
+    <label for="contactDateCreated">Contact Date Created:</label>
+    <input id="contactDateCreated" name="contactDateCreated" type="date" [(ngModel)]="model.contactDateCreated" required="true"/>
+  </div>
+  
+  <button type="submit" [disabled]="!contactForm.valid">Add</button>
+</form>
