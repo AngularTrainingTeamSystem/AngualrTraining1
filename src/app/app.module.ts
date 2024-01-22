@@ -21,12 +21,6 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { EditContactComponents } from './edit-contact/edit-contact.component';
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +45,8 @@ import { EditContactComponents } from './edit-contact/edit-contact.component';
     MatRadioModule,
     ReactiveFormsModule,
     FormsModule,
-    
-    
   ],
-  providers: [],
+providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

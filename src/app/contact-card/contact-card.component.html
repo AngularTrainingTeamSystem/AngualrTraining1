@@ -10,8 +10,8 @@
           <span>{{contact.mobilenumber}}</span>
         </div>
         <div class="info-item">
-          <!-- <label (click)="updateContact(contact)" >Name:</label> -->
-          <label [routerLink]="['contact-list/edit-contact' , contact.contactId]" >Name:</label>
+          <a (click)="updateContact(contact)" >Name:</a>
+          <!-- <a [routerLink]="['edit-contact' , contact.contactId]" >Name:</a> -->
 
           <span>{{contact.name}}</span>
         </div>

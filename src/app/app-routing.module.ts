@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactCardComponent } from './contact-card/contact-card.component';
-
 import { EditContactComponents } from './edit-contact/edit-contact.component';
 import { BodyComponent } from './body/body.component';
 
