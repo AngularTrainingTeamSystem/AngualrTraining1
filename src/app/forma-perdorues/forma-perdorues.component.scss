@@ -1,0 +1,54 @@
+.container {
+    margin: 0 auto;
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .form-check-label {
+    margin-bottom: 0;
+  }
+
+  // BEN TEXTBOXES ME NGJYRE RASTIT, NESE KA TEXT BRENDA OSE JO
+
+  input[type="text"]:invalid,input[type="tel"]:invalid {
+    border: 1px solid red;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+input[type="text"],input[type="tel"]:valid {
+  border: 1px solid green;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+  

@@ -6,8 +6,20 @@
         <h1>Contact List </h1>
     </header>
 
+    
+    <div><button  routerLink="/forma" class="btn btn-success">CREATE NEW USER</button></div>
+    <br>
+    
+
     <section class="container contact-list-container">
-       
+        <br>
+        <br>
+        <br>
+       <div *ngFor="let kon of kontaktet | filteredPipe : search">
+        <app-contact [kontakt]="kon">
+
+        </app-contact>
+       </div>
     </section>
 
 

@@ -1,0 +1,24 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<form [formGroup]="form">
+    <label for="name" >Name:</label>
+    <input type="text" id="name" name="name" formControlName="name"  required placeholder="Name">
+    <div *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">Name is required</div>
+     
+    <label for="number">Number:</label>
+    <input type="text" id="number" name="number" formControlName="number"  required placeholder="Number">
+    <div *ngIf="form.get('number')?.errors?.['required'] && form.get('number')?.touched">Number is required</div>
+    <div *ngIf="form.get('number')?.errors?.['pattern'] && form.get('number')?.touched">Please enter a valid number in the format XXX-XXX-XXXX</div>
+     
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" formControlName="birthday">
+   
+    <button type="submit" [disabled]="form['invalid']" class="btn btn-success">Save</button>
+    <button type="button" routerLink="/body" class="btn btn-success">Close</button>
+   </form>

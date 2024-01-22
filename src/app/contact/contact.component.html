@@ -1,0 +1,12 @@
+
+<div class="kontakt" *ngIf="!kontakt.isDeleted" [ngClass]="{'green':kontakt.isActive,'gray':!kontakt.isActive,'bold':kontakt.isFavorite}">
+    <h3 ><a (click)="onContactClick(kontakt.contactId)">{{kontakt.name}}</a></h3>
+    <p> Birthday: {{kontakt.contactDateCreated | date}}</p>
+    <input [(ngModel)]="input" placeholder="Shto nje shenim...">
+    <h3> {{input}}</h3>
+    <button (click)="shtoShenim()">Merr te dhenat </button>
+    
+   
+</div>
+
+
