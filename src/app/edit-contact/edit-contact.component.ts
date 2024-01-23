@@ -1,20 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Contact, contacts } from '../models/contact.model';
-import { ContactServiceService } from '../contact-service.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { ContactServiceService } from '../contact-service.service';
 
 @Component({
   selector: 'app-edit-contact',
   templateUrl: './edit-contact.component.html',
   styleUrls: ['./edit-contact.component.scss']
 })
-
 export class EditContactComponent implements OnInit {
   contactForm!: FormGroup;
-  contact!: Contact;
+  contactId!: string;
 
   constructor(
     private contactService: ContactServiceService,
@@ -24,22 +20,35 @@ export class EditContactComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id: any = this.route.snapshot.paramMap.get('id');
-    this.contact = this.contactService.getContactById(id);
-    
-    this.initForm();
-  }
-
-  initForm(): void {
-    this.contactForm = this.fb.group({
-      name: [this.contact.name, [Validators.required, Validators.pattern(/^[a-zA-Z\s]+$/)]],
-      mobilenumber: [this.contact.mobilenumber, [Validators.required, Validators.pattern(/^\d+$/)]],
+    this.route.params.subscribe((params) => {
+      this.contactId = params['id'];
+      this.initForm();
     });
   }
 
+  initForm(): void {
+    const contact = this.contactService.getContactById(this.contactId);
+    if (contact) {
+      this.contactForm = this.fb.group({
+        name: [contact.name, [Validators.required, Validators.pattern(/^[a-zA-Z\s]+$/)]],
+        mobilenumber: [contact.mobilenumber, [Validators.required, Validators.pattern(/^\d+$/)]],
+      });
+    } else {
+      this.router.navigate(['/main']); // Redirect to the main page or handle as needed
+    }
+  }
+
   onSubmit(): void {
-    // Handle form submission here
-    alert(`Name: ${this.contactForm.value.name}\nMobile Number: ${this.contactForm.value.mobilenumber}`);
+    if (this.contactForm.valid) {
+      const updatedContact = {
+        ...this.contactService.getContactById(this.contactId),
+        ...this.contactForm.value
+      };
+      this.contactService.updateContact(updatedContact);
+      alert(`Updated Contact:
+        \nName: ${updatedContact.name}\nMobile Number: ${updatedContact.mobilenumber}`);
+      this.router.navigate(['/main']); // Redirect to the main page or handle as needed
+    }
   }
 
   toHome() {

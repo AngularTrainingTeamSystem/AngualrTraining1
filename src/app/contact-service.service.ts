@@ -17,4 +17,19 @@ export class ContactServiceService {
     return contacts.find(contact => contact.contactId === id);
   }
 
+  addContact(newContact: Contact): void {
+    this.contacts.push(newContact);
+  }
+
+  updateContact(updatedContact: Contact): void {
+    const index = this.contacts.findIndex(contact => contact.contactId === updatedContact.contactId);
+    if (index !== -1) {
+      this.contacts[index] = updatedContact;
+    }
+  }
+
+  deleteContact(contactId: string): void {
+    this.contacts = this.contacts.filter(contact => contact.contactId !== contactId);
+  }
+
 }

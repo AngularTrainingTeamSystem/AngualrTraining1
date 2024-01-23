@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ContactServiceService } from '../contact-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-contact',
@@ -8,10 +11,17 @@ import { Component } from '@angular/core';
 export class AddContactComponent {
   model: any = {};
 
-  onSubmit(): void {
+  isFormValid: boolean = false;
+
+  constructor(private contactService: ContactServiceService, private router: Router) {}
+
   
-    alert(`New Contact:
-    \nName: ${this.model.name}\nMobile Number: ${this.model.mobilenumber}\nIsActive: ${this.model.isActive}\nIsFavorite: ${this.model.isFavorite}\nIsDeleted: ${this.model.isDeleted}\nContact Date Created: ${this.model.contactDateCreated}`);
+  
+  onSubmit(): void {
+      const newContact = { ...this.model };
+      this.contactService.addContact(newContact);
+      this.router.navigate(['/main']);
     
   }
+
 }
