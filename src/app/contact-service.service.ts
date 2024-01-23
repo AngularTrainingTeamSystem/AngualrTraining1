@@ -5,7 +5,7 @@ import { Contact, contacts } from 'src/app/models/contact.model';
   providedIn: 'root'
 })
 export class ContactServiceService {
-  contacts:Contact[] = contacts;
+  contacts: Contact[] = contacts;
 
   constructor() { }
 
@@ -14,7 +14,7 @@ export class ContactServiceService {
   }
 
   getContactById(id: string): any {
-    return contacts.find(contact => contact.contactId === id);
+    return  this.contacts.find(contact => contact.contactId === id);
   }
 
   addContact(newContact: Contact): void {

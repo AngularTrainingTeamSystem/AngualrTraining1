@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact, contacts } from 'src/app/models/contact.model';
 import { ContactServiceService } from '../contact-service.service';
 @Component({
@@ -6,12 +6,14 @@ import { ContactServiceService } from '../contact-service.service';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss']
 })
-export class BodyComponent {
+export class BodyComponent implements OnInit{
 
   contacts!: Contact[];
   searchTerm: string = '';
 
   constructor(private contactsService: ContactServiceService){
+  }
+  ngOnInit(): void {
     this.contacts = this.contactsService.getContacts();
   }
   
