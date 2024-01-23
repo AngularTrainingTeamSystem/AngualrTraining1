@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Contact } from '../contact';
+import { Contact } from '../models/contact';
 import { AppComponent } from '../app.component';
-import { Contacts } from '../contacts';
-import { ContactService } from '../contact.service';
+import { Contacts } from '../models/contacts';
+import { ContactService } from '../services/contact.service';
+import { ContactFilterPipe } from '../pipes/contact-filter.pipe';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class BodyComponent {
   constructor(private contactService:ContactService){
 
   }
+  
   contacts :Contact[]= this.contactService.getContacts()
+  
    @Input()
    searchString!:string;
    @Output() 
@@ -24,4 +27,7 @@ export class BodyComponent {
    }
 
    
-}
+   }
+
+   
+

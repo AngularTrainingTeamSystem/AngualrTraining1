@@ -1,0 +1,32 @@
+<body>
+  
+
+    <br><br><form [formGroup]="form" (ngSubmit)="setFormAction()">
+        Name:
+        <input type="text"  name="name" formControlName="name">
+        <ng-container *ngIf="contactName.errors | oneError:['minlength','startsWithUpperCase'] as errors">
+          <div class="error" *ngIf="contactName.errors?.['required']&&contactName.dirty">Name is required</div>
+          <div class="error" *ngIf="errors?.['minlength']&&contactName.dirty">Name must be at least 2 chars long</div>
+          <div class="error" *ngIf="errors?.['startsWithUpperCase']">Name must start with uppercase</div>
+          </ng-container>
+        <br>
+        Mobile:
+        <input type="text" name="mobile" formControlName="mobile">
+        <div class="error" *ngIf="contactMobile.errors?.['required']&&contactMobile.dirty">Mobile is required</div>
+        <div class="error" *ngIf="contactMobile.errors?.['minlength']&&contactMobile.dirty">
+          Mobile must be at least 8 numbers long</div>
+        <br> 
+        Is favorite
+        <input  type="checkbox" value="true" id="isFavorite" name="isFavorite" formControlName="isFavorite">
+        <br>
+        Is deleted
+        <input  type="checkbox" value="true" id="isFavorite"  name="isDeleted" formControlName="isDeleted">
+        <br>
+        Is active
+        <input  type="checkbox" value="true" id="isFavorite"  name="isActive" formControlName="isActive">
+        <br>
+        <button [disabled]="!form.valid" type="submit">Confirm</button>
+        <button [routerLink]="''">Home</button>
+      </form>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </body>

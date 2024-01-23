@@ -10,6 +10,7 @@
 </div>
     <section class="container contact-list-container">
         <ng-container *ngFor="let contact of contacts | contactFilter:searchString">
+     
        <app-contact [contactDisplayed]="contact" (buttonClicked)="buttonClicked($event)"></app-contact>
         </ng-container>
     </section>

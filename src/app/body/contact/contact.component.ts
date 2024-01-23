@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Contact } from '../../contact';
+import { Contact } from '../../models/contact';
+import { ContactService } from 'src/app/services/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +10,9 @@ import { Contact } from '../../contact';
 })
 export class ContactComponent {
  
+  constructor (private contactService:ContactService,private router :Router){
+
+  }
   @Input('contactDisplayed')
   contact!:Contact;
 
@@ -16,4 +21,13 @@ export class ContactComponent {
 
  @Output()
  buttonClicked=new EventEmitter();
+
+
+
+ deleteContact(){
+  
+    this.contactService.deleteContactById(this.contact.contactId)
+    
+    this.router.navigate(['/main'])
+ }
 }

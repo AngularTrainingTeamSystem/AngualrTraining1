@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Contact } from '../contact';
+import { Contact } from '../models/contact';
 
 @Component({
   selector: 'app-main',
@@ -16,4 +16,6 @@ export class MainComponent {
       this.searchString=event;
       
   }
+
+ 
 }

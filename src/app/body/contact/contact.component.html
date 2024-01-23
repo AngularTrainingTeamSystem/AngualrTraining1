@@ -6,6 +6,8 @@
         <p>Phone:{{contact.mobilenumber}}</p>
         <input [(ngModel)]="comment" type="text"><br><br>
         <p *ngIf="comment">Comment:{{comment}}</p>
+        
         <button (click)="buttonClicked.emit(contact)">Click to alert contact</button>
+        <button (click)="deleteContact()">Delete</button>
     </div>
 
