@@ -12,7 +12,7 @@ export class BodyComponent {
   searchTerm: string = '';
 
   constructor(private contactsService: ContactServiceService){
-    this.contacts = this.contactsService.getContacts().filter(contact => !contact.isDeleted);
+    this.contacts = this.contactsService.getContacts();
   }
   
   showAlert(contactInfo: { name: string; mobilenumber: string, comment: string}): void {
