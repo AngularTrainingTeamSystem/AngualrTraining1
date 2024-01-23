@@ -1,5 +1,4 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact-service.service';
 
 @Component({
@@ -8,7 +7,23 @@ import { ContactService } from '../../services/contact-service.service';
   styleUrls: ['./users-list.component.scss'],
 })
 
-export class UsersListComponent {
+export class UsersListComponent implements OnInit {
+
   users = this.contactService.getUsers();
+
   constructor(private contactService: ContactService) {}
+
+  ngOnInit(): void {
+    this.getUserInfo();
+  }
+
+  getUserInfo() {
+    this.users = this.contactService.getUsers();
+  }
+  
+  removeUser(userId: number): void {
+    this.contactService.removeUser(userId);
+    this.getUserInfo();
+  }
 }
+

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../../services/contact-service.service';
@@ -9,9 +10,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './user-details.component.html',
   styleUrls: ['./users-details.component.scss'],
 })
-
 export class UserDetailsComponent implements OnInit {
-  user?: User; // Declare user property here
+  user?: User;
   userForm!: FormGroup;
 
   constructor(
@@ -24,6 +24,7 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     const userId = Number(this.route.snapshot.paramMap.get('id'));
     this.user = this.contactService.getUserById(userId);
+    console.log(this.user);
     this.initForm();
   }
 
@@ -34,7 +35,7 @@ export class UserDetailsComponent implements OnInit {
       isActive: [this.user?.isActive],
       isFavorite: [this.user?.isFavorite],
       isDeleted: [this.user?.isDeleted],
-      contactDateCreated: [this.user?.contactDateCreated],
+      contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
     });
   }
 

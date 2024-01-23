@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -30,5 +31,22 @@ export class ContactService {
 
   getUserById(id: number): User | undefined {
     return this.users.find((user) => user.id === id);
+  }
+  //remove user  
+  removeUser(id: number): void {
+    const index = this.users.findIndex((user) => user.id === id);
+    if (index !== -1) {
+      this.users.splice(index, 1);
+    }
+  }
+
+  updateUser(user: User): void {
+    //this.users.next(user); valuechanges 
+  }
+  //add user  
+  addUser(user: User): void {
+    //user.id = this.users.length + 1;
+   this.users.push(user);
+   console.log(this.users);
   }
 }
