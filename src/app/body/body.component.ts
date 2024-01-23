@@ -12,11 +12,9 @@ export class BodyComponent {
   searchTerm: string = '';
 
   constructor(private contactsService: ContactServiceService){
-    this.contacts = this.contactsService.getContacts();
+    this.contacts = this.contactsService.getContacts().filter(contact => !contact.isDeleted);
   }
-
-
-
+  
   showAlert(contactInfo: { name: string; mobilenumber: string, comment: string}): void {
     alert(`Name: ${contactInfo.name}, Number: ${contactInfo.mobilenumber} \nComment: ${contactInfo.comment}`);
   }
