@@ -30,6 +30,7 @@ export class ContactServiceService {
 
   deleteContact(contactId: string): void {
     this.contacts = this.contacts.filter(contact => contact.contactId !== contactId);
+    console.log(this.contacts);
   }
 
 }

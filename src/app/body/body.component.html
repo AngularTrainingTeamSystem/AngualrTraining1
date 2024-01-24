@@ -6,8 +6,10 @@
     <span><strong>Search contact: </strong></span>
     <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name" />
     <div *ngFor="let contact of contacts | contactfilter:searchTerm">
+        
         <ng-container *ngIf="!contact.isDeleted">
-            <app-contact-card [contact]="contact" (cardButtonClick)="showAlert($event)"></app-contact-card>
+            <app-contact-card [contact]="contact" (cardButtonClick)="showAlert($event)" 
+            (deleteContact)="updateList($event)"></app-contact-card>
         </ng-container>
 
     </div>
