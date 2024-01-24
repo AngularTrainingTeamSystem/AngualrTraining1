@@ -22,6 +22,23 @@
             <div *ngIf="contactForm.get('mobilenumber')?.hasError('pattern') && contactForm.get('mobilenumber')?.touched" class="error-message">
               Mobile Number must be a number.
             </div>
+            <input formControlName="email" class="form-control" placeholder="Email" />
+            <div *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched" class="error-message">
+              Email is required.
+            </div>
+            <div *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched" class="error-message">
+              Please enter a valid email address.
+            </div>
+            <div *ngIf="contactForm.get('email')?.hasError('uniqueEmail') && contactForm.get('email')?.touched" class="error-message">
+              Email is already taken. Please enter new email;
+            </div>
+            <input formControlName="username" class="form-control" placeholder="Username" />
+            <div *ngIf="contactForm.get('username')?.hasError('required') && contactForm.get('username')?.touched" class="error-message">
+              Username is required.
+            </div>
+            <div *ngIf="contactForm.get('username')?.hasError('uniqueUsername') && contactForm.get('username')?.touched" class="error-message">
+              Username is already taken.
+            </div>
             <input formControlName="contactDateCreated" class="form-control" type="date" placeholder="Contact Date Created" />
           </div>
           <div class="form-check">

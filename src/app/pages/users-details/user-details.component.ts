@@ -32,12 +32,15 @@ export class UserDetailsComponent implements OnInit {
     this.userForm = this.fb.group({
       mobilenumber: [this.user?.mobilenumber],
       name: [this.user?.name],
+      email: [this.user?.email],
+      username: [this.user?.username], 
       isActive: [this.user?.isActive],
       isFavorite: [this.user?.isFavorite],
       isDeleted: [this.user?.isDeleted],
       contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
     });
   }
+  
 
   goBack(): void {
     this.router.navigate(['/users']);

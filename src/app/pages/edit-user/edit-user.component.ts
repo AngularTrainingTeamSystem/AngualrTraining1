@@ -1,8 +1,8 @@
-// edit-user.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ContactComponent} from '../contact/contact.component';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { ContactService } from '../../services/contact-service.service';
+import { User } from '../../models/user.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-user',
@@ -10,16 +10,61 @@ import { ContactComponent} from '../contact/contact.component';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
+  user?: User;
+  userForm!: FormGroup;
 
-  contact: any;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private contactService: ContactService,
+    private fb: FormBuilder
+  ) {}
 
+  ngOnInit(): void {
+    const userId = Number(this.route.snapshot.paramMap.get('id'));
+    this.user = this.contactService.getUserById(userId);
+    console.log(this.user);
+    this.initForm();
+  }
 
-  constructor(private route: ActivatedRoute) {}
+  initForm() {
+    this.userForm = this.fb.group({
+      mobilenumber: [{ value: this.user?.mobilenumber, disabled: false }],
+      name: [{ value: this.user?.name, disabled: false }],
+      username: [{ value: this.user?.username, disabled: false }],
+      email: [{ value: this.user?.email, disabled: false }],
+      isActive: [this.user?.isActive],
+      isFavorite: [this.user?.isFavorite],
+      isDeleted: [this.user?.isDeleted],
+      contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
+    });
+  }
 
-  ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const contactIdFromRoute = String(routeParams.get('contactId'));
-    this.contact = history.state.contact;
+  goBack(): void {
+    this.router.navigate(['/users']);
+  }
+
+  getUpdatedUser(): User {
+    const updatedUser: User = {
+      id: this.user?.id as number,
+      mobilenumber: this.userForm.value.mobilenumber,
+      name: this.userForm.value.name,
+      isActive: this.userForm.value.isActive,
+      isFavorite: this.userForm.value.isFavorite,
+      isDeleted: this.userForm.value.isDeleted,
+      contactDateCreated: this.userForm.value.contactDateCreated,
+      email: this.userForm.value.email,
+      username: this.userForm.value.username,
+    };
+    return updatedUser;
+  }
+
+  onSubmit(): void {
+    if (this.userForm.valid) {
+      const updatedUser = this.getUpdatedUser();
+      this.contactService.updateUser(updatedUser);
+      this.goBack();
+      console.log(this.user);
+    }
   }
 }
-
