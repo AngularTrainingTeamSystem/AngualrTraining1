@@ -19,12 +19,20 @@ export class ContactCardComponent {
   @Input() contact !: Contact;
   inputField: string = '';
 
-  onButtonClick(): void {
-    this.cardButtonClick.emit({name: this.contact.name, mobilenumber: this.contact.mobilenumber, comment: this.inputField});
+  updateContact(): void {
+    this.router.navigate(['/main/edit-contact', this.contact.contactId])
+    //this.cardButtonClick.emit({name: this.contact.name, mobilenumber: this.contact.mobilenumber, comment: this.inputField});
   }
 
   deleteClient(): void {
     this.contactService.deleteContact(this.contact.contactId);
     this.deleteContact.emit(this.contactService.getContacts())
+  }
+
+  showAlert(){
+    alert("Contact Info: \nName: " + this.contact.name + "\nMobile Number: " + this.contact.mobilenumber + 
+    "\nActive: " + this.contact.isActive + "\nFavourite: " + this.contact.isFavorite +
+    "\nDeleted: " + this.contact.isDeleted + "\nDate Created: " + this.contact.contactDateCreated +
+    "\nUsername: " + this.contact.username + "\nEmail: " + this.contact.email + "\nComment: " + this.inputField);
   }
 }

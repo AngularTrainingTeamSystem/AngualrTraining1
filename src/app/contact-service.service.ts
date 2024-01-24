@@ -17,8 +17,16 @@ export class ContactServiceService {
     return  this.contacts.find(contact => contact.contactId === id);
   }
 
+  isUsernameTaken(username: string): boolean {
+    return this.contacts.some(contact => contact.username === username);
+  }
+  
+  isEmailTaken(email: string): boolean {
+    return this.contacts.some(contact => contact.email === email);
+  }
+  
   addContact(newContact: Contact): void {
-    this.contacts.push(newContact);
+        this.contacts.push(newContact);
   }
 
   updateContact(updatedContact: Contact): void {
