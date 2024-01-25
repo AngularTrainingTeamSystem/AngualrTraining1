@@ -21,7 +21,14 @@ export class ContactCardComponent {
 
   updateContact(): void {
     this.router.navigate(['/main/edit-contact', this.contact.contactId])
-    //this.cardButtonClick.emit({name: this.contact.name, mobilenumber: this.contact.mobilenumber, comment: this.inputField});
+  }
+
+  confirmDelete(): void {
+    const isConfirmed = window.confirm('Are you sure you want to delete this contact?');
+    
+    if (isConfirmed) {
+      this.deleteClient();
+    }
   }
 
   deleteClient(): void {
