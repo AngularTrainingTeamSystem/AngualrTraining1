@@ -1,9 +1,9 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../../services/contact-service.service';
 import { User } from '../../models/user.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user-details',
@@ -11,7 +11,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./users-details.component.scss'],
 })
 export class UserDetailsComponent implements OnInit {
-  user?: User;
+  @Input() user?: User; //from parent to child 
+  @Output() userDeselected = new EventEmitter(); //handled by the parent
   userForm!: FormGroup;
 
   constructor(
@@ -22,9 +23,6 @@ export class UserDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userId = Number(this.route.snapshot.paramMap.get('id'));
-    this.user = this.contactService.getUserById(userId);
-    console.log(this.user);
     this.initForm();
   }
 
@@ -40,9 +38,10 @@ export class UserDetailsComponent implements OnInit {
       contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
     });
   }
-  
 
   goBack(): void {
-    this.router.navigate(['/users']);
+    this.userDeselected.emit();
+    //this.router.navigate(['/users']);
   }
 }
+

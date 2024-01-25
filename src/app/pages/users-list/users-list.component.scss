@@ -5,7 +5,9 @@
   gap: 30px;
   padding: 50px;
   background-color: #ffb6c1;
-  color:deeppink;}
+  color:deeppink;
+}
+  
 
 .container {
   display: grid;
@@ -16,6 +18,8 @@
   max-height: 80vh;
   overflow-y: scroll;
   place-items: center;
+  min-width: auto; 
+  min-height: auto;
 }
 
 .user-container {
@@ -23,8 +27,9 @@
   grid-auto-flow: column;
   gap: 10px;
   align-items: center;
+  min-width: auto; 
+  min-height: auto;
 }
-
 .btn {
   width: 300px;
   border-radius: 5px;
@@ -49,3 +54,4 @@
   border-radius: 5px;
   cursor: pointer; 
 }
+

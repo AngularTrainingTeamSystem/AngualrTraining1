@@ -3,19 +3,25 @@
   <div class="container">
     <ng-container *ngFor="let user of users">
       <div class="user-container">
-        <button *ngIf="!user.isDeleted" class="btn"type="button"
-          [routerLink]="['/users', user.id]"
-          [ngStyle]="{ 'background-color': user.isActive ? 'green' : 'gray', color: 'white'}" >
+        <button *ngIf="!user.isDeleted" class="btn" type="button"
+          [ngStyle]="{'background-color': user.isActive ? 'green' : 'gray', color: 'white' }"(click)="selectUser(user)" >
           {{ user.name }}
         </button>
-        <button *ngIf="!user.isDeleted" class="removeButton" type="button" (click)="removeUser(user.id)">
-          Remove
-        </button>
-        <button *ngIf="!user.isDeleted" class="updateButton" type="button"  [routerLink]="['/edit-user', user.id]">
-          Update
-        </button>
+        <button *ngIf="!user.isDeleted" class="removeButton" type="button" (click)="removeUser(user.id)" > Remove </button>
+        <button *ngIf="!user.isDeleted" class="updateButton" type="button"  [routerLink]="['/edit-user', user.id]"> Update </button>
       </div>
     </ng-container>
     <div class="divider"></div>
   </div>
+  <!-- <ng-container *ngIf="selectedUser">
+    <div class="newDtetails">
+      <app-user-details [user]="selectedUser" (userDeselected)="deselectUser()"></app-user-details>
+    </div>
+  </ng-container>-->
 </div>
+
+<ng-container *ngIf="selectedUser">
+  <div class="newDtetails">
+    <app-user-details [user]="selectedUser" (userDeselected)="deselectUser()"></app-user-details>
+  </div>
+</ng-container>
