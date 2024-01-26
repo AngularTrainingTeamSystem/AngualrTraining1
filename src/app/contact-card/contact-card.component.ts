@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from '../model/contat';
 import { Router } from '@angular/router';
+import { Contacts } from '../contacts-db';
 
 @Component({
   selector: 'app-contact-card',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ContactCardComponent {
   @Output() sendData = new EventEmitter();
+
+
 
 
   @Input()
@@ -23,7 +26,8 @@ export class ContactCardComponent {
   }
 
   updateContact(contact: Contact) {
-    this.router.navigate(['contact-list/edit-contact/' , contact.contactId],{state: contact})
+    // this.router.navigate(['contact-list/edit-contact/' , contact.contactId],{state: contact})
+    this.router.navigate(['contact-list/' , contact.contactId],{state: contact})
 
   }
 
@@ -31,5 +35,10 @@ export class ContactCardComponent {
 
   onGetInfo(){
     this.sendData.emit(this.inputValue);
+  }
+
+
+  removeContact(id:string){
+    
   }
 }

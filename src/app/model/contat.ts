@@ -5,5 +5,7 @@ export interface Contact {
     isActive:boolean;
     isFavorite:boolean;
     isDeleted:boolean;
-    contactDateCreated:string;
+    contactDateCreated:Date;
+    email:string;
+    username:string;
 }

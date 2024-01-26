@@ -1,8 +1,14 @@
 <mat-toolbar color="primary">
    
-    <span>TS</span>
+    <span [routerLink]="['./contact-list']">TS</span>
     <span class="example-spacer"></span>
     <button mat-raised-button (click)="openEditContact()">Add Contact</button>
+    <!-- <button mat-raised-button [routerLink]="['/contact-list/add-contact']">Add Contact</button> -->
+
+
   </mat-toolbar>
 
   <router-outlet></router-outlet>
+  <app-footer></app-footer>
+
+  <!-- //contact-list/add-contact -->

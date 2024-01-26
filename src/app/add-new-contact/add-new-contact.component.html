@@ -1,66 +1,99 @@
-<div mat-dialog-title>
-    <h1>Contact Form</h1>
-</div>
+<div class="container">
+  <form [formGroup]="contactFrom" (ngSubmit)="onFormSubmit()" class="content">
 
-<form [formGroup]="contactFrom" (ngSubmit)="onFormSubmit()">
+    <div class="row">
+      <mat-form-field appearance="outline" class="flex-item">
+        <mat-label>Contact Id</mat-label>
+        <input matInput type="text" placeholder="Ex. C8" formControlName="contactId">
+        <div *ngIf="contactFrom.get('contactId')!.hasError('required') && contactFrom.get('contactId')!.touched">
+          Contact Id is required.
+        </div>
+      </mat-form-field>
 
-    <div mat-dialog-content class="content">
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Contact Id</mat-label>
-          <input matInput type="text" placeholder="Ex. Elvis" formControlName="contactId">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Full Name</mat-label>
-          <input matInput type="text" placeholder="Ex. Elvis"  formControlName="Fullname">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Mobile Number</mat-label>
-          <input matInput type="text" placeholder="EX. 069" formControlName="mobileNumber">
-        </mat-form-field>
-      </div>
-  
-      <div class="row">
-        <mat-radio-group aria-label="Select an option" formControlName="isActive">
-          <mat-label>Active</mat-label>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
-      </div>
-  
-      <div class="row">
-        <mat-radio-group aria-label="Select an option" formControlName="isFavorite">
-          <mat-label>Favorite</mat-label>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
-      </div>
-  
-      <div class="row">
-        <mat-radio-group aria-label="Select an option" formControlName="isDeleted">
-          <mat-label>Deleted</mat-label>
-          <mat-radio-button value="true">Yes</mat-radio-button>
-          <mat-radio-button value="false">No</mat-radio-button>
-        </mat-radio-group>
-      </div>
-  
-      <div class="row">
-        <mat-form-field appearance="outline">
-          <mat-label>Contact Created</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="contactDateCreated">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-  
-      <div mat-dialog-actions class="action">
-        <button mat-raised-button>Cancel</button>
-        <button mat-raised-button color="primary" type="submit">Save</button>
-      </div>
-  
+      <mat-form-field appearance="outline" class="flex-item">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" placeholder="Ex. Elvis" formControlName="Fullname">
+        <div *ngIf="contactFrom.get('Fullname')!.hasError('required') && contactFrom.get('Fullname')!.touched">
+          Full Name is required.
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="flex-item">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Ex. elvis@example.com" formControlName="email">
+        <div *ngIf="contactFrom.get('email')!.hasError('required') && contactFrom.get('email')!.touched">
+          Email is required.
+        </div>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="flex-item">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" placeholder="Ex. elvis123" formControlName="username">
+        <div *ngIf="contactFrom.get('username')!.hasError('required') && contactFrom.get('username')!.touched">
+          Username is required.
+        </div>
+      </mat-form-field>
+      
+
+      <mat-form-field appearance="outline" class="flex-item">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput type="text" placeholder="EX. 069" formControlName="mobileNumber">
+        <div *ngIf="contactFrom.get('mobileNumber')!.hasError('required') && contactFrom.get('mobileNumber')!.touched">
+          Mobile Number is required.
+        </div>
+      </mat-form-field>
     </div>
-  
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="isActive">
+        <mat-label>Active</mat-label>
+        <mat-radio-button value="true">Yes</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+      </mat-radio-group>
+      <div *ngIf="contactFrom.get('isActive')!.hasError('required') && contactFrom.get('isActive')!.touched">
+        Active status is required.
+      </div>
+    </div>
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="isFavorite">
+        <mat-label>Favorite</mat-label>
+        <mat-radio-button value="true">Yes</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+      </mat-radio-group>
+      <div *ngIf="contactFrom.get('isFavorite')!.hasError('required') && contactFrom.get('isFavorite')!.touched">
+        Favorite status is required.
+      </div>
+    </div>
+
+    <div class="row">
+      <mat-radio-group aria-label="Select an option" formControlName="isDeleted">
+        <mat-label>Deleted</mat-label>
+        <mat-radio-button value="true">Yes</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+      </mat-radio-group>
+      <div *ngIf="contactFrom.get('isDeleted')!.hasError('required') && contactFrom.get('isDeleted')!.touched">
+        Deleted status is required.
+      </div>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" class="flex-item">
+        <mat-label>Contact Created</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="contactDateCreated">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <div *ngIf="contactFrom.get('contactDateCreated')!.hasError('required') && contactFrom.get('contactDateCreated')!.touched">
+          Contact Created date is required.
+        </div>
+      </mat-form-field>
+    </div>
+
+    <div class="row action">
+      <button mat-raised-button class="flex-item" (click)="closeWindow()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="contactFrom.invalid" class="flex-item">Save</button>
+    </div>
+
   </form>
-  
+</div>

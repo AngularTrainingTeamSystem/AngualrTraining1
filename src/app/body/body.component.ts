@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CONTACTS } from '../contacts-db';
+import { Contacts } from '../contacts-db';
+import { ContactServiceService } from '../service/contact-service.service';
 
 @Component({
   selector: 'app-body',
@@ -8,8 +9,13 @@ import { CONTACTS } from '../contacts-db';
 })
 export class BodyComponent {
 
+  constructor(
+    private contactService : ContactServiceService
+  ){
+  }
 
-  contactss = [...CONTACTS];
+  // contactss = [...CONTACTS];
+  contactss = this.contactService.getAllContacts();
 
   openAlert(event: any) {
     alert(event);

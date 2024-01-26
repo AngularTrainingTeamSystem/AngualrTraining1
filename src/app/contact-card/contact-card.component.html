@@ -5,30 +5,33 @@
       </div >
       <div  [ngClass]="contact.isFavorite ? 'green' : 'gray' " class="card-body">
         <div class="info-item">
-          <label hidden>{{contact.contactId}}</label>
+          <!-- <label hidden>{{contact.contactId}}</label> -->
           <label>Mobile Number:</label>
           <span>{{contact.mobilenumber}}</span>
         </div>
         <div class="info-item">
           <a (click)="updateContact(contact)" >Name:</a>
           <!-- <a [routerLink]="['edit-contact' , contact.contactId]" >Name:</a> -->
-
+ 
           <span>{{contact.name}}</span>
         </div>
         <div class="info-item">
           <label>Birthday:</label>
           <span>{{contact.contactDateCreated | date}}</span>
-        </div>
+        </div> 
     
         <!-- <hr> -->
 
-        <!-- <input type="text" [(ngModule)]="inputValue"  placeholder="Type something..."> -->
+       <!-- <input type="text" [(ngModule)]="inputValue"  placeholder="Type something...">  -->
 
-        <!-- <hr> -->
+         <!-- <hr>  -->
 
-        <!-- <button (click)="onGetInfo()">Get info</button> -->
+        <!-- <button (click)="onGetInfo()">Get info</button>  -->
+        <br>
+        <button mat-raised-button color="primary" (click)="updateContact(contact)">Update</button> 
+        <!-- <button mat-raised-button color="" (click)="removeContact(contact.contactId)">Remove</button>  -->
       </div>
-    </div>
+    </div> 
     
 
     <!-- *ngIf="contact.isActive" -->
@@ -36,3 +39,7 @@
 
 
 
+    
+   
+    
+    

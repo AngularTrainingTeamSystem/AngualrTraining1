@@ -1,13 +1,14 @@
 
   
-<body>
 
-    <button  id="homeButton"  >Home</button>
+
+    <!-- <button  id="homeButton"  >Home</button> -->
 <div *ngIf="contact">
+    <div >
     <form>
         <label >Edit Contact</label>
-        <label for="contactId" hidden>Contact ID:</label>
-        <input type="text" id="contactId" name="contactId" value="{{contact.contactId}}" hidden> 
+        <!-- <label for="contactId" hidden>Contact ID:</label>
+        <input type="text" id="contactId" name="contactId" value="{{contact.contactId}}" hidden>  -->
 
         <label for="mobilenumber">Mobile Number:</label>
         <input type="text" id="mobilenumber" name="mobilenumber" value="{{contact.mobilenumber}}">
@@ -31,8 +32,8 @@
         <label for="contactDateCreated">Contact Date Created:</label>
         <input type="date" id="contactDateCreated" name="contactDateCreated" required value="{{contact.contactDateCreated}}">
 
-        <button type="submit" >Submit</button>
+        <!-- <button type="submit" (ngSubmit)="onUpdateSubmit()" >Submit</button> -->
     </form>
 </div>
-</body>
+
 

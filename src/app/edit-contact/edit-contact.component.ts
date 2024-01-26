@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CONTACTS } from '../contacts-db';
+import { Contacts } from '../contacts-db';
+import { ContactServiceService } from '../service/contact-service.service';
 
 
 
@@ -15,8 +16,9 @@ export class EditContactComponents implements OnInit{
   contact! : any;
 
   contactObj: any
-  constructor(private route: ActivatedRoute, private router:Router){
+  constructor(private route: ActivatedRoute, private router:Router , private contactService: ContactServiceService){
     this.contact = this.router.getCurrentNavigation()?.extras.state
+
   }
   
 
@@ -29,5 +31,10 @@ export class EditContactComponents implements OnInit{
 
     // this.contact = CONTACTS.find((contact: { contactId: string; }) => contact.contactId === productIdFromRoute )
   }
+
+  // onUpdateSubmit(){
+  //   //create the code to update the form with my method from the service 
+  //   this.contactService.updateContact(updatedContact);
+  // }
 
 }

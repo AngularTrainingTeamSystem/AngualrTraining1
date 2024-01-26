@@ -20,6 +20,9 @@ import { ContactCardComponent } from './contact-card/contact-card.component';
 import { FormsModule, NgModel } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { EditContactComponents } from './edit-contact/edit-contact.component';
+import {MatTableModule} from '@angular/material/table';
+import { FooterComponent } from './footer/footer.component';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { EditContactComponents } from './edit-contact/edit-contact.component';
     BodyComponent,
     ContactCardComponent,
     SearchFilterPipe,
-    EditContactComponents
+    EditContactComponents,
+    FooterComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { EditContactComponents } from './edit-contact/edit-contact.component';
     MatRadioModule,
     ReactiveFormsModule,
     FormsModule,
+    MatTableModule
   ],
 providers: [],
   bootstrap: [AppComponent]

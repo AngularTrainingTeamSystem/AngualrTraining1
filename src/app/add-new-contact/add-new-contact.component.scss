@@ -1,19 +1,82 @@
-.content{
-    padding-top: 10px;
-}
+// .content{
+//     padding-top: 10px;
+// }
 
-.row{
+// .row{
+//     display: flex;
+//     gap: 10px;
+
+//     mat-form-field{
+//         width: 100%;
+//     }
+// }
+
+// .action{
+//     padding :20px 10% 20%;
+//     button{
+//         flex: 1;
+//     }
+// }
+
+
+// .content {
+//     max-width: 400px; /* Adjust the max-width as per your design */
+//     margin: auto;
+//     padding: 20px;
+//     text-align: center;
+//   }
+  
+//   .row {
+//     margin-bottom: 15px;
+//   }
+  
+//   .action {
+//     display: flex;
+//     justify-content: space-between;
+//     margin-top: 20px;
+//   }
+
+
+
+.container {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 60vh; 
+  }
+  
+  .content {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
 
-    mat-form-field{
-        width: 100%;
-    }
-}
+.row {
+    margin-bottom: 20px; 
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .flex-item {
+    flex: 1;
+  }
+  
+  .action {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
 
-.action{
-    padding :20px 10% 20%;
-    button{
-        flex: 1;
-    }
-}
+ 
+.row .flex-item {
+    margin-right: 10px; 
+  }
+  
+  .row .flex-item:last-child {
+    margin-right: 0; 
+  }
+  
+  
