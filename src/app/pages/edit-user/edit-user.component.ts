@@ -61,10 +61,34 @@ export class EditUserComponent implements OnInit {
 
   onSubmit(): void {
     if (this.userForm.valid) {
+      const isEmailUnique = this.contactService.isEmailUnique(
+        this.userForm.value.email,
+        this.user?.id
+      );
+      const isUsernameUnique = this.contactService.isUsernameUnique(
+        this.userForm.value.username,
+        this.user?.id
+      );
+  
+      if (!isEmailUnique) {
+        this.userForm.get('email')?.setErrors({ notUnique: true });
+        window.alert('This email is already taken.');
+        return;
+      }
+  
+      if (!isUsernameUnique) {
+        this.userForm.get('username')?.setErrors({ notUnique: true });
+        window.alert('This username is already taken.');
+        return;
+      }
+  
       const updatedUser = this.getUpdatedUser();
       this.contactService.updateUser(updatedUser);
       this.goBack();
       console.log(this.user);
     }
   }
+  
+
 }
+

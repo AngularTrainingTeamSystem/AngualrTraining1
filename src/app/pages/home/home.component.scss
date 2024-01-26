@@ -51,3 +51,19 @@
     text-align: center;
 
   }
+
+  button {
+    background-color: #ff69b4; 
+    color: #ffffff; 
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #ff3385; 
+  }

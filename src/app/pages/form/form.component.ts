@@ -23,6 +23,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
+  
   initForm() {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],

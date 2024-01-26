@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { InfoComponent } from './pages/info/info.component';
-import { ContactComponent } from './pages/contact/contact.component';
+//import { InfoComponent } from './pages/info/info.component';
+//import { ContactComponent } from './pages/contact/contact.component';
 import { FormComponent } from './pages/form/form.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
@@ -10,8 +10,8 @@ import { UserDetailsComponent } from './pages/users-details/user-details.compone
 
 const routes: Routes = [
   { path: '', component: HomeComponent}, 
-  { path: 'info', component: InfoComponent},
-  { path: 'contact', component: ContactComponent},
+  //{ path: 'info', component: InfoComponent},
+  //{ path: 'contact', component: ContactComponent},
   { path: 'form', component: FormComponent },
   { path: 'edit-user/:id', component: EditUserComponent },
 
