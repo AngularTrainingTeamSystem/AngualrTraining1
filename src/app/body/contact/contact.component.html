@@ -1,12 +1,15 @@
 
-    <div *ngIf="!contact.isDeleted" [ngStyle]="contact.isFavorite ? {'background-color':'green'}:{'background-color':'gray'}" 
+    <div  *ngIf="!contact.isDeleted" [ngStyle]="contact.isFavorite ? {'background-color':'green'}:{'background-color':'gray'}" 
     [ngClass]="{'active':contact.isActive}"
      class="contact">
+     <div (click)="sendContactToBody()">
         <h5><a style="color: goldenrod;" [routerLink]="['update',contact.contactId]">Name:{{contact.name}}</a></h5>
         <p>Phone:{{contact.mobilenumber}}</p>
+        <p>Username:{{contact.username}}</p>
+        <p>Email:{{contact.email}}</p>
         <input [(ngModel)]="comment" type="text"><br><br>
         <p *ngIf="comment">Comment:{{comment}}</p>
-        
+     </div>
         <button (click)="buttonClicked.emit(contact)">Click to alert contact</button>
         <button (click)="deleteContact()">Delete</button>
     </div>

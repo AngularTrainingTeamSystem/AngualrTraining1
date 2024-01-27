@@ -22,6 +22,8 @@ export class ContactComponent {
  @Output()
  buttonClicked=new EventEmitter();
 
+ @Output()
+ sendContact=new EventEmitter()
 
 
  deleteContact(){
@@ -29,5 +31,9 @@ export class ContactComponent {
     this.contactService.deleteContactById(this.contact.contactId)
     
     this.router.navigate(['/main'])
+ }
+
+ sendContactToBody(){ //sends the contact obj to body component 
+    this.sendContact.emit(this.contact)
  }
 }

@@ -17,6 +17,8 @@ export class BodyComponent {
   }
   
   contacts :Contact[]= this.contactService.getContacts()
+  contact?:Contact |null //contact obj that will be passed to contact diplayer component
+
   
    @Input()
    searchString!:string;
@@ -26,7 +28,11 @@ export class BodyComponent {
       this.showContactButtonClicked.emit(contact);
    }
 
-   
+   inputContact(event:Contact){
+      
+      this.contact=event
+   }
+  
    }
 
    

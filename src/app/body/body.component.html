@@ -9,9 +9,10 @@
     <a style="color: aliceblue;text-decoration: none;" [routerLink]="['add']">Add a contact</a>
 </div>
     <section class="container contact-list-container">
+        <app-contact-displayer  [contact]="contact" class="contactDisplay" ></app-contact-displayer>
         <ng-container *ngFor="let contact of contacts | contactFilter:searchString">
      
-       <app-contact [contactDisplayed]="contact" (buttonClicked)="buttonClicked($event)"></app-contact>
+       <app-contact [contactDisplayed]="contact" (buttonClicked)="buttonClicked($event)" (sendContact)="inputContact($event)"></app-contact>
         </ng-container>
     </section>
 

@@ -1,0 +1,11 @@
+
+<div *ngIf="contact" >
+    <br>
+    <h5>Name:{{contact!.name}}</h5>
+    <p>Phone:{{contact!.mobilenumber}}</p>
+    <p>Username:{{contact!.username}}</p>
+    <p>Email:{{contact!.email}}</p>
+    <button (click)="hideComponent()">Remove</button>
+    <br>
+    <br>
+</div>
