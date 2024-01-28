@@ -23,7 +23,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddContactComponent,
     EditContactComponent,
     ContactFilterPipe,
-  
   ],
 
   imports: [

@@ -1,12 +1,20 @@
 <div [ngClass]="{'favorite': contact.isFavorite, 'active': contact.isActive}" class="contact-card">
-    <div (click)="showAlert()">
+    <div (click)="toggleCardDetails()">
         <strong *ngIf="contact.isActive; else inactive">{{ contact.name }}</strong>
         <ng-template #inactive>{{ contact.name }}</ng-template>
         <p>{{ contact.mobilenumber }}</p>
     </div>
     <input type="text" [(ngModel)]="inputField" placeholder="Comment">
-    <div (click)="showAlert()">
+    <div>
         <button (click)="updateContact()">Update</button>
         <button (click)="confirmDelete()">Delete</button>
+    </div>
+    <div *ngIf="showDetails" [ngStyle]="{'margin-top': '10px'}">
+        <p>Name: {{ contact.name }}</p>
+        <p>Mobile Number: {{ contact.mobilenumber }}</p>
+        <p>Date Created: {{contact.contactDateCreated}}</p>
+        <p>Username: {{contact.username}}</p>
+        <p>Email: {{contact.email}}</p>
+        <p>Comment: {{ inputField }}</p>
     </div>
 </div>

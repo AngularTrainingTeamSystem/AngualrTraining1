@@ -19,6 +19,8 @@ export class ContactCardComponent {
   @Input() contact !: Contact;
   inputField: string = '';
 
+  showDetails: boolean = false;
+
   updateContact(): void {
     this.router.navigate(['/main/edit-contact', this.contact.contactId])
   }
@@ -34,6 +36,10 @@ export class ContactCardComponent {
   deleteClient(): void {
     this.contactService.deleteContact(this.contact.contactId);
     this.deleteContact.emit(this.contactService.getContacts())
+  }
+
+  toggleCardDetails(): void {
+    this.showDetails = !this.showDetails;
   }
 
   showAlert(){

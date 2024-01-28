@@ -9,12 +9,10 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-  
-    
-      
     </ul>
+
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchContact" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn  my-2 my-sm-0" type="submit" (click)="search.emit(searchContact)">Search</button>
     </form>
   </div>
