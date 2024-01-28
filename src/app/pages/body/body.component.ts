@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Kontakt } from '../kontakt';
-import { ContactServiceService } from '../Services/contact-service.service';
+import { Kontakt } from '../../models/kontakt';
+import { ContactServiceService } from '../../service/contact-service.service';
+import { CrudService } from '../../service/crud.service';
 
 @Component({
   selector: 'app-body',
@@ -9,8 +10,9 @@ import { ContactServiceService } from '../Services/contact-service.service';
 })
 export class BodyComponent {
   kontaktet!: Kontakt[];
-  constructor(private contactService: ContactServiceService) {
-    this.kontaktet = this.contactService.getContacts();
+  constructor(private contactService: ContactServiceService,private crudService : CrudService) {
+    this.kontaktet = this.crudService.getAllContacts();
+    console.log(this.kontaktet);
   }
 
 //   kontakt:Kontakt[]=[

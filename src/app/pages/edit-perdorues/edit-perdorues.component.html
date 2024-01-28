@@ -8,7 +8,7 @@
 
 <form [formGroup]="form">
     <label for="name" >Name:</label>
-    <input type="text" id="name" name="name" formControlName="name"  required placeholder="Name">
+    <input type="text" id="name"  name="name" formControlName="name"  required placeholder="Name">
     <div *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">Name is required</div>
      
     <label for="number">Number:</label>
@@ -19,6 +19,10 @@
     <label for="birthday">Birthday:</label>
     <input type="date" id="birthday" formControlName="birthday">
    
-    <button type="submit" [disabled]="form['invalid']" class="btn btn-success">Save</button>
+    <button type="submit" [disabled]="form['invalid']" (click)="updateUser()" class="btn btn-success">Save</button>
     <button type="button" routerLink="/body" class="btn btn-success">Close</button>
+    <button type="button"   (click)="deleteUser()" class="btn btn-success">Delete User</button>
+
+    
+   
    </form>

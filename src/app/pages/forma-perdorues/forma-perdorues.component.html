@@ -15,7 +15,7 @@
     <form #personalForm="ngForm">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" name="name" ngModel #name="ngModel" required placeholder="Name">
+        <input type="text" name="name" [(ngModel)]="kontakti.name" #name="ngModel" required placeholder="Name">
       </div>
         <!-- NEW ERROR MESSAGE DIVS -->
         <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
@@ -24,13 +24,41 @@
      
       <div class="form-group">
         <label for="mobilenumber">Mobile Number:</label>
-        <input type="tel" name="mobilenumber" ngModel #mobilenumber="ngModel" required  placeholder="MobileNumber">
+        <input type="tel" name="mobilenumber" [(ngModel)]="kontakti.mobilenumber" #mobilenumber="ngModel" required  placeholder="MobileNumber">
       </div>
       <!-- END NEW ERROR MESSAGE DIVS -->
       <div *ngIf="mobilenumber.invalid && mobilenumber.touched" class="alert alert-danger">
         Mobile Number is required.
      </div>
          
+
+     <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" name="id" [(ngModel)]="kontakti.contactId" #id="ngModel" required  placeholder="ID">
+    </div>
+    <!-- END NEW ERROR MESSAGE DIVS -->
+    <div *ngIf="id.invalid && id.touched" class="alert alert-danger">
+      ID is required.
+   </div>
+
+   <div class="form-group">
+    <label for="name">Username:</label>
+    <input type="text" name="username" [(ngModel)]="kontakti.username" #name="ngModel" required placeholder="Username">
+  </div>
+   
+    <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+      Username is required.
+   </div>
+
+   <div class="form-group">
+    <label for="name">Email:</label>
+    <input type="text" name="email" [(ngModel)]="kontakti.email" #name="ngModel" required placeholder="Email">
+  </div>
+    
+    <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+      Email is required.
+   </div>
+       
       <!--KONTROLLOJME NESE REQUIRED FUNKSIONON  -->
       <!-- <div>
          {{name.valid + " " + mobilenumber.valid}}
@@ -62,7 +90,8 @@
       </div>
       <br>
       <!--BUTONI ESHTE DISSABLED -->
-      <button class="btn btn-success btn-lg"  [disabled]="personalForm.invalid"  >CREATE</button>
+      <!--crud operation -->
+      <button class="btn btn-success btn-lg"   (click)="createContact()"  [disabled]="personalForm.invalid"  >CREATE</button>
 
       
     </form>

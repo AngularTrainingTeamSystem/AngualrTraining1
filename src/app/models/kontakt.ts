@@ -6,5 +6,8 @@ export class Kontakt {
     isDeleted!: boolean;
     contactId!:string;
     contactDateCreated!:string;
-   
+    username!:string;
+  email!:string;
+  
 }
+

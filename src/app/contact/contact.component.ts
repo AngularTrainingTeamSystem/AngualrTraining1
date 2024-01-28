@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Kontakt } from '../kontakt';
+import { Kontakt } from '../models/kontakt';
 import { Router } from '@angular/router';
+import { CrudService } from '../service/crud.service';
 
 
 @Component({
@@ -33,6 +34,13 @@ export class ContactComponent implements OnInit{
 
   
   shtoShenim(){
-    alert("Emri: " + this.kontakt.name + "\n" + "Id: " + this.kontakt.contactId + "\n" + "MobileNumber: " +  this.kontakt.mobilenumber  );
+    alert("Name : " + this.kontakt.name + "\n" + "Id : " + this.kontakt.contactId + "\n" + "MobileNumber : " +  this.kontakt.mobilenumber 
+    + "\n" + "Date Of Birth : "  + this.kontakt.contactDateCreated 
+    + "\n" + "Username : "  + this.kontakt.username  + "\n" + "Email : "  + this.kontakt.email );
   }
+
+
+
+
 }
+
