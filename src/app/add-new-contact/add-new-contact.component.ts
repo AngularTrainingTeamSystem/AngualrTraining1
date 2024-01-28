@@ -65,10 +65,12 @@ export class AddNewContact {
       isFavorite: [false, Validators.required],
       isDeleted: [false, Validators.required],
       contactDateCreated: [null, Validators.required],
-      email :['' , Validators.required],
+      email :['' , Validators.required ],
       username : ['', Validators.required],
       
-    })
+    });
+
+    
   }
 }
 
@@ -113,19 +115,7 @@ export class AddNewContact {
       const data = this.contactFrom.value;
       const emailToCheck = data['email']; 
       const usernameToCheck = data['username']; 
-  
-      if (this.contactService.hasEmail(emailToCheck)) {
-       
-        this.showErrorDialog('Email is already taken');
-        return;
-      }
-  
-      if (this.contactService.hasUsername(usernameToCheck)) {
-        
-        this.showErrorDialog('Username is already taken');
-        return;
-      }
-  
+   
       const contact: Contact = {
         contactId: data['contactId'],
         mobilenumber: data['mobileNumber'],
@@ -140,14 +130,32 @@ export class AddNewContact {
   
       const hasId = this.route.snapshot.paramMap.has('contactId');
       if (hasId) {
+      
         this.contactService.updateContact(contact);
         this.router.navigate(['/contact-list']);
       } else {
+
+        if (this.contactService.hasEmail(emailToCheck)) {
+          this.showErrorDialog('Email is already taken');
+          return;
+        }
+        if (this.contactService.hasUsername(usernameToCheck)) {
+        
+        this.showErrorDialog('Username is already taken');
+        return;
+      }
         this.contactService.addContact(contact);
         this._dialog.closeAll();
       }
     }
+
+
+    
+
   }
+
+
+   
 
   showErrorDialog(errorMessage: string): void {
     this._dialog.open(ErrorDialogComponent, {

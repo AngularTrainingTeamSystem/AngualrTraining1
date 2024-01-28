@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Contacts } from '../contacts-db';
 import { ContactServiceService } from '../service/contact-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddNewContact } from '../add-new-contact/add-new-contact.component';
 
 @Component({
   selector: 'app-body',
@@ -10,7 +12,8 @@ import { ContactServiceService } from '../service/contact-service.service';
 export class BodyComponent {
 
   constructor(
-    private contactService : ContactServiceService
+    private contactService : ContactServiceService,
+    private _dialog: MatDialog
   ){
   }
 
@@ -20,6 +23,10 @@ export class BodyComponent {
   openAlert(event: any) {
     alert(event);
 
+  }
+
+  openEditContact(){
+    this._dialog.open(AddNewContact);
   }
 
   searchTerm : string = '';

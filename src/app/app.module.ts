@@ -23,6 +23,7 @@ import { EditContactComponents } from './edit-contact/edit-contact.component';
 import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     SearchFilterPipe,
     EditContactComponents,
     FooterComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

@@ -11,9 +11,9 @@ export class ContactServiceService {
   @Input()
   updateContacts! : any;
 
-  getContactById(contactId: any) {
-    this.updateContacts = this.router.getCurrentNavigation()?.extras.state;
-  }
+  // getContactById(contactId: any) {
+  //   this.updateContacts = this.router.getCurrentNavigation()?.extras.state;
+  // }
 
 
   contacts : Contact[] = Contacts.CONTACTS;
@@ -30,9 +30,9 @@ export class ContactServiceService {
       console.log(Contacts.CONTACTS)
   }
 
-  // getContactById(id:string){
-  //   return this.contacts.find(contact => contact.contactId === id);
-  //  }
+  getContactById(id:string){
+    return this.contacts.find(contact => contact.contactId === id);
+   }
 
   getAllContacts(){
     return this.contacts;

@@ -31,6 +31,8 @@ export class ContactCardComponent {
 
   }
 
+  
+
   inputValue: string = '';
 
   onGetInfo(){

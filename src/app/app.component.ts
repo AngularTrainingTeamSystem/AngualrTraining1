@@ -17,8 +17,8 @@ export class AppComponent {
 
 
   
-    openEditContact(){
-      this._dialog.open(AddNewContact);
-    }
+    // openEditContact(){
+    //   this._dialog.open(AddNewContact);
+    // }
   
 }
