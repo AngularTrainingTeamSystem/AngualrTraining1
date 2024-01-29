@@ -5,7 +5,8 @@
         <p>{{ contact.mobilenumber }}</p>
     </div>
     <input type="text" [(ngModel)]="inputField" placeholder="Comment">
-    <div>
+    
+    <div *ngIf="!contact.isDeleted">
         <button (click)="updateContact()">Update</button>
         <button (click)="confirmDelete()">Delete</button>
     </div>

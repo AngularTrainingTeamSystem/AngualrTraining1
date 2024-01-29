@@ -12,6 +12,9 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { ContactFilterPipe } from './contactfilter.pipe';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeletedContactsComponent } from './deleted-contacts/deleted-contacts.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddContactComponent,
     EditContactComponent,
     ContactFilterPipe,
+    DeletedContactsComponent,
   ],
 
   imports: [
@@ -32,7 +36,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterLink,
     RouterLinkActive,
     RouterOutlet,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   
   providers: [],
