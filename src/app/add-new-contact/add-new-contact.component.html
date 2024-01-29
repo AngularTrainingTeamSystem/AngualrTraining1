@@ -93,9 +93,10 @@
     </div>
 
     <div class="row action">
-      <button mat-raised-button class="flex-item" (click)="closeWindow()">Cancel</button>
+      
       <button mat-raised-button color="primary" type="submit" [disabled]="contactFrom.invalid" class="flex-item">Save</button>
     </div>
 
   </form>
+  <button mat-raised-button class="calcel-button" (click)="closeWindow()">Cancel</button>
 </div>

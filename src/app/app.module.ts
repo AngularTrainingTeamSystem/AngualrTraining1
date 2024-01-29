@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     MatRadioModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
   ],
 providers: [],
   bootstrap: [AppComponent]

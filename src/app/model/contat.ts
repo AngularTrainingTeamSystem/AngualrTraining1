@@ -1,5 +1,5 @@
 export interface Contact {
-    contactId:String;
+    contactId:string;
     mobilenumber:String;
     name:String;
     isActive:boolean;

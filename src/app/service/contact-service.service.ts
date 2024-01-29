@@ -59,15 +59,15 @@ export class ContactServiceService {
 
 
 
-  // deleteContactById(contactId: string) {
-  //   let contactToBeDeleted=this.contacts.find(contact => contact.contactId === contactId)
-  //  let doDelete=confirm("Are you sure you want to deleted the contact:\n"+
-  //  contactToBeDeleted?.name+" "+contactToBeDeleted?.mobilenumber)
-  //   if(doDelete){
-  //     let index=Contacts.contacts.findIndex(contact=>contact.contactId===contactId)
-  //  Contacts.contacts.splice(index,1)}
+  deleteContactById(contactId: string) {
+    let contactToBeDeleted=this.contacts.find(contact => contact.contactId === contactId)
+   let doDelete=confirm("Are you sure you want to deleted the contact:\n"+
+   contactToBeDeleted?.name+" "+contactToBeDeleted?.mobilenumber)
+    if(doDelete){
+      let index=Contacts.CONTACTS.findIndex((contact: { contactId: string; })=>contact.contactId===contactId)
+    Contacts.CONTACTS.splice(index,1)}
    
-  // }
+  }
 
   
 

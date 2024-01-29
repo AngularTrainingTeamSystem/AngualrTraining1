@@ -112,6 +112,7 @@ export class AddNewContact {
 
   onFormSubmit() {
     if (this.contactFrom.valid) {
+      
       const data = this.contactFrom.value;
       const emailToCheck = data['email']; 
       const usernameToCheck = data['username']; 
@@ -166,15 +167,14 @@ export class AddNewContact {
 
 
   closeWindow() {
-
-    
+  
     this._dialog.closeAll();
   
     if (this.contactFrom.valid) {
+
       this.router.navigate(['/contact-list']);
     }
   }
   }
   
-
 

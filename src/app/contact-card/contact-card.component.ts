@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from '../model/contat';
 import { Router } from '@angular/router';
 import { Contacts } from '../contacts-db';
+import { ContactServiceService } from '../service/contact-service.service';
 
 @Component({
   selector: 'app-contact-card',
@@ -17,7 +18,7 @@ export class ContactCardComponent {
   @Input()
   contact! : Contact;
 
-  constructor(private router: Router){}
+  constructor(private router: Router , private service : ContactServiceService ){}
 
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class ContactCardComponent {
   updateContact(contact: Contact) {
     // this.router.navigate(['contact-list/edit-contact/' , contact.contactId],{state: contact})
     this.router.navigate(['contact-list/' , contact.contactId],{state: contact})
+    
 
   }
 
@@ -41,6 +43,6 @@ export class ContactCardComponent {
 
 
   removeContact(id:string){
-    
+    this.service.deleteContactById(id);
   }
 }
