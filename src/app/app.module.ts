@@ -24,6 +24,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     ReactiveFormsModule,
     FormsModule,
     MatTableModule,
+    HttpClientModule
   ],
 providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Injectable, Input } from '@angular/core';
 import { Contact } from '../model/contat';
 import { Contacts } from '../contacts-db';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,13 @@ export class ContactServiceService {
 
 
   contacts : Contact[] = Contacts.CONTACTS;
+  contactz : any;
   
+  url = 'http://localhost:3000/contacts';
 
   
 
-  constructor(private route: ActivatedRoute, private router:Router) {
+  constructor(private route: ActivatedRoute, private router:Router, private http : HttpClient) {
 
    }
 
@@ -35,7 +38,10 @@ export class ContactServiceService {
    }
 
   getAllContacts(){
-    return this.contacts;
+    // return this.contacts;
+    return this.http.get(this.url) 
+    
+     
   }
 
   updateContact(updateContact : Contact){

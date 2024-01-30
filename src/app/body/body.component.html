@@ -6,10 +6,10 @@
 </div>
 
     <section class="container contact-list-container">
-        <div  *ngFor="let con of contactss | searchFilter:searchTerm" class="contactes" >
+        <div  *ngFor="let con of contactz | async " class="contactes" >
     
    
-             <app-contact-card [contact]="con"  (sendData)="openAlert($event)">
+             <app-contact-card [contact]="con">
               
             </app-contact-card>
             

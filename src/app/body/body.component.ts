@@ -18,7 +18,9 @@ export class BodyComponent {
   }
 
   // contactss = [...CONTACTS];
-  contactss = this.contactService.getAllContacts();
+  // contactss = this.contactService.getAllContacts();
+
+  contactz:any = this.contactService.getAllContacts();
 
   openAlert(event: any) {
     alert(event);
