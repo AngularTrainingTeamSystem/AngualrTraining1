@@ -17,6 +17,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CrudService } from './service/crud.service';
 import { HeaderComponent } from './components/header/header.component';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { RequestheaderinterceptorInterceptor } from './interceptor/requestheaderinterceptor.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -34,17 +37,21 @@ import { HeaderComponent } from './components/header/header.component';
     FormaPerdoruesComponent,
     BodyHolderComponent,
     EditPerdoruesComponent,
-   
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
-  providers: [ContactServiceService,CrudService],
-  
+  providers: [ContactServiceService, CrudService,
+    { provide: HTTP_INTERCEPTORS, useClass: RequestheaderinterceptorInterceptor, multi: true },
+    { provide: HttpClient, useClass: HttpClient }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

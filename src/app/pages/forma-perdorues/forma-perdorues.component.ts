@@ -10,48 +10,48 @@ import { Kontakt } from '../../models/kontakt';
   templateUrl: './forma-perdorues.component.html',
   styleUrls: ['./forma-perdorues.component.scss']
 })
-export class FormaPerdoruesComponent  {
-kontakt: any;
+export class FormaPerdoruesComponent {
+  kontakt: any;
 
-kontakti: Kontakt = {
-  contactId: '',
-  mobilenumber: '',
-  name: '',
-  isActive: false,
-  isFavorite: false,
-  isDeleted: false,
-  contactDateCreated: '',
-  username: '',
-  email:''
-};
-
-  
+  kontakti: Kontakt = {
+    id: '',
+    mobilenumber: '',
+    name: '',
+    isActive: false,
+    isFavorite: false,
+    isDeleted: false,
+    contactDateCreated: '',
+    username: '',
+    email: ''
+  };
 
 
-constructor(private crudService: CrudService,private router:Router) {}
-
-//check email or username availability
-checkForExistingUsernameOrEmail(newContact: Kontakt): boolean {
-  const allContacts = this.crudService.getAllContacts();
-  return allContacts.some(contact => contact.username === newContact.username || contact.email === newContact.email);
-}
 
 
-createContact(): void {
+  constructor(private crudService: CrudService, private router: Router) { }
 
-  if (this.checkForExistingUsernameOrEmail(this.kontakti)) {
-    alert('Username or email already exists.');
-    return;
+  //check email or username availability
+  // checkForExistingUsernameOrEmail(newContact: Kontakt): boolean {
+  //   const allContacts = this.crudService.getAllContacts();
+  //   return allContacts.some(contact => contact.username === newContact.username || contact.email === newContact.email);
+  // }
+
+
+  createContact(): void {
+
+    // if (this.checkForExistingUsernameOrEmail(this.kontakti)) {
+    //   alert('Username or email already exists.');
+    //   return;
+    // }
+
+
+    this.kontakti.contactDateCreated = new Date().toISOString();
+    this.crudService.createContact(this.kontakti).subscribe();
+    alert('User saved');
+    this.router.navigate(['/body']);
+
+
+
   }
-
-  
-  this.kontakti.contactDateCreated = new Date().toISOString();
-  this.crudService.createContact(this.kontakti);
-  alert('User saved');
-  this.router.navigate(['/body']);
-
-
-
-}
 
 }

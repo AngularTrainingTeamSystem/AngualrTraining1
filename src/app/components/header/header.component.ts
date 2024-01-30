@@ -7,14 +7,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  search!:string;
+  search!: string;
 
   @Output() searchString = new EventEmitter();
-  
-  stringKontroll(){
+
+  stringSearch() {
 
     this.searchString.emit(this.search);
-    
+
   }
 
 }

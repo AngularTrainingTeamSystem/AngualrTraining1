@@ -9,34 +9,34 @@ import { CrudService } from '../service/crud.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit{
- 
-
-  constructor(private router: Router) {}
+export class ContactComponent implements OnInit {
 
 
-  onContactClick(contactId: string) {
-  this.router.navigate(['/edit', contactId]);
-}
+  constructor(private router: Router) { }
 
 
-  @Output() sendData = new EventEmitter(); 
+  onContactClick(id: string) {
+    this.router.navigate(['/edit', id]);
+  }
+
+
+  @Output() sendData = new EventEmitter();
 
 
   @Input('kontakt')
-  kontakt!:Kontakt
+  kontakt!: Kontakt
 
-  input!:string;
+  input!: string;
 
   ngOnInit(): void {
-    
+
   }
 
-  
-  shtoShenim(){
-    alert("Name : " + this.kontakt.name + "\n" + "Id : " + this.kontakt.contactId + "\n" + "MobileNumber : " +  this.kontakt.mobilenumber 
-    + "\n" + "Date Of Birth : "  + this.kontakt.contactDateCreated 
-    + "\n" + "Username : "  + this.kontakt.username  + "\n" + "Email : "  + this.kontakt.email );
+
+  getUserInformation() {
+    alert("Name : " + this.kontakt.name + "\n" + "Id : " + this.kontakt.id + "\n" + "MobileNumber : " + this.kontakt.mobilenumber
+      + "\n" + "Date Of Birth : " + this.kontakt.contactDateCreated
+      + "\n" + "Username : " + this.kontakt.username + "\n" + "Email : " + this.kontakt.email);
   }
 
 

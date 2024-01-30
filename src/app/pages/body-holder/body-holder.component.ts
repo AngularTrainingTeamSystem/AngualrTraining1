@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./body-holder.component.scss']
 })
 export class BodyHolderComponent {
-  search!:string;
+  search!: string;
 
-  merrTeDhenat(event:string){
+  receiveInformation(event: string) {
 
-     this.search=event;
+    this.search = event;
     console.log(this.search)
   }
 }

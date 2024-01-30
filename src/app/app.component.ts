@@ -13,15 +13,15 @@ export class AppComponent {
   form: FormGroup;
 
 
- constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       number: ['', Validators.required],
       birthday: ['', Validators.required]
     });
- }
+  }
 
-  
+
 
 
 
