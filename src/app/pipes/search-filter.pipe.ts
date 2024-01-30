@@ -7,9 +7,9 @@ import { Contact } from 'src/app/model/contat';
 export class SearchFilterPipe implements PipeTransform {
 
 
-  transform(contacts: Contact[], searchTerm: string): Contact[] {
-    if (!contacts || !searchTerm) {
-      return contacts;
+  transform(contacts: Contact[] | null , searchTerm: string): any {
+    if (contacts === null || contacts === undefined) {
+      return[];
     }
  
     return contacts.filter(contact =>

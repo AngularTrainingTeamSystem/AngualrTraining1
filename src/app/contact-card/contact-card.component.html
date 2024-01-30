@@ -10,13 +10,13 @@
       
       <div  [ngClass]="contact.isFavorite ? 'green' : 'gray' " class="card-body">
         <div class="info-item">
-          <!-- <label hidden>{{contact.contactId}}</label> -->
+          <!-- <label hidden>{{contact.id}}</label> -->
           <label>Mobile Number:</label>
           <span>{{contact.mobilenumber}}</span>
         </div>
         <div class="info-item">
-          <a (click)="updateContact(contact)" >Name:</a>
-          <!-- <a [routerLink]="['edit-contact' , contact.contactId]" >Name:</a> -->
+          <a >Name:</a>
+          <!-- <a [routerLink]="['edit-contact' , contact.id]" >Name:</a> -->
  
           <span>{{contact.name}}</span>
         </div>
@@ -33,10 +33,10 @@
 
         <!-- <button (click)="onGetInfo()">Get info</button>  -->
         <br>
-        <button mat-raised-button color="primary" (click)="updateContact(contact)">Update</button> 
+        <button mat-raised-button color="primary" (click)="updateContact(contact.id)">Update</button>
         <br>
-        <button mat-raised-button color="warn" (click)="removeContact(contact.contactId)">Delete</button>
-        <!-- <button mat-raised-button color="" (click)="removeContact(contact.contactId)">Remove</button>  -->
+        <button mat-raised-button color="warn" (click)="removeContact(contact.id)">Delete</button>
+        <!-- <button mat-raised-button color="" (click)="removeContact(contact.id)">Remove</button>  -->
       </div>
     </div> 
     

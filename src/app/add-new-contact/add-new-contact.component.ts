@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactServiceService } from '../service/contact-service.service';
-import { Contact } from '../model/contat';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Contacts } from '../contacts-db';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-contact',
@@ -30,19 +28,29 @@ export class AddNewContact {
   }
 
   private initializeForm() {
-    this.updateContact = this.router.getCurrentNavigation()?.extras.state;
-    const hasId = this.route.snapshot.paramMap.has('contactId');
 
+
+    
+    const hasId = this.route.snapshot.paramMap.get('id');
+    console.log(hasId)
+
+    this.initializeEmptyForm();
+
+    
     if (hasId) {
-      this.initializeFormWithContactData();
-    } else {
-      this.initializeEmptyForm();
-    }
+      this.contactService.getContactById(hasId).subscribe(
+        res => {
+          this.updateContact = res
+          this.initializeFormWithContactData();
+        }
+      )
+      
+    } 
   }
 
   private initializeFormWithContactData() {
     this.contactFrom = this._fb.group({
-      contactId: [this.updateContact.contactId, Validators.required],
+      id: [this.updateContact.id, Validators.required],
       Fullname: [this.updateContact.name, Validators.required],
       mobileNumber: [this.updateContact.mobilenumber, Validators.required],
       isActive: [this.updateContact.isActive ? 'true' : 'false', Validators.required],
@@ -56,7 +64,7 @@ export class AddNewContact {
 
   private initializeEmptyForm() {
     this.contactFrom = this._fb.group({
-      contactId: ['', Validators.required],
+      id: ['', Validators.required],
       Fullname: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       isActive: [false, Validators.required],
@@ -69,12 +77,13 @@ export class AddNewContact {
   }
 
   onFormSubmit() {
+    
     if (this.contactFrom.valid) {
       const data = this.contactFrom.value;
       const emailToCheck = data['email'];
       const usernameToCheck = data['username'];
-      const contact: Contact = {
-        contactId: data['contactId'],
+      const contact = {
+        id: data['id'],
         mobilenumber: data['mobileNumber'],
         name: data['Fullname'],
         isActive: data['isActive'],
@@ -85,37 +94,23 @@ export class AddNewContact {
         username: data['username']
       };
 
-      const hasId = this.route.snapshot.paramMap.has('contactId');
+      this.contactService.addContact(contact).subscribe();
+
+      const hasId = this.route.snapshot.paramMap.has('id');
       if (hasId) {
         this.updateExistingContact(contact);
-      } else {
-        this.addNewContactWithValidation(contact, emailToCheck, usernameToCheck);
       }
+
     }
   }
 
-  private updateExistingContact(contact: Contact) {
-    this.contactService.updateContact(contact);
-    this.router.navigate(['/contact-list']);
-  }
-
-  private addNewContactWithValidation(contact: Contact, emailToCheck: string, usernameToCheck: string) {
-    if (this.contactService.hasEmail(emailToCheck)) {
-      this.showErrorDialog('Email is already taken');
-    } else if (this.contactService.hasUsername(usernameToCheck)) {
-      this.showErrorDialog('Username is already taken');
-    } else {
-      this.contactService.addContact(contact);
-      this._dialog.closeAll();
-    }
-  }
-
-  showErrorDialog(errorMessage: string): void {
-    this._dialog.open(ErrorDialogComponent, {
-      data: { message: errorMessage },
-      width: '300px',
+  private updateExistingContact(contact: any) {
+    this.contactService.updateContact(contact).subscribe(() => {
+      this.router.navigate(['/contact-list']);
     });
   }
+
+
 
   closeWindow() {
     this._dialog.closeAll();

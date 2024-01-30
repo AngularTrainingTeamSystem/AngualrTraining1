@@ -27,9 +27,9 @@ export class EditContactComponents implements OnInit{
   ngOnInit() {
 
     const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = String(routeParams.get('contactId'));
+    const productIdFromRoute = String(routeParams.get('id'));
 
-    // this.contact = CONTACTS.find((contact: { contactId: string; }) => contact.contactId === productIdFromRoute )
+    // this.contact = CONTACTS.find((contact: { id: string; }) => contact.id === productIdFromRoute )
   }
 
   // onUpdateSubmit(){

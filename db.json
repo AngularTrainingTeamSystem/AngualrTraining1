@@ -1,17 +1,6 @@
 {
   "contacts": [
     {
-      "id": "c1",
-      "mobilenumber": "1234567890",
-      "name": "John Doe",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": false,
-      "contactDateCreated": "2023-07-12",
-      "username": "john_doe_123",
-      "email": "john.doe@example.com"
-    },
-    {
       "id": "c2",
       "mobilenumber": "9876543210",
       "name": "Jane Smith",
@@ -45,17 +34,6 @@
       "email": "bob.williams@example.com"
     },
     {
-      "id": "c5",
-      "mobilenumber": "3332221111",
-      "name": "Eve Davis",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": true,
-      "contactDateCreated": "2023-11-30",
-      "username": "eve_davis_333",
-      "email": "eve.davis@example.com"
-    },
-    {
       "id": "c6",
       "mobilenumber": "4445556666",
       "name": "Charlie Brown",
@@ -65,17 +43,6 @@
       "contactDateCreated": "2023-08-21",
       "username": "charlie_brown_444",
       "email": "charlie.brown@example.com"
-    },
-    {
-      "id": "c7",
-      "mobilenumber": "9998887777",
-      "name": "Grace Taylor",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": true,
-      "contactDateCreated": "2023-04-06",
-      "username": "grace_taylor_999",
-      "email": "grace.taylor@example.com"
     },
     {
       "id": "c8",
@@ -111,17 +78,6 @@
       "email": "liam.anderson@example.com"
     },
     {
-      "id": "c11",
-      "mobilenumber": "1112223333",
-      "name": "Olivia Parker",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-03-19",
-      "username": "olivia_parker_111",
-      "email": "olivia.parker@example.com"
-    },
-    {
       "id": "c12",
       "mobilenumber": "5554443333",
       "name": "Matthew Turner",
@@ -133,17 +89,6 @@
       "email": "matthew.turner@example.com"
     },
     {
-      "id": "c13",
-      "mobilenumber": "9990001111",
-      "name": "Emma Harris",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-07-28",
-      "username": "emma_harris_999",
-      "email": "emma.harris@example.com"
-    },
-    {
       "id": "c14",
       "mobilenumber": "4448887777",
       "name": "James Carter",
@@ -153,17 +98,6 @@
       "contactDateCreated": "2023-02-05",
       "username": "james_carter_444",
       "email": "james.carter@example.com"
-    },
-    {
-      "id": "c15",
-      "mobilenumber": "7773336666",
-      "name": "Ava Rodriguez",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-10-19",
-      "username": "ava_rodriguez_777",
-      "email": "ava.rodriguez@example.com"
     }
   ]
 }

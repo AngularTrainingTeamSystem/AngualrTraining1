@@ -26,11 +26,11 @@ export class ContactCardComponent {
 
   }
 
-  updateContact(contact: Contact) {
-    // this.router.navigate(['contact-list/edit-contact/' , contact.contactId],{state: contact})
-    this.router.navigate(['contact-list/' , contact.contactId],{state: contact})
+  updateContact(id: string) {
+    // this.router.navigate(['contact-list/edit-contact/', contact.id], { state: contact })
     
-
+    this.router.navigate(['contact-list/', id]);
+  
   }
 
   
@@ -43,6 +43,6 @@ export class ContactCardComponent {
 
 
   removeContact(id:string){
-    this.service.deleteContactById(id);
+    this.service.deleteContactById(id).subscribe();
   }
 }

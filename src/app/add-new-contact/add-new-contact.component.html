@@ -6,8 +6,8 @@
     <div class="row">
       <mat-form-field appearance="outline" class="flex-item">
         <mat-label>Contact Id</mat-label>
-        <input matInput type="text" placeholder="Ex. C8" formControlName="contactId">
-        <div *ngIf="contactFrom.get('contactId')!.hasError('required') && contactFrom.get('contactId')!.touched">
+        <input matInput type="text" placeholder="Ex. C8" formControlName="id">
+        <div *ngIf="contactFrom.get('id')!.hasError('required') && contactFrom.get('id')!.touched">
           Contact Id is required.
         </div>
       </mat-form-field>
@@ -93,6 +93,7 @@
     </div>
 
     <div class="row action">
+      <!-- <button mat-raised-button class="calcel-button" (click)="closeWindow()">Cancel</button> -->
       
       <button mat-raised-button color="primary" type="submit" [disabled]="contactFrom.invalid" class="flex-item">Save</button>
     </div>

@@ -7,8 +7,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   {path:'contact-list', component : BodyComponent},
-  // {path: 'contact-list/edit-contact/:contactId' , component: AddNewContact },
-  {path: 'contact-list/:contactId' , component: AddNewContact },
+  // {path: 'contact-list/edit-contact/:id' , component: AddNewContact },
+  {path: 'contact-list/:id' , component: AddNewContact },
   {path: 'contact-list/add-contact' , component: AddNewContact },
   {path:'' , redirectTo:'home', pathMatch : 'full'},
   {path:'home', component : HomePageComponent}

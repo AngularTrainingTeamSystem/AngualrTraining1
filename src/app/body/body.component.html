@@ -6,7 +6,7 @@
 </div>
 
     <section class="container contact-list-container">
-        <div  *ngFor="let con of contactz | async " class="contactes" >
+        <div  *ngFor="let con of contactz | async | searchFilter:searchTerm " class="contactes" >
     
    
              <app-contact-card [contact]="con">

@@ -3,7 +3,7 @@ export class Contacts{
 
   static CONTACTS: any = [
     {
-      "contactId": "c1",
+      "id": "c1",
       "mobilenumber": "1234567890",
       "name": "John Doe",
       "isActive": true,
@@ -15,7 +15,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c2",
+      "id": "c2",
       "mobilenumber": "9876543210",
       "name": "Jane Smith",
       "isActive": false,
@@ -27,7 +27,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c3",
+      "id": "c3",
       "mobilenumber": "5551112233",
       "name": "Alice Johnson",
       "isActive": true,
@@ -39,7 +39,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c4",
+      "id": "c4",
       "mobilenumber": "8887776666",
       "name": "Bob Williams",
       "isActive": false,
@@ -51,7 +51,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c5",
+      "id": "c5",
       "mobilenumber": "3332221111",
       "name": "Eve Davis",
       "isActive": true,
@@ -63,7 +63,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c6",
+      "id": "c6",
       "mobilenumber": "4445556666",
       "name": "Charlie Brown",
       "isActive": false,
@@ -75,7 +75,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c7",
+      "id": "c7",
       "mobilenumber": "9998887777",
       "name": "Grace Taylor",
       "isActive": true,
@@ -87,7 +87,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c8",
+      "id": "c8",
       "mobilenumber": "7776665555",
       "name": "Daniel White",
       "isActive": false,
@@ -99,7 +99,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c9",
+      "id": "c9",
       "mobilenumber": "6665554444",
       "name": "Sophia Miller",
       "isActive": true,
@@ -111,7 +111,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c10",
+      "id": "c10",
       "mobilenumber": "2223334444",
       "name": "Liam Anderson",
       "isActive": false,
@@ -123,7 +123,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c11",
+      "id": "c11",
       "mobilenumber": "1112223333",
       "name": "Olivia Parker",
       "isActive": true,
@@ -135,7 +135,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c12",
+      "id": "c12",
       "mobilenumber": "5554443333",
       "name": "Matthew Turner",
       "isActive": false,
@@ -147,7 +147,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c13",
+      "id": "c13",
       "mobilenumber": "9990001111",
       "name": "Emma Harris",
       "isActive": true,
@@ -159,7 +159,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c14",
+      "id": "c14",
       "mobilenumber": "4448887777",
       "name": "James Carter",
       "isActive": false,
@@ -171,7 +171,7 @@ export class Contacts{
     },
   
     {
-      "contactId": "c15",
+      "id": "c15",
       "mobilenumber": "7773336666",
       "name": "Ava Rodriguez",
       "isActive": true,
