@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../../services/contact-service.service';
 import { User } from '../../models/user.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-user',
@@ -52,18 +52,18 @@ export class EditUserComponent implements OnInit {
   
   
 
-  initForm() {
-    this.userForm = this.fb.group({
-      mobilenumber: [this.user?.mobilenumber],
-      name: [this.user?.name],
-      username: [this.user?.username],
-      email: [this.user?.email],
-      isActive: [this.user?.isActive],
-      isFavorite: [this.user?.isFavorite],
-      isDeleted: [this.user?.isDeleted],
-      contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
-    });
-  }
+initForm() {
+  this.userForm = this.fb.group({
+    mobilenumber: [this.user?.mobilenumber, [Validators.required, Validators.pattern('^[0-9]+$')]],
+    name: [this.user?.name, Validators.required],
+    username: [this.user?.username],
+    email: [this.user?.email, [Validators.required, Validators.email]],
+    isActive: [this.user?.isActive],
+    isFavorite: [this.user?.isFavorite],
+    isDeleted: [this.user?.isDeleted],
+    contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
+  });
+}
 
   goBack(): void {
     this.router.navigate(['/users']);
@@ -117,59 +117,9 @@ export class EditUserComponent implements OnInit {
     }
   }
   
-
   resetForm(): void {
     this.userForm.reset();
   }
   
 
 }
-
-
-
-//   initForm() {
-//     const routeParams= this.route.snapshot.paramMap;
-//     const formIDRoute = (routeParams.get('id'));
-//     this.contactService.getExistingEmails().subscribe((emails: string[]) => {
-//       this.contactService.getExistingUsernames().subscribe((usernames: string[]) => {
-//         this.contactForm = this.fb.group({
-//           name: ['', Validators.required],
-//           contactId: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
-//           mobilenumber: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
-//           email: [
-//             '',
-//             [
-//               Validators.required,
-//               Validators.email,
-//               CustomValidators.uniqueEmail(emails),
-//             ],
-//           ],
-//           username: [
-//             '',
-//             [
-//               Validators.required,
-//               CustomValidators.uniqueUsername(usernames),
-//             ],
-//           ],
-//           isFavorite: [false],
-//           isDeleted: [false],
-//           isActive: [false],
-//           contactDateCreated: [''],
-//         });
-//       });
-//     });
-//   }
-
-//   onSubmit() {
-//     if (this.contactForm.valid) {
-//       const newContact: User = this.contactForm.value;
-//       newContact.id = Number(this.contactForm.value['contactId']);
-//       if (!this.contactService.isEmailUnique(newContact.email, newContact.id) || !this.contactService.isUsernameUnique(newContact.username, newContact.id)) {
-//         this.errorMessage = 'Username or email is already taken.';
-//       } else {
-//         this.contactService.addUser(newContact);
-//         this.router.navigate(['/users']);
-//         console.log(this.contactService);
-//       }
-//     }
-//   }

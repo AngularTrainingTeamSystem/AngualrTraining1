@@ -5,6 +5,7 @@
   <div>
     <label for="name">Name:</label>
     <input id="{{ userForm.get('name')?.value }}" formControlName="name" />
+    <div *ngIf="userForm.get('name')?.hasError('required')" class="error">Name is required.</div>
   </div>
 
   <div>

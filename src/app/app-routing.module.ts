@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-//import { FormComponent } from './pages/form/form.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UserDetailsComponent } from './pages/users-details/user-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent}, 
-  //{ path: 'form', component: FormComponent },
-  //{ path: 'form/:id', component: EditUserComponent },
   { path: 'edit-user/:id', component: EditUserComponent },
   { path: 'edit-user', component: EditUserComponent },
   { path: 'users', component: UsersListComponent },

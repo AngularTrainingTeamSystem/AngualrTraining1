@@ -67,16 +67,15 @@
       "email": "james.carter@example.com"
     },
     {
+      "id": 90,
+      "mobilenumber": "000000",
       "name": "Antonela Leka",
-      "contactId": "90",
-      "mobilenumber": "012019209",
-      "email": "nova@email.com",
-      "username": "nova",
+      "isActive": true,
       "isFavorite": true,
       "isDeleted": false,
-      "isActive": false,
       "contactDateCreated": "2024-01-09",
-      "id": 90
+      "email": "nova@hem.com",
+      "username": "nova"
     },
     {
       "id": 4,
@@ -157,6 +156,17 @@
       "contactDateCreated": "Wed Jan 31 2024",
       "email": "eliadaballazhi@gmail.com",
       "username": "Eliada"
+    },
+    {
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "username": "elii",
+      "email": "eliadaballazhi@gmail.com",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "Wed Jan 31 2024",
+      "id": 11115
     }
   ]
 }
