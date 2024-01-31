@@ -17,8 +17,6 @@ export class BodyComponent {
   ){
   }
 
-  // contactss = [...CONTACTS];
-  // contactss = this.contactService.getAllContacts();
 
   contactz:any = this.contactService.getAllContacts();
 
@@ -32,4 +30,5 @@ export class BodyComponent {
   }
 
   searchTerm : string = '';
+  
 }

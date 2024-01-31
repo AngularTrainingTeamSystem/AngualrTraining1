@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditContactComponents } from './edit-contact/edit-contact.component';
+
 import { BodyComponent } from './body/body.component';
 import { AddNewContact } from './add-new-contact/add-new-contact.component';
 import { HomePageComponent } from './home-page/home-page.component';

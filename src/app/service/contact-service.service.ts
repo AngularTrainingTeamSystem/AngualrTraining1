@@ -13,12 +13,6 @@ export class ContactServiceService {
   @Input()
   updateContacts!: any;
 
-  // getContactById(id: any) {
-  //   this.updateContacts = this.router.getCurrentNavigation()?.extras.state;
-  // }
-
-
-
   contactz: any;
 
   url = 'http://localhost:3000/contacts';

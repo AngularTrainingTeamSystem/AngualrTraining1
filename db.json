@@ -12,17 +12,6 @@
       "email": "jane.smith@example.com"
     },
     {
-      "id": "c3",
-      "mobilenumber": "5551112233",
-      "name": "Alice Johnson",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": true,
-      "contactDateCreated": "2023-10-08",
-      "username": "alice_johnson_555",
-      "email": "alice.johnson@example.com"
-    },
-    {
       "id": "c4",
       "mobilenumber": "8887776666",
       "name": "Bob Williams",
@@ -34,6 +23,17 @@
       "email": "bob.williams@example.com"
     },
     {
+      "id": "c5",
+      "mobilenumber": "3332221111",
+      "name": "Eve Davis",
+      "isActive": "true",
+      "isFavorite": "true",
+      "isDeleted": "true",
+      "contactDateCreated": "2024-01-31T09:13:47.450Z",
+      "email": "eve.davis@example.com",
+      "username": "eve_davis_333"
+    },
+    {
       "id": "c6",
       "mobilenumber": "4445556666",
       "name": "Charlie Brown",
@@ -43,6 +43,17 @@
       "contactDateCreated": "2023-08-21",
       "username": "charlie_brown_444",
       "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "c7",
+      "mobilenumber": "9998887777",
+      "name": "Grace Taylor",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-04-06",
+      "username": "grace_taylor_999",
+      "email": "grace.taylor@example.com"
     },
     {
       "id": "c8",
@@ -76,6 +87,17 @@
       "contactDateCreated": "2023-06-10",
       "username": "liam_anderson_222",
       "email": "liam.anderson@example.com"
+    },
+    {
+      "id": "c11",
+      "mobilenumber": "1112223333",
+      "name": "Olivia Parker",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2023-03-19",
+      "username": "olivia_parker_111",
+      "email": "olivia.parker@example.com"
     },
     {
       "id": "c12",

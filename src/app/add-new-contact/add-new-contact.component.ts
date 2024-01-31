@@ -1,22 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ContactServiceService } from '../service/contact-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, catchError, map, of, switchMap, timer } from 'rxjs';
 
 @Component({
   selector: 'app-add-new-contact',
   templateUrl: './add-new-contact.component.html',
   styleUrls: ['./add-new-contact.component.scss']
 })
-export class AddNewContact {
+export class AddNewContact implements OnInit {
 
   @Input()
   updateContact!: any;
 
   contactFrom!: FormGroup;
 
+  id = crypto.randomUUID();
+  
   constructor(
     private _fb: FormBuilder,
     private contactService: ContactServiceService,
@@ -24,47 +27,16 @@ export class AddNewContact {
     private route: ActivatedRoute,
     private _dialog: MatDialog
   ) {
+
+  }
+  ngOnInit() {
     this.initializeForm();
   }
 
   private initializeForm() {
 
-
-    
-    const hasId = this.route.snapshot.paramMap.get('id');
-    console.log(hasId)
-
-    this.initializeEmptyForm();
-
-    
-    if (hasId) {
-      this.contactService.getContactById(hasId).subscribe(
-        res => {
-          this.updateContact = res
-          this.initializeFormWithContactData();
-        }
-      )
-      
-    } 
-  }
-
-  private initializeFormWithContactData() {
     this.contactFrom = this._fb.group({
-      id: [this.updateContact.id, Validators.required],
-      Fullname: [this.updateContact.name, Validators.required],
-      mobileNumber: [this.updateContact.mobilenumber, Validators.required],
-      isActive: [this.updateContact.isActive ? 'true' : 'false', Validators.required],
-      isFavorite: [this.updateContact.isFavorite ? 'true' : 'false', Validators.required],
-      isDeleted: [this.updateContact.isDeleted ? 'true' : 'false', Validators.required],
-      contactDateCreated: [this.updateContact.contactDateCreated, Validators.required],
-      email: [this.updateContact.email, Validators.required],
-      username: [this.updateContact.username, Validators.required],
-    });
-  }
-
-  private initializeEmptyForm() {
-    this.contactFrom = this._fb.group({
-      id: ['', Validators.required],
+      id: [this.id, Validators.required],
       Fullname: ['', Validators.required],
       mobileNumber: ['', Validators.required],
       isActive: [false, Validators.required],
@@ -74,10 +46,40 @@ export class AddNewContact {
       email: ['', Validators.required],
       username: ['', Validators.required],
     });
+
+    const hasId = this.route.snapshot.paramMap.get('id');
+    console.log(hasId)
+
+    this.contactFrom
+
+    if (hasId) {
+      this.contactService.getContactById(hasId).subscribe(
+        res => {
+          this.updateContact = res
+          this.initializeFormWithContactData();
+        }
+      )
+    }
+  }
+
+  private initializeFormWithContactData() {
+
+    this.contactFrom.setValue({
+      id: this.updateContact.id,
+      Fullname: this.updateContact.name,
+      mobileNumber: this.updateContact.mobilenumber,
+      isActive: this.updateContact.isActive ? 'true' : 'false',
+      isFavorite: this.updateContact.isFavorite ? 'true' : 'false',
+      isDeleted: this.updateContact.isDeleted ? 'true' : 'false',
+      contactDateCreated: this.updateContact.contactDateCreated,
+      email: this.updateContact.email,
+      username: this.updateContact.username,
+
+    })
   }
 
   onFormSubmit() {
-    
+
     if (this.contactFrom.valid) {
       const data = this.contactFrom.value;
       const emailToCheck = data['email'];
@@ -93,14 +95,13 @@ export class AddNewContact {
         email: data['email'],
         username: data['username']
       };
-
-      this.contactService.addContact(contact).subscribe();
-
       const hasId = this.route.snapshot.paramMap.has('id');
       if (hasId) {
         this.updateExistingContact(contact);
-      }
+      } else {
 
+        this.addAccount(contact);
+      }
     }
   }
 
@@ -110,13 +111,20 @@ export class AddNewContact {
     });
   }
 
+  private addAccount(contact: any) {
+    this.contactService.addContact(contact).subscribe(() => {
+      this._dialog.closeAll();
+      window.location.reload();
+    });
 
+  }
 
   closeWindow() {
     this._dialog.closeAll();
-
     if (this.contactFrom.valid) {
       this.router.navigate(['/contact-list']);
     }
   }
 }
+
+

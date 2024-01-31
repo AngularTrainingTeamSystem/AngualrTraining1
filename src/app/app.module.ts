@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,12 +18,13 @@ import { BodyComponent } from './body/body.component';
 import { ContactCardComponent } from './contact-card/contact-card.component';
 import { FormsModule, NgModel } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
-import { EditContactComponents } from './edit-contact/edit-contact.component';
 import {MatTableModule} from '@angular/material/table';
 import { FooterComponent } from './footer/footer.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ReqInterceptorInterceptor } from './interceptors/req-interceptor.interceptor';
 
 
 @NgModule({
@@ -34,10 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     BodyComponent,
     ContactCardComponent,
     SearchFilterPipe,
-    EditContactComponents,
     FooterComponent,
     ErrorDialogComponent,
-    HomePageComponent
+    HomePageComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +57,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     HttpClientModule
   ],
-providers: [],
+providers: [
+  
+    { provide: HTTP_INTERCEPTORS, useClass: ReqInterceptorInterceptor, multi: true }
+  
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

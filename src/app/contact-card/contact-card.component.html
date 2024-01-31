@@ -1,52 +1,42 @@
 <div class="card-container" *ngIf="contact.isActive">
-    <div class="card">
-      <div  class="card-header">
-    
-      </div >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="50" height="50">
-        <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
-      </svg>
+  <div class="card">
+    <div  class="card-header">
+  
+    </div >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="50" height="50">
       
-      <div  [ngClass]="contact.isFavorite ? 'green' : 'gray' " class="card-body">
-        <div class="info-item">
-          <!-- <label hidden>{{contact.id}}</label> -->
-          <label>Mobile Number:</label>
-          <span>{{contact.mobilenumber}}</span>
-        </div>
-        <div class="info-item">
-          <a >Name:</a>
-          <!-- <a [routerLink]="['edit-contact' , contact.id]" >Name:</a> -->
- 
-          <span>{{contact.name}}</span>
-        </div>
-        <div class="info-item">
-          <label>Birthday:</label>
-          <span>{{contact.contactDateCreated | date}}</span>
-        </div> 
+      <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+    </svg>
     
-        <!-- <hr> -->
-
-       <!-- <input type="text" [(ngModule)]="inputValue"  placeholder="Type something...">  -->
-
-         <!-- <hr>  -->
-
-        <!-- <button (click)="onGetInfo()">Get info</button>  -->
-        <br>
-        <button mat-raised-button color="primary" (click)="updateContact(contact.id)">Update</button>
-        <br>
-        <button mat-raised-button color="warn" (click)="removeContact(contact.id)">Delete</button>
-        <!-- <button mat-raised-button color="" (click)="removeContact(contact.id)">Remove</button>  -->
+    <div  [ngClass]="contact.isFavorite ? 'green' : 'gray' " class="card-body">
+      <div class="info-item">
+        
+        <label>Mobile Number:</label>
+        <span>{{contact.mobilenumber}}</span>
       </div>
-    </div> 
-    
+      <div class="info-item">
+        <a >Name:</a>
+        <span>{{contact.name}}</span>
+      </div>
+      <div class="info-item">
+        <label>Birthday:</label>
+        <span>{{contact.contactDateCreated | date}}</span>
+      </div> 
+      <br>
+      <button mat-raised-button color="primary" (click)="updateContact(contact.id)">Update</button>
+      <br>
+      <button mat-raised-button color="warn" (click)="removeContact(contact.id)">Delete</button>
+      
+    </div>
+  </div> 
+  
 
-    <!-- *ngIf="contact.isActive" -->
+ 
 
 
 
 
-    
-   
-    
-    
+  
+ 
+  
+  

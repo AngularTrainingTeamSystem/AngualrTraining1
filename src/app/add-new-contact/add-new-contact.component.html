@@ -1,6 +1,5 @@
-
 <div class="container">
- 
+
   <form [formGroup]="contactFrom" (ngSubmit)="onFormSubmit()" class="content">
 
     <div class="row">
@@ -27,7 +26,10 @@
           Email is required.
         </div>
       </mat-form-field>
-      
+
+
+
+
       <mat-form-field appearance="outline" class="flex-item">
         <mat-label>Username</mat-label>
         <input matInput type="text" placeholder="Ex. elvis123" formControlName="username">
@@ -35,7 +37,7 @@
           Username is required.
         </div>
       </mat-form-field>
-      
+
 
       <mat-form-field appearance="outline" class="flex-item">
         <mat-label>Mobile Number</mat-label>
@@ -86,18 +88,23 @@
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <div *ngIf="contactFrom.get('contactDateCreated')!.hasError('required') && contactFrom.get('contactDateCreated')!.touched">
+        <div
+          *ngIf="contactFrom.get('contactDateCreated')!.hasError('required') && contactFrom.get('contactDateCreated')!.touched">
           Contact Created date is required.
         </div>
       </mat-form-field>
     </div>
 
     <div class="row action">
-      <!-- <button mat-raised-button class="calcel-button" (click)="closeWindow()">Cancel</button> -->
-      
-      <button mat-raised-button color="primary" type="submit" [disabled]="contactFrom.invalid" class="flex-item">Save</button>
+
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="contactFrom.invalid"
+        class="flex-item">Save</button>
     </div>
 
+
   </form>
-  <button mat-raised-button class="calcel-button" (click)="closeWindow()">Cancel</button>
+  <button mat-raised-button class="cancel-button" (click)="closeWindow()">Cancel</button>
+
+
 </div>

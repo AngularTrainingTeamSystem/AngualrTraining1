@@ -3,6 +3,9 @@ import { Contact } from '../model/contat';
 import { Router } from '@angular/router';
 import { Contacts } from '../contacts-db';
 import { ContactServiceService } from '../service/contact-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+
 
 @Component({
   selector: 'app-contact-card',
@@ -12,14 +15,10 @@ import { ContactServiceService } from '../service/contact-service.service';
 export class ContactCardComponent {
   @Output() sendData = new EventEmitter();
 
-
-
-
   @Input()
   contact! : Contact;
 
-  constructor(private router: Router , private service : ContactServiceService ){}
-
+  constructor(private router: Router , private service : ContactServiceService , private _dialog : MatDialog ){}
 
   ngOnInit() {
 
@@ -27,9 +26,7 @@ export class ContactCardComponent {
   }
 
   updateContact(id: string) {
-    // this.router.navigate(['contact-list/edit-contact/', contact.id], { state: contact })
-    
-    this.router.navigate(['contact-list/', id]);
+   this.router.navigate(['contact-list/', id]);
   
   }
 
@@ -42,7 +39,21 @@ export class ContactCardComponent {
   }
 
 
-  removeContact(id:string){
-    this.service.deleteContactById(id).subscribe();
+  removeContact(id: string) {
+    const dialogRef = this._dialog.open(ConfirmationDialogComponent, {
+      width: '300px',
+      data: {
+        title: 'Confirmation',
+        message: 'Are you sure you want to delete this contact?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.service.deleteContactById(id).subscribe(() => {
+          window.location.reload();
+        });
+      }
+    });
   }
 }
