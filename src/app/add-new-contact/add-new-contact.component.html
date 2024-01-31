@@ -27,9 +27,6 @@
         </div>
       </mat-form-field>
 
-
-
-
       <mat-form-field appearance="outline" class="flex-item">
         <mat-label>Username</mat-label>
         <input matInput type="text" placeholder="Ex. elvis123" formControlName="username">
@@ -37,7 +34,6 @@
           Username is required.
         </div>
       </mat-form-field>
-
 
       <mat-form-field appearance="outline" class="flex-item">
         <mat-label>Mobile Number</mat-label>
@@ -97,14 +93,11 @@
 
     <div class="row action">
 
-
       <button mat-raised-button color="primary" type="submit" [disabled]="contactFrom.invalid"
         class="flex-item">Save</button>
+      <button mat-raised-button class="flex-item" type="button" (click)="closeWindow()">Cancel</button>
     </div>
 
-
   </form>
-  <button mat-raised-button class="cancel-button" (click)="closeWindow()">Cancel</button>
-
 
 </div>
