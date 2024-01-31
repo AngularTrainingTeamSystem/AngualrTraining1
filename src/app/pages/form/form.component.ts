@@ -23,33 +23,68 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
-  
+
   initForm() {
-    this.contactForm = this.fb.group({
-      name: ['', Validators.required],
-      contactId: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
-      mobilenumber: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
-      email: ['',
-        [
-          Validators.required,
-          Validators.email,
-          CustomValidators.uniqueEmail(this.contactService.getExistingEmails()),
-        ],
-      ],
-      username: [
-        '',
-        [
-          Validators.required,
-          CustomValidators.uniqueUsername(this.contactService.getExistingUsernames()),
-        ],
-      ],
-      isFavorite: [false],
-      isDeleted: [false],
-      isActive: [false],
-      contactDateCreated: [''],
+    this.contactService.getExistingEmails().subscribe((emails: string[]) => {
+      this.contactService.getExistingUsernames().subscribe((usernames: string[]) => {
+        this.contactForm = this.fb.group({
+            name: ['', Validators.required],
+            contactId: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
+            mobilenumber: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
+          email: [
+            '',
+            [
+              Validators.required,
+              Validators.email,
+              CustomValidators.uniqueEmail(emails),
+            ],
+          ],
+          username: [
+            '',
+            [
+              Validators.required,
+              CustomValidators.uniqueUsername(usernames),
+            ],
+          ],
+          isFavorite: [false],
+              isDeleted: [false],
+              isActive: [false],
+              contactDateCreated: [''],
+        });
+      });
     });
   }
 
+  
+  // initForm() {
+  //   this.contactForm = this.fb.group({
+  //     name: ['', Validators.required],
+  //     contactId: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
+  //     mobilenumber: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
+  //     email: ['',
+  //       [
+  //         Validators.required,
+  //         Validators.email,
+  //         CustomValidators.uniqueEmail(emails),
+  //         CustomValidators.uniqueEmail(this.contactService.getExistingEmails()),
+  //       ],
+  //     ],
+  //     username: [
+  //       '',
+  //       [
+  //         Validators.required,
+  //         CustomValidators.uniqueUsername(usernames),
+  //         CustomValidators.uniqueUsername(this.contactService.getExistingUsernames()),
+  //       ],
+  //     ],
+  //     isFavorite: [false],
+  //     isDeleted: [false],
+  //     isActive: [false],
+  //     contactDateCreated: [''],
+  //   });
+  // }
+
+  //frist try-> onsubmitError message, then html
   onSubmit() {
     if (this.contactForm.valid) {
       const newContact: User = this.contactForm.value;

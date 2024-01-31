@@ -20,25 +20,42 @@ export class EditUserComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
+  // ngOnInit(): void {
+  //   const userId = Number(this.route.snapshot.paramMap.get('id'));
+  //   this.user = this.contactService.getUserById(userId);
+  //   console.log(this.user);
+  //   this.initForm();
+  // }
+
+
   ngOnInit(): void {
     const userId = Number(this.route.snapshot.paramMap.get('id'));
-    this.user = this.contactService.getUserById(userId);
-    console.log(this.user);
-    this.initForm();
+    this.contactService.getUserById(userId).subscribe(
+      (user) => {
+        this.user = user;
+        console.log(this.user);
+        this.initForm();
+      },
+      (error) => {
+        console.error('Error fetching user:', error);
+      }
+    );
   }
+  
 
   initForm() {
     this.userForm = this.fb.group({
-      mobilenumber: [{ value: this.user?.mobilenumber, disabled: false }],
-      name: [{ value: this.user?.name, disabled: false }],
-      username: [{ value: this.user?.username, disabled: false }],
-      email: [{ value: this.user?.email, disabled: false }],
+      mobilenumber: [this.user?.mobilenumber],
+      name: [this.user?.name],
+      username: [this.user?.username],
+      email: [this.user?.email],
       isActive: [this.user?.isActive],
       isFavorite: [this.user?.isFavorite],
       isDeleted: [this.user?.isDeleted],
       contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
     });
   }
+  
 
   goBack(): void {
     this.router.navigate(['/users']);
@@ -61,31 +78,16 @@ export class EditUserComponent implements OnInit {
 
   onSubmit(): void {
     if (this.userForm.valid) {
-      const isEmailUnique = this.contactService.isEmailUnique(
-        this.userForm.value.email,
-        this.user?.id
-      );
-      const isUsernameUnique = this.contactService.isUsernameUnique(
-        this.userForm.value.username,
-        this.user?.id
-      );
-  
-      if (!isEmailUnique) {
-        this.userForm.get('email')?.setErrors({ notUnique: true });
-        window.alert('This email is already taken.');
-        return;
-      }
-  
-      if (!isUsernameUnique) {
-        this.userForm.get('username')?.setErrors({ notUnique: true });
-        window.alert('This username is already taken.');
-        return;
-      }
-  
       const updatedUser = this.getUpdatedUser();
-      this.contactService.updateUser(updatedUser);
-      this.goBack();
-      console.log(this.user);
+      this.contactService.updateUser(updatedUser).subscribe(
+        () => {
+          console.log('User updated successfully'); 
+          this.goBack();
+        },
+        (error) => {
+          console.error('Error updating user in component:', error);
+        }
+      );
     }
   }
   

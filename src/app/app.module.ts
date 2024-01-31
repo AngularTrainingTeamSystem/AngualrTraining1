@@ -13,6 +13,9 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
 import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UserDetailsComponent } from './pages/users-details/user-details.component';
+import { ConfigComponent } from './config/config/config.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { RequestHeaderInterceptor } from './request-header.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,17 +26,22 @@ import { UserDetailsComponent } from './pages/users-details/user-details.compone
     FormComponent,
     EditUserComponent,
     UsersListComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule, 
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  //STEP 6: Request Header interceptor declaration
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: RequestHeaderInterceptor, multi:true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  users = this.contactService.getUsers();
+  users: User[] = [];
   selectedUser?: User | null;
   router: any;
 
@@ -19,10 +19,24 @@ export class UsersListComponent implements OnInit {
     this.getUserInfo();
   }
 
-  getUserInfo() {
-    this.users = this.contactService.getUsers();
-  }
 
+  // getUserInfo() {
+  //   this.users = this.contactService.getUsers();
+  // }
+
+  getUserInfo() {
+    this.contactService.getUsers().subscribe(
+      (users) => {
+        this.users = users;
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
+  
+
+  //service function logic
   selectUser(user: User): void {
     this.selectedUser = user;
   }
@@ -32,7 +46,15 @@ export class UsersListComponent implements OnInit {
   }
 
   removeUser(userId: number): void {
-    this.contactService.removeUser(userId);
-    this.getUserInfo();
+    this.contactService.removeUser(userId).subscribe(
+      () => {
+        this.getUserInfo(); // update user info
+        this.deselectUser(); // clear whet you have selected
+      },
+      (error) => {
+        console.error('Error removing user:', error);
+      }
+    );
   }
+  
 }

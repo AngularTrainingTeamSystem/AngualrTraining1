@@ -28,8 +28,8 @@ export class UserDetailsComponent implements OnInit {
 
   initForm() {
     this.userForm = this.fb.group({
-      mobilenumber: [this.user?.mobilenumber],
       name: [this.user?.name],
+      mobilenumber: [this.user?.mobilenumber],
       email: [this.user?.email],
       username: [this.user?.username], 
       isActive: [this.user?.isActive],

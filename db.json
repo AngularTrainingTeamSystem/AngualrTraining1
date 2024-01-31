@@ -1,0 +1,139 @@
+{
+  "contacts": [
+    {
+      "id": "3",
+      "mobilenumber": "5551112233",
+      "name": "Alice Johnson",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-10-08",
+      "username": "alice_johnson_555",
+      "email": "alice.johnson@example.com"
+    },
+    {
+      "id": "5",
+      "mobilenumber": "3332221111",
+      "name": "Eve Davis",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-11-30",
+      "username": "eve_davis_333",
+      "email": "eve.davis@example.com"
+    },
+    {
+      "id": "7",
+      "mobilenumber": "9998887777",
+      "name": "Grace Taylor",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-04-06",
+      "username": "grace_taylor_999",
+      "email": "grace.taylor@example.com"
+    },
+    {
+      "id": "9",
+      "mobilenumber": "6665554444",
+      "name": "Sophia Miller",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-01-28",
+      "username": "sophia_miller_666",
+      "email": "sophia.miller@example.com"
+    },
+    {
+      "id": "12",
+      "mobilenumber": "5554443333",
+      "name": "Matthew Turner",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-12-02",
+      "username": "matthew_turner_555",
+      "email": "matthew.turner@example.com"
+    },
+    {
+      "id": "14",
+      "mobilenumber": "4448887777",
+      "name": "James Carter",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-02-05",
+      "username": "james_carter_444",
+      "email": "james.carter@example.com"
+    },
+    {
+      "id": 50,
+      "mobilenumber": "0283983983",
+      "name": "Sara Derhemii",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-11",
+      "email": "s@example.com",
+      "username": "sarushe"
+    },
+    {
+      "name": "Antonela Leka",
+      "contactId": "90",
+      "mobilenumber": "012019209",
+      "email": "nova@email.com",
+      "username": "nova",
+      "isFavorite": true,
+      "isDeleted": false,
+      "isActive": false,
+      "contactDateCreated": "2024-01-09",
+      "id": 90
+    },
+    {
+      "id": 4,
+      "mobilenumber": "+355683050412",
+      "name": "Alice Johnsonnn",
+      "isActive": false,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-18",
+      "email": "AliceJohnson@gamail.com",
+      "username": "alice_5555"
+    },
+    {
+      "name": "Grace Taylor",
+      "contactId": "330",
+      "mobilenumber": "+355683050412",
+      "email": "grace_taylor@gmail.com",
+      "username": "gracie",
+      "isFavorite": true,
+      "isDeleted": false,
+      "isActive": false,
+      "contactDateCreated": "2024-01-04",
+      "id": 330
+    },
+    {
+      "id": 16,
+      "mobilenumber": "0101010101",
+      "name": "Matthew Turner",
+      "isActive": false,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-26",
+      "email": "mathew@gmail.com",
+      "username": "mathew 777"
+    },
+    {
+      "name": "Antonela",
+      "contactId": "11111",
+      "mobilenumber": "131313",
+      "email": "eliada@gmail.com",
+      "username": "191911",
+      "isFavorite": true,
+      "isDeleted": false,
+      "isActive": false,
+      "contactDateCreated": "2024-01-11",
+      "id": 11111
+    }
+  ]
+}

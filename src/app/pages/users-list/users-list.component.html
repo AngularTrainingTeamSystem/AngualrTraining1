@@ -1,7 +1,7 @@
 <div class="wrapper">
   <h2>List of all the users</h2>
   <div class="container">
-    <ng-container *ngFor="let user of users">
+    <ng-container *ngFor="let user of users ">
       <div class="user-container">
         <button *ngIf="!user.isDeleted" class="btn" type="button"
           [ngStyle]="{'background-color': user.isActive ? 'green' : 'gray', color: 'white' }"(click)="selectUser(user)" >
