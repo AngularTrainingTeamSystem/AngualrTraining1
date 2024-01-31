@@ -2,7 +2,7 @@ import { Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 export class CustomValidators extends Validators {
 
-// calling service here
+  // calling service here
 
   static uniqueEmail(existingEmails: string[]): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
@@ -23,7 +23,7 @@ export class CustomValidators extends Validators {
       }
       return null;
     };
-}
+  }
 }
 
 

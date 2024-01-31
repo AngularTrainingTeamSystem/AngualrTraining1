@@ -8,9 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngularProject';
 
-  // //STEP 4. ADD HTTP CLIENT CONSTRUCTOR
-  // constructor(private http: HttpClient) { } //as dependency
-  // ngOnInit() {
-  //   this.http.get("api/projects");
-  // }
 }

@@ -67,17 +67,6 @@
       "email": "james.carter@example.com"
     },
     {
-      "id": 50,
-      "mobilenumber": "0283983983",
-      "name": "Sara Derhemii",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2024-01-11",
-      "email": "s@example.com",
-      "username": "sarushe"
-    },
-    {
       "name": "Antonela Leka",
       "contactId": "90",
       "mobilenumber": "012019209",
@@ -134,6 +123,40 @@
       "isActive": false,
       "contactDateCreated": "2024-01-11",
       "id": 11111
+    },
+    {
+      "name": "Eliada Ballazhi",
+      "contactId": "11111",
+      "mobilenumber": "+355683050412",
+      "email": "eliadaballazhi@gmail.com",
+      "username": "ek9ajss",
+      "isFavorite": true,
+      "isDeleted": false,
+      "isActive": true,
+      "contactDateCreated": "2024-01-12",
+      "id": 11112
+    },
+    {
+      "mobilenumber": "+355683050412",
+      "name": "Nia",
+      "username": "Eliada",
+      "email": "eliadaballazhi@gmail.com",
+      "isActive": false,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "Wed Jan 31 2024",
+      "id": 11113
+    },
+    {
+      "id": 11114,
+      "mobilenumber": "+355683050412",
+      "name": "leonora",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "Wed Jan 31 2024",
+      "email": "eliadaballazhi@gmail.com",
+      "username": "Eliada"
     }
   ]
 }

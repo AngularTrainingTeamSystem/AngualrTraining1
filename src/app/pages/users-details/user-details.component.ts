@@ -20,7 +20,7 @@ export class UserDetailsComponent implements OnInit {
     private router: Router,
     private contactService: ContactService,
     private fb: FormBuilder
-  ) {}
+  ){}
 
   ngOnInit(): void {
     this.initForm();
@@ -41,7 +41,6 @@ export class UserDetailsComponent implements OnInit {
 
   goBack(): void {
     this.userDeselected.emit();
-    //this.router.navigate(['/users']);
   }
 }
 

@@ -8,12 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { BottomNavComponent } from './components/bottom-nav/bottom-nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormComponent } from './pages/form/form.component';
+//import { FormComponent } from './pages/form/form.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
 import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UserDetailsComponent } from './pages/users-details/user-details.component';
-import { ConfigComponent } from './config/config/config.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestHeaderInterceptor } from './request-header.interceptor';
 
@@ -23,11 +22,10 @@ import { RequestHeaderInterceptor } from './request-header.interceptor';
     HomeComponent,
     TopNavComponent,
     BottomNavComponent,
-    FormComponent,
+   //FormComponent,
     EditUserComponent,
     UsersListComponent,
     UserDetailsComponent,
-    ConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,7 @@ import { RequestHeaderInterceptor } from './request-header.interceptor';
   ],
   //STEP 6: Request Header interceptor declaration
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: RequestHeaderInterceptor, multi:true},
+    { provide: HTTP_INTERCEPTORS, useClass: RequestHeaderInterceptor, multi:true},
   ],
   bootstrap: [AppComponent]
 })

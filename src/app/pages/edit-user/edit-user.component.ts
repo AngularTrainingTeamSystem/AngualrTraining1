@@ -20,27 +20,36 @@ export class EditUserComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  // ngOnInit(): void {
-  //   const userId = Number(this.route.snapshot.paramMap.get('id'));
-  //   this.user = this.contactService.getUserById(userId);
-  //   console.log(this.user);
-  //   this.initForm();
-  // }
-
-
   ngOnInit(): void {
-    const userId = Number(this.route.snapshot.paramMap.get('id'));
-    this.contactService.getUserById(userId).subscribe(
-      (user) => {
-        this.user = user;
-        console.log(this.user);
-        this.initForm();
-      },
-      (error) => {
-        console.error('Error fetching user:', error);
-      }
-    );
+    const userIdParam = this.route.snapshot.paramMap.get('id');
+    if (userIdParam) {
+      const userId = Number(userIdParam);
+      this.contactService.getUserById(userId).subscribe(
+        (user) => {
+          this.user = user;
+          console.log(this.user);
+          this.initForm();
+        },
+        (error) => {
+          console.error('Error fetching user:', error);
+        }
+      );
+    } else {
+      this.user = { 
+        id: 0, 
+        name: '', 
+        username: '', 
+        email: '', 
+        mobilenumber: '', 
+        isActive: false, 
+        isFavorite: false, 
+        isDeleted: false, 
+        contactDateCreated: new Date().toDateString(),
+      };
+      this.initForm();
+    }
   }
+  
   
 
   initForm() {
@@ -55,7 +64,6 @@ export class EditUserComponent implements OnInit {
       contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
     });
   }
-  
 
   goBack(): void {
     this.router.navigate(['/users']);
@@ -78,19 +86,90 @@ export class EditUserComponent implements OnInit {
 
   onSubmit(): void {
     if (this.userForm.valid) {
-      const updatedUser = this.getUpdatedUser();
-      this.contactService.updateUser(updatedUser).subscribe(
-        () => {
-          console.log('User updated successfully'); 
-          this.goBack();
-        },
-        (error) => {
-          console.error('Error updating user in component:', error);
-        }
-      );
+      if (this.user && this.user.id) {
+        const updatedUser = this.getUpdatedUser();
+        this.contactService.updateUser(updatedUser).subscribe(
+          () => {
+            console.log('User updated successfully'); 
+            this.goBack();
+          },
+          (error) => {
+            console.error('Error updating user in component:', error);
+          }
+        );
+      } else {
+        this.onSubmitForm();
+      }
     }
+  }
+  
+  
+  onSubmitForm() {
+    if (this.userForm.valid) {
+      const newContact: User = this.userForm.value;
+      newContact.id = Number(this.userForm.value['contactId']);
+      if (!this.contactService.isEmailUnique(newContact.email, newContact.id) || !this.contactService.isUsernameUnique(newContact.username, newContact.id)) {
+      } else {
+        this.contactService.addUser(newContact);
+        this.router.navigate(['/users']);
+        console.log(this.contactService);
+      }
+    }
+  }
+  
+
+  resetForm(): void {
+    this.userForm.reset();
   }
   
 
 }
 
+
+
+//   initForm() {
+//     const routeParams= this.route.snapshot.paramMap;
+//     const formIDRoute = (routeParams.get('id'));
+//     this.contactService.getExistingEmails().subscribe((emails: string[]) => {
+//       this.contactService.getExistingUsernames().subscribe((usernames: string[]) => {
+//         this.contactForm = this.fb.group({
+//           name: ['', Validators.required],
+//           contactId: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
+//           mobilenumber: ['', [Validators.required, Validators.pattern('[0-9]*(\.[0-9]+)?')]],
+//           email: [
+//             '',
+//             [
+//               Validators.required,
+//               Validators.email,
+//               CustomValidators.uniqueEmail(emails),
+//             ],
+//           ],
+//           username: [
+//             '',
+//             [
+//               Validators.required,
+//               CustomValidators.uniqueUsername(usernames),
+//             ],
+//           ],
+//           isFavorite: [false],
+//           isDeleted: [false],
+//           isActive: [false],
+//           contactDateCreated: [''],
+//         });
+//       });
+//     });
+//   }
+
+//   onSubmit() {
+//     if (this.contactForm.valid) {
+//       const newContact: User = this.contactForm.value;
+//       newContact.id = Number(this.contactForm.value['contactId']);
+//       if (!this.contactService.isEmailUnique(newContact.email, newContact.id) || !this.contactService.isUsernameUnique(newContact.username, newContact.id)) {
+//         this.errorMessage = 'Username or email is already taken.';
+//       } else {
+//         this.contactService.addUser(newContact);
+//         this.router.navigate(['/users']);
+//         console.log(this.contactService);
+//       }
+//     }
+//   }
