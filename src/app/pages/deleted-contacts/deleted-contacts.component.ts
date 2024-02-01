@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Contact } from '../models/contact.model';
-import { ContactServiceService } from '../contact-service.service';
+import { Contact } from '../../models/contact.model';
+import { ContactServiceService } from '../../services/contact-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +10,20 @@ import { Router } from '@angular/router';
 })
 export class DeletedContactsComponent {
 
-  contacts!: Contact[];
+  contacts!: any;
   searchTerm: string = '';
 
   constructor(private contactsService: ContactServiceService, private router: Router){
   }
   ngOnInit(): void {
-    this.contacts = this.contactsService.getContacts();
+    this.contacts = this.contactsService.getContacts().subscribe(
+      (data: Contact[]) => {
+        this.contacts = data;
+      },
+      (error) => {
+        console.error('Error fetching contacts:', error);
+      }
+    );
   }
 
   updateList(contact: Contact[]){

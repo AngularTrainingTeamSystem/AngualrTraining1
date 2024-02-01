@@ -17,8 +17,7 @@
     </form> -->
 
     <select class="form-control" [(ngModel)]="selectedValue" (change)="onDropdownChange($event)">
-      <option value="" disabled selected>Display: </option>
-      <option value="main">Contact List</option>
+      <option value="main" selected>Contact List</option>
       <option value="deleted-contacts">Deleted Contacts</option>
     </select>
 

@@ -1,0 +1,52 @@
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" name="name" formControlName="name" required pattern="[a-zA-Z\s]*"/>
+    <div *ngIf="!contactForm.controls['name'].valid" class="error">Name should contain only characters and not be blank.</div>
+  </div>
+
+  <div>
+    <label for="mobilenumber">Mobile Number:</label>
+    <input id="mobilenumber" name="mobilenumber" formControlName="mobilenumber" required pattern="\d*"/>
+    <div *ngIf="!contactForm.controls['mobilenumber'].valid && contactForm.controls['name'].touched" class="error">Mobile Number should contain only numbers and not be blank.</div>
+  </div>
+
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" name="username" formControlName="username" required="true"/>
+    <div *ngIf="contactForm.controls['name'].touched && isUsernameTaken" class="error">Username is already taken.</div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" name="email" formControlName="email" required="true"/>
+    <div *ngIf="contactForm.controls['name'].touched && isEmailTaken" class="error">Email is already taken.</div>
+  </div>
+
+  <div>
+    <label>Is Active:</label>
+    <input type="radio" name="isActive" value="true" formControlName="isActive"> Yes
+    <input type="radio" name="isActive" value="false" formControlName="isActive"> No
+  </div>
+
+  <div>
+    <label>Is Favorite:</label>
+    <input type="radio" name="isFavorite" value="true" formControlName="isFavorite"> Yes
+    <input type="radio" name="isFavorite" value="false" formControlName="isFavorite"> No
+  </div>
+
+  <div>
+    <label>Is Deleted:</label>
+    <input type="radio" name="isDeleted" value="true" formControlName="isDeleted"> Yes
+    <input type="radio" name="isDeleted" value="false" formControlName="isDeleted"> No
+  </div>
+
+  <div>
+    <label for="contactDateCreated">Contact Date Created:</label>
+    <input id="contactDateCreated" name="contactDateCreated" type="date" formControlName="contactDateCreated" required="true"/>
+  </div>
+  
+  <button type="submit">Save</button>
+  
+</form>

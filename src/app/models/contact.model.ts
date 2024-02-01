@@ -1,5 +1,5 @@
 export class Contact {
-    contactId!: string;
+    id!: string;
     mobilenumber!: string;
     name!: string;
     isActive!: boolean;

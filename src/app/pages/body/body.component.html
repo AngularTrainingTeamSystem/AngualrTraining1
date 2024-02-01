@@ -10,7 +10,7 @@
         <ng-container *ngIf="!contact.isDeleted">
             <app-contact-card [contact]="contact" (deleteContact)="updateList($event)"></app-contact-card>
         </ng-container>
-
+        
     </div>
-    <button routerLink="/main/add-contact">Add Contact</button>
+    <button [routerLink]="'/main/add-contact'">Add Contact</button>
 </section>

@@ -12,7 +12,7 @@
     <div *ngIf="!mobilenumber.valid && mobilenumber.touched" class="error">Mobile Number should contain only numbers and not be blank.</div>
   </div>
 
-  <div>
+  <!-- <div>
     <label for="username">Username:</label>
     <input id="username" name="username" [(ngModel)]="model.username" required="true" #username="ngModel" (blur)="checkUsernameValidity()"/>
     <div *ngIf="username.touched && isUsernameTaken" class="error">Username is already taken.</div>
@@ -22,7 +22,7 @@
     <label for="email">Email:</label>
     <input id="email" name="email" [(ngModel)]="model.email" required="true" #email="ngModel" (blur)="checkEmailValidity()"/>
     <div *ngIf="email.touched && isEmailTaken" class="error">Email is already taken.</div>
-  </div>
+  </div> -->
 
   <div>
     <label>Is Active:</label>

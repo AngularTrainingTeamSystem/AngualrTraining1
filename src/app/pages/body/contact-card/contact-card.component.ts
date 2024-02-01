@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from 'src/app/models/contact.model';
 import { Router } from '@angular/router';
-import { ContactServiceService } from 'src/app/contact-service.service';
+import { ContactServiceService } from 'src/app/services/contact-service.service';
 
 @Component({
   selector: 'app-contact-card',
@@ -10,7 +10,9 @@ import { ContactServiceService } from 'src/app/contact-service.service';
 })
 export class ContactCardComponent {
   
-  constructor(private contactService: ContactServiceService, private router: Router){}
+  constructor(private contactService: ContactServiceService, private router: Router){
+    console.log(this.contact);
+  }
 
   @Output() cardButtonClick = new EventEmitter<any>();
 
@@ -22,7 +24,7 @@ export class ContactCardComponent {
   showDetails: boolean = false;
 
   updateContact(): void {
-    this.router.navigate(['/main/edit-contact', this.contact.contactId])
+    this.router.navigate(['/main/modify-contact-list/', this.contact.id])
   }
 
   confirmDelete(): void {
@@ -34,8 +36,11 @@ export class ContactCardComponent {
   }
 
   deleteClient(): void {
-    this.contactService.deleteContact(this.contact.contactId);
-    this.deleteContact.emit(this.contactService.getContacts())
+    this.contactService.deleteContact(this.contact.id).subscribe( res =>
+      this.contactService.getContacts().subscribe(contact =>
+        this.deleteContact.emit(contact)
+      )
+    );
   }
 
   toggleCardDetails(): void {
