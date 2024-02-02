@@ -1,46 +1,68 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact';
 import { Contacts } from '../models/contacts';
+import { HttpClient } from '@angular/common/http';
+import { Observable, catchError, filter, map, of } from 'rxjs';
+import { ContactModel } from '../models/contactModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
   
- 
+ url='http://localhost:3000/contacts'
 
-  constructor() { 
+  constructor(private http:HttpClient) { 
    
   }
 
-  private contacts:Contact[]=Contacts.contacts;
+  
 
-  getContacts(){
-    return this.contacts
+  getContacts():Observable<any>{
+   return this.http.get(this.url)
   }
-  getContactById(id:string){
-   return this.contacts.find(contact => contact.contactId === id);
+  getContactById(id:string):Observable<any>{
+    return this.http.get(`${this.url}/${id}`)
   }
 
-  updateContact(contact:Contact){
-    let index=Contacts.contacts.findIndex(c=>c.contactId===contact.contactId)
+  updateContact(contact:ContactModel,id:string){
+    const body=JSON.stringify(contact)
     
-   Contacts.contacts[index]=contact;
+    this.http.put(`${this.url}/${id}`,contact).subscribe(
+      value=>console.log("Updated"),
+      catchError((err)=>{return err})
+    )
     
   }
   addContact(newContact: Contact) {
-    
-    newContact.contactId="c"+(Number(Contacts.contacts[Contacts.contacts.length-1].contactId.substring(1))+1);
-    
-    Contacts.contacts.push(newContact)
+    const body=JSON.stringify(newContact)
+    this.http.post(`${this.url}`,newContact).subscribe(
+      value=>console.log("Added"),
+      catchError((err)=>{return err})
+    )
   }
   deleteContactById(contactId: string) {
-    let contactToBeDeleted=this.contacts.find(contact => contact.contactId === contactId)
-   let doDelete=confirm("Are you sure you want to deleted the contact:\n"+
-   contactToBeDeleted?.name+" "+contactToBeDeleted?.mobilenumber)
-    if(doDelete){
-      let index=Contacts.contacts.findIndex(contact=>contact.contactId===contactId)
-   Contacts.contacts.splice(index,1)}
-   
+    this.http.delete(`${this.url}/${contactId}`).subscribe(
+      value=>console.log("Deleted"),
+      catchError((err)=>{return err})
+    )
   }
+ 
+
+  findEmail(email: string): Observable<boolean> {
+    return this.http.get(this.url).pipe(
+      map((response: any) => response as Array<any>),
+      map((contacts: Array<any>) => contacts.some(contact => contact.email == email)),
+    );
+  }
+
+  
+  findUsername(username: string): Observable<boolean> {
+    return this.http.get(this.url).pipe(
+      map((response: any) => response as Array<any>),
+      map((contacts: Array<any>) => contacts.some(contact => contact.username == username))
+    );
+  }
+  
+  
 }
