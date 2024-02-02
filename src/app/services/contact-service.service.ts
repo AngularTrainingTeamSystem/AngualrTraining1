@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
+import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
+
 
 
 @Injectable({
@@ -16,7 +18,7 @@ export class ContactService {
       constructor(private http: HttpClient) { } //as dependency
   
       getUsers(): Observable<User[]> {
-        return this.http.get<User[]>(this.apiUrl);
+        return this.http.get<User[]>(this.apiUrl); // get request no body; You are getting data not sending 
       }
       
       getUserById(id: number): Observable<User> {
@@ -52,26 +54,42 @@ export class ContactService {
         }
       );
    }
-    //alidations
-
-    getExistingEmails(): Observable<string[]> {
-      return this.getUsers().pipe(map(users => users.map(user => user.email)));
-    }
-  
-    getExistingUsernames(): Observable<string[]> {
-      return this.getUsers().pipe(map(users => users.map(user => user.username)));
-    }
-
+    //Validations
+    //Map operator-> can rewrap to an observable so we can subscribe; Thats why we need pipe
+    //Observables use observer to respond to data emissions
     //check for their uniqueness
-    isEmailUnique(email: string, currentUserId?: number): Observable<boolean> {
-      return this.getUsers().pipe(
-        map(users => !users.some(user => user.email === email && user.id !== currentUserId))
-      );
+
+        // Check if the email is unique, excluding the current user
+        isEmailUnique(email: string, currentUserId?: number): Observable<boolean> {
+          return this.getUsers().pipe(
+            map(users => !users.some(user => user.email === email && user.id !== currentUserId))
+          );
+        }
+     
+        isUsernameUnique(username: string, currentUserId?: number): Observable<boolean> {
+          return this.getUsers().pipe(
+            map(users => !users.some(user => user.username === username && user.id !== currentUserId))
+          );
+        }
+     
+
+    emailAsyncValidator(currentUserId?: number): AsyncValidatorFn {
+      return (control: AbstractControl): Observable<ValidationErrors | null> => {
+        return this.isEmailUnique(control.value, currentUserId).pipe(
+          map((isUnique: boolean) => (isUnique ? null : { uniqueEmail: true })),
+          catchError(() => of(null))
+        );
+      };
     }
     
-    isUsernameUnique(username: string, currentUserId?: number): Observable<boolean> {
-      return this.getUsers().pipe(
-        map(users => !users.some(user => user.username === username && user.id !== currentUserId))
-      );
-    }
+    // tap-> taps into stream without chaning; monitoring
+    usernameAsyncValidator(currentUserId?: number): AsyncValidatorFn {
+      return (control: AbstractControl): Observable<ValidationErrors | null> => {
+        return this.isUsernameUnique(control.value, currentUserId).pipe(
+          map((isUnique: boolean) => (isUnique ? null : { uniqueUsername: true })),
+          catchError(() => of(null))
+        );
+      };
+    } 
+    
   }

@@ -10,7 +10,7 @@
 
   <div>
     <label for="mobilenumber">Mobile Number:</label>
-    <input id="mobilenumber" formControlName="mobilenumber" />
+    <input id="mobilenumber" formControlName="mobilenumber"/>
     <div *ngIf="userForm.get('mobilenumber')?.hasError('required')" class="error">Mobile Number is required.</div>
     <div *ngIf="userForm.get('mobilenumber')?.hasError('pattern')" class="error">Mobile Number should contain only
       numbers.</div>
@@ -21,12 +21,14 @@
     <input id="email" formControlName="email" />
     <div *ngIf="userForm.get('email')?.hasError('required')" class="error">Email is required.</div>
     <div *ngIf="userForm.get('email')?.hasError('email')" class="error">Please enter a valid email address.</div>
+    <div *ngIf="userForm.get('email')?.hasError('uniqueEmail')" class="error">Email is already taken</div>
   </div>
-
+  
   <div>
     <label for="username">Username:</label>
     <input id="username" formControlName="username" />
     <div *ngIf="userForm.get('username')?.hasError('required')" class="error">Username is required.</div>
+    <div *ngIf="userForm.get('username')?.hasError('uniqueUsername')" class="error">Username is already taken</div>
   </div>
 
   <div>
@@ -51,7 +53,7 @@
   </div>
 
   <div class="form-group-submit">
-    <button type="submit" [disabled]="!userForm.valid">{{ user!.id ? 'Update' : 'Add' }}</button>
+    <button type="submit" [disabled]="!userForm.valid">Save</button>
     <button type="button" class="resetButton" (click)="resetForm()">Reset Button</button>
   </div>
 

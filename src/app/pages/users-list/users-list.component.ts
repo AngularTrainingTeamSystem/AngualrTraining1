@@ -16,7 +16,7 @@ export class UsersListComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.getUserInfo();
+    this.getUserInfo(); // whenever app loads-> this happneds
   }
 
   getUserInfo() {
@@ -34,6 +34,7 @@ export class UsersListComponent implements OnInit {
   selectUser(user: User): void {
     this.selectedUser = user;
   }
+  
   deselectUser(): void {
     this.selectedUser = null;
   }

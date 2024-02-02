@@ -8,7 +8,7 @@
           {{ user.name }}
         </button>
         <button *ngIf="!user.isDeleted" class="removeButton" type="button" (click)="removeUser(user.id)" > Remove </button>
-        <button *ngIf="!user.isDeleted" class="updateButton" type="button"  [routerLink]="['/edit-user', user.id]"> Update </button>
+        <button *ngIf="!user.isDeleted" class="updateButton" type="button"  [routerLink]="['/form-user', user.id]"> Update </button>
       </div>
     </ng-container>
     <div class="divider"></div>

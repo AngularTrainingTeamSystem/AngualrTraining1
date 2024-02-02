@@ -5,9 +5,9 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-
+// interceptor needed;  modify requests globally
 @Injectable()
-export class RequestHeaderInterceptor implements HttpInterceptor {
+export class RequestHeaderInterceptor implements HttpInterceptor { // service that intercepts http requests and responses
 
   constructor() {}
   intercept(request: HttpRequest<any>, next: HttpHandler){

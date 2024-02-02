@@ -67,38 +67,15 @@
       "email": "james.carter@example.com"
     },
     {
-      "id": 90,
-      "mobilenumber": "000000",
-      "name": "Antonela Leka",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2024-01-09",
-      "email": "nova@hem.com",
-      "username": "nova"
-    },
-    {
-      "id": 4,
-      "mobilenumber": "+355683050412",
-      "name": "Alice Johnsonnn",
+      "id": 330,
+      "mobilenumber": "355683050412",
+      "name": "Grace Taylorr",
       "isActive": false,
       "isFavorite": true,
       "isDeleted": false,
-      "contactDateCreated": "2024-01-18",
-      "email": "AliceJohnson@gamail.com",
-      "username": "alice_5555"
-    },
-    {
-      "name": "Grace Taylor",
-      "contactId": "330",
-      "mobilenumber": "+355683050412",
-      "email": "grace_taylor@gmail.com",
-      "username": "gracie",
-      "isFavorite": true,
-      "isDeleted": false,
-      "isActive": false,
       "contactDateCreated": "2024-01-04",
-      "id": 330
+      "email": "grace@gmail.com",
+      "username": "gracie"
     },
     {
       "id": 16,
@@ -124,49 +101,37 @@
       "id": 11111
     },
     {
+      "id": 11112,
+      "mobilenumber": "355683050412",
       "name": "Eliada Ballazhi",
-      "contactId": "11111",
-      "mobilenumber": "+355683050412",
-      "email": "eliadaballazhi@gmail.com",
-      "username": "ek9ajss",
+      "isActive": true,
       "isFavorite": true,
       "isDeleted": false,
-      "isActive": true,
       "contactDateCreated": "2024-01-12",
-      "id": 11112
+      "email": "eliadaballazhi@gmail.comm",
+      "username": "ek9ajss"
     },
     {
-      "mobilenumber": "+355683050412",
+      "id": 11113,
+      "mobilenumber": "355683050412",
       "name": "Nia",
-      "username": "Eliada",
-      "email": "eliadaballazhi@gmail.com",
       "isActive": false,
       "isFavorite": true,
       "isDeleted": false,
       "contactDateCreated": "Wed Jan 31 2024",
-      "id": 11113
-    },
-    {
-      "id": 11114,
-      "mobilenumber": "+355683050412",
-      "name": "leonora",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": false,
-      "contactDateCreated": "Wed Jan 31 2024",
-      "email": "eliadaballazhi@gmail.com",
-      "username": "Eliada"
+      "email": "sarushe@gmail.com",
+      "username": "niu"
     },
     {
       "mobilenumber": "355683050412",
       "name": "Eliada Ballazhi",
-      "username": "elii",
+      "username": "niu",
       "email": "eliadaballazhi@gmail.com",
       "isActive": false,
       "isFavorite": false,
       "isDeleted": false,
-      "contactDateCreated": "Wed Jan 31 2024",
-      "id": 11115
+      "contactDateCreated": "Thu Feb 01 2024",
+      "id": 11114
     }
   ]
 }

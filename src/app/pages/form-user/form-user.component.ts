@@ -5,11 +5,11 @@ import { User } from '../../models/user.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  selector: 'app-form-user',
+  templateUrl: './form-user.component.html',
+  styleUrls: ['./form-user.component.scss']
 })
-export class EditUserComponent implements OnInit {
+export class FormUserComponent implements OnInit {
   user?: User;
   userForm!: FormGroup;
 
@@ -21,6 +21,11 @@ export class EditUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initForm(); 
+    this.setUserFormValues();
+  }
+  
+  setUserFormValues(): void {
     const userIdParam = this.route.snapshot.paramMap.get('id');
     if (userIdParam) {
       const userId = Number(userIdParam);
@@ -28,42 +33,43 @@ export class EditUserComponent implements OnInit {
         (user) => {
           this.user = user;
           console.log(this.user);
-          this.initForm();
+          this.updateUserFormValues(); 
         },
         (error) => {
           console.error('Error fetching user:', error);
         }
       );
-    } else {
-      this.user = { 
-        id: 0, 
-        name: '', 
-        username: '', 
-        email: '', 
-        mobilenumber: '', 
-        isActive: false, 
-        isFavorite: false, 
-        isDeleted: false, 
-        contactDateCreated: new Date().toDateString(),
-      };
-      this.initForm();
     }
   }
   
+  updateUserFormValues(): void {
+    if (this.user) {
+      this.userForm.setValue({
+        mobilenumber: this.user.mobilenumber,
+        name: this.user.name,
+        username: this.user.username,
+        email: this.user.email,
+        isActive: this.user.isActive,
+        isFavorite: this.user.isFavorite,
+        isDeleted: this.user.isDeleted,
+        contactDateCreated: this.user.contactDateCreated ?? new Date(),
+      });
+    }
+  }
   
-
-initForm() {
-  this.userForm = this.fb.group({
-    mobilenumber: [this.user?.mobilenumber, [Validators.required, Validators.pattern('^[0-9]+$')]],
-    name: [this.user?.name, Validators.required],
-    username: [this.user?.username],
-    email: [this.user?.email, [Validators.required, Validators.email]],
-    isActive: [this.user?.isActive],
-    isFavorite: [this.user?.isFavorite],
-    isDeleted: [this.user?.isDeleted],
-    contactDateCreated: [this.user?.contactDateCreated ?? new Date()],
-  });
-}
+  initForm(): void {
+    const currentUserId = this.user?.id; 
+    this.userForm = this.fb.group({
+      mobilenumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      name: ['', Validators.required],
+      username: ['', [Validators.required], [this.contactService.usernameAsyncValidator(currentUserId)]],
+      email: ['', [Validators.required, Validators.email], [this.contactService.emailAsyncValidator(currentUserId)]],
+      isActive: [false],
+      isFavorite: [false],
+      isDeleted: [false],
+      contactDateCreated: [new Date().toDateString()],
+    });
+  }
 
   goBack(): void {
     this.router.navigate(['/users']);
@@ -103,7 +109,6 @@ initForm() {
     }
   }
   
-  
   onSubmitForm() {
     if (this.userForm.valid) {
       const newContact: User = this.userForm.value;
@@ -119,7 +124,6 @@ initForm() {
   
   resetForm(): void {
     this.userForm.reset();
-  }
-  
+  } 
 
 }
