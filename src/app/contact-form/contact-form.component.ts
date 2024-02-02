@@ -7,6 +7,10 @@ import { ContactService } from '../services/contact.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createStartsWithUpperCase } from '../validations/startsWithUpperCase.validator';
 import { ContactModel } from '../models/contactModel';
+import { createUnique } from '../validations/unique.validator';
+import { catchError, finalize, of } from 'rxjs';
+import { UniqueEmail } from '../validations/uniqueEmail';
+import { UniqueUsername } from '../validations/uniqueUsername';
 
 @Component({
   selector: 'app-contact-form',
@@ -14,80 +18,122 @@ import { ContactModel } from '../models/contactModel';
   styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
-  contact: Contact|undefined;
+  contact: any;
   constructor(
     private route: ActivatedRoute,
-    private contactService:ContactService,
-    private fb:FormBuilder,
-    private router:Router
+    private contactService: ContactService,
+    private fb: FormBuilder,
+    private router: Router,
+    private uniqueEmail: UniqueEmail,
+    private uniqueUsername: UniqueUsername
   ) { }
-  form!:FormGroup
+  form!: FormGroup
 
-  //contacts= this.contactService.getContacts()
-  
   ngOnInit() {
-
-    this.form=this.fb.group(
-      {
-        name:['',{validators:[Validators.required,Validators.minLength(2),createStartsWithUpperCase()],
-        updateOn:'blur'}],
-        mobile:['',[Validators.required,Validators.minLength(8)]],
-        isFavorite:[''],
-        isActive:[''],
-        isDeleted:[''],
-      }
-    )
-
     const routeParams = this.route.snapshot.paramMap;
     const contactIdFromRoute = (routeParams.get('contactId'));
-    if(contactIdFromRoute!=null){
-    this.contact = this.contactService.getContactById(contactIdFromRoute);
-    let contactModel:ContactModel=new ContactModel(this.contact!.mobilenumber
-      ,this.contact!.name,this.contact!.isActive,this.contact!.isFavorite,
-      this.contact!.isDeleted,this.contact!.contactDateCreated)
-    this.initForm(contactModel)
+
+    this.initForm()
+    if (contactIdFromRoute != null) {
+      this.contactService.getContactById(contactIdFromRoute)
+        .pipe(finalize(() => {
+
+          let contactModel: ContactModel = new ContactModel(this.contact!.mobilenumber
+            , this.contact!.name, this.contact!.isActive, this.contact!.isFavorite,
+            this.contact!.isDeleted, this.contact!.username, this.contact!.email)
+
+          this.populateForm(contactModel)
+        }),
+          catchError((error) => { return of(new Error(error)) }))
+        .subscribe(contact => this.contact = contact);
+
     }
-}
-initForm(contact:ContactModel){
-this.form.setValue(contact)
-}
-get contactName(){
-  return this.form.controls['name']
-}
-get contactMobile(){
-  return this.form.controls['mobile']
-}
-
-update(id:string){
-      let updatedContact:Contact=new Contact;
-      
-      updatedContact.contactId=id;
-      updatedContact.name=this.form.value['name']
-      updatedContact.mobilenumber=this.form.value['mobile']
-      updatedContact.isActive=this.form.value['isActive']
-      updatedContact.isFavorite=this.form.value['isFavorite']
-      updatedContact.isDeleted=this.form.value['isDeleted']
-      
-      this.contactService.updateContact(updatedContact)
-      this.router.navigate(['/main'])
-}
-setFormAction(){
-  const routeParams = this.route.snapshot.paramMap;
-  const contactIdFromRoute = (routeParams.get('contactId'));
-  if(contactIdFromRoute!=null){
-    this.update(this.contact!.contactId)
   }
-  else {this.addContact()}
-}
+  populateForm(contact: ContactModel) {
+    this.form.setValue(contact)
+  }
+  initForm() {
+    this.form = this.fb.group(
+      {
+        name: ['', {
+          validators: [Validators.required, Validators.minLength(2), createStartsWithUpperCase()],
+          updateOn: 'blur'
+        }],
+        mobilenumber: ['', [Validators.required, Validators.minLength(8)]],
+        isFavorite: [''],
+        isActive: [''],
+        isDeleted: [''],
+        username: ['', {
+           validators: [Validators.required],
+           asyncValidators:[this.uniqueUsername.validate.bind(this.uniqueUsername)]
+      
+        }],
+        email: ['', {
+           validators: [Validators.required],
+           asyncValidators:[this.uniqueEmail.validate.bind(this.uniqueEmail)]
+      
+        }]
+      }
+    )
+   
+    const emailControl=this.form.get('email')
+    emailControl?.valueChanges.subscribe(()=>{
+      
+      if(this.contact?.email==emailControl.value){
+        emailControl.removeAsyncValidators(this.uniqueEmail.validate.bind(this.uniqueEmail))
+        this.form.updateValueAndValidity({emitEvent:true})
+    }
+  else{
+      emailControl.setAsyncValidators(this.uniqueEmail.validate.bind(this.uniqueEmail))
+  }
+})
+  const usernameControl=this.form.get('username')
+    usernameControl?.valueChanges.subscribe(()=>{
+      if(this.contact?.username==usernameControl.value){
+      usernameControl.removeAsyncValidators(this.uniqueUsername.validate.bind(this.uniqueUsername))
+      this.form.updateValueAndValidity()
+      }
+      else{
+        usernameControl.setAsyncValidators(this.uniqueUsername.validate.bind(this.uniqueUsername))
+    }
+    })
+  
+   
+  }
+  get contactName() {
+    return this.form.controls['name']
+  }
+  get contactMobile() {
+    return this.form.controls['mobilenumber']
+  }
 
-addContact(){
-  let createdContact:Contact=new Contact;
-      createdContact.name=this.form.value['name']
-      createdContact.mobilenumber=this.form.value['mobile']
-      createdContact.isActive=this.form.value['isActive']
-      createdContact.isFavorite=this.form.value['isFavorite']
-      createdContact.isDeleted=this.form.value['isDeleted']
-      this.contactService.addContact(createdContact)
-      this.router.navigate(['/main'])
-}
+  update(id: string) {
+    let updatedContact: ContactModel = new ContactModel(this.form.value['mobilenumber'], this.form.value['name'],
+      this.form.value['isActive'], this.form.value['isFavorite'], this.form.value['isDeleted'],
+      this.form.value['username'], this.form.value['email']);
+
+    this.contactService.updateContact(updatedContact, id)
+    this.router.navigate(['/main'])
+  }
+  setFormAction() {
+    const routeParams = this.route.snapshot.paramMap;
+    const contactIdFromRoute = (routeParams.get('contactId'));
+    if (contactIdFromRoute != null) {
+      this.update(this.contact!.id)
+    }
+    else { this.addContact() }
+  }
+
+  addContact() {
+    let createdContact: Contact = new Contact;
+    createdContact.name = this.form.value['name']
+    createdContact.mobilenumber = this.form.value['mobilenumber']
+    createdContact.isActive = this.form.value['isActive']
+    createdContact.isFavorite = this.form.value['isFavorite']
+    createdContact.isDeleted = this.form.value['isDeleted']
+    createdContact.username = this.form.value['username']
+    createdContact.email = this.form.value['email']
+    this.contactService.addContact(createdContact)
+    this.router.navigate(['/main'])
+  }
 }

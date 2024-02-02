@@ -1,9 +1,11 @@
 export class Contact {
- contactId!:string
+ id!:string
  mobilenumber!: string;
  name!: string;
  isActive!: boolean;
  isFavorite!: boolean;
  isDeleted!: boolean;
- contactDateCreated!:string
+ contactDateCreated!:string;
+ username!:string;
+ email!:string
 }

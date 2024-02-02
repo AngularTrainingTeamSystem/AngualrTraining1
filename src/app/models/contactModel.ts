@@ -1,18 +1,22 @@
 export class ContactModel {
-    mobile!: string;
+    mobilenumber!: string;
     name!: string;
     isActive!: boolean;
     isFavorite!: boolean;
     isDeleted!: boolean;
-    contactDateCreated!:string
+    contactDateCreated!:string;
+    username!:string;
+    email!:string
 
-    constructor(mobile:string,name:string,isActive:boolean,isFavorite:boolean,isDeleted:boolean,dateCreated:string){
+    constructor(mobile:string,name:string,isActive:boolean,isFavorite:boolean,isDeleted:boolean,
+        username:string,email:string){
             this.name=name
-            this.mobile=mobile
+            this.mobilenumber=mobile
             this.isActive=isActive
             this.isDeleted=isDeleted
             this.isFavorite=isFavorite
-            this.contactDateCreated=dateCreated
+            this.username=username
+            this.email=email
     }
    }
    

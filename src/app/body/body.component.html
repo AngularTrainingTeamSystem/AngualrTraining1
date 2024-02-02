@@ -5,14 +5,21 @@
     <header>
         <h1>Contact List </h1>
     </header>
-<div style="border:2px solid black;background-color: #333; padding: 10px;border-radius: 20px;width: fit-content;margin: 5px;">
-    <a style="color: aliceblue;text-decoration: none;" [routerLink]="['add']">Add a contact</a>
+    <div>
+<div *ngIf="isAdmin()" style="border:2px solid black;background-color: #333; padding: 10px;border-radius: 20px;width: fit-content;margin: 20px;float:left;">
+    <a  style="color: aliceblue;text-decoration: none;" [routerLink]="['add']">Add a contact</a>
+</div>
+<div style="border:2px solid black;background-color: #333; padding: 10px;border-radius: 20px;width: fit-content;margin: 20px;float: right;cursor: pointer;">
+    <a style="color: aliceblue;text-decoration: none;" (click)="logout()">Logout</a>
+</div>
 </div>
     <section class="container contact-list-container">
         <app-contact-displayer  [contact]="contact" class="contactDisplay" ></app-contact-displayer>
-        <ng-container *ngFor="let contact of contacts | contactFilter:searchString">
+        <ng-container *ngFor="let contact of contacts |async | contactFilter:searchString">
      
-       <app-contact [contactDisplayed]="contact" (buttonClicked)="buttonClicked($event)" (sendContact)="inputContact($event)"></app-contact>
+       <app-contact [contactDisplayed]="contact" (buttonClicked)="buttonClicked($event)"
+       (contactWasDeleted)="updateContactList()"
+       (sendContact)="inputContact($event)"></app-contact>
         </ng-container>
     </section>
 

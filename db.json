@@ -1,0 +1,182 @@
+{
+  "contacts": [
+    {
+      "id": "c3",
+      "mobilenumber": "5551112233",
+      "name": "Alice Johnson",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-10-08",
+      "username": "alice_johnson_555",
+      "email": "alice.johnson@example.com"
+    },
+    {
+      "id": "c5",
+      "mobilenumber": "3332221111",
+      "name": "Eve Davis",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-11-30",
+      "username": "eve_davis_333",
+      "email": "eve.davis@example.com"
+    },
+    {
+      "id": "c7",
+      "mobilenumber": "9998887777",
+      "name": "Grace Taylor",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-04-06",
+      "username": "grace_taylor_999",
+      "email": "grace.taylor@example.com"
+    },
+    {
+      "name": "Daniel Bardhi",
+      "mobilenumber": "7776665555",
+      "isActive": false,
+      "isDeleted": false,
+      "isFavorite": true,
+      "username": "daniel_white_777",
+      "email": "daniel.white@example.com",
+      "id": "c8"
+    },
+    {
+      "id": "c9",
+      "mobilenumber": "6665554444",
+      "name": "Sophia Miller",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-01-28",
+      "username": "sophia_miller_666",
+      "email": "sophia.miller@example.com"
+    },
+    {
+      "name": "Olivia Parkerrr",
+      "mobilenumber": "1112223333",
+      "isActive": true,
+      "isDeleted": false,
+      "isFavorite": true,
+      "username": "olivia_parker_111",
+      "email": "olivia.parker@example.com",
+      "id": "c11"
+    },
+    {
+      "id": "c12",
+      "mobilenumber": "5554443333",
+      "name": "Matthew Turner",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-12-02",
+      "username": "matthew_turner_555",
+      "email": "matthew.turner@example.com"
+    },
+    {
+      "id": "c14",
+      "mobilenumber": "4448887777",
+      "name": "James Carter",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-02-05",
+      "username": "james_carter_444",
+      "email": "james.carter@example.com"
+    },
+    {
+      "name": "Devis ",
+      "mobilenumber": "+35569955563",
+      "isActive": "",
+      "isDeleted": "",
+      "isFavorite": "",
+      "username": "deviss",
+      "email": "devis.dervishi@fshnstsudent.info",
+      "id": "WWPwULG"
+    },
+    {
+      "name": "Devis Dervishi",
+      "mobilenumber": "+355699555633",
+      "isActive": "",
+      "isDeleted": "",
+      "isFavorite": "",
+      "username": "devis",
+      "email": "devis.dervishi@fshnstudent.info",
+      "id": "jY4Ahoq"
+    },
+    {
+      "name": "",
+      "mobilenumber": "",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": "",
+      "username": "",
+      "email": "",
+      "id": "mRjmUSd"
+    },
+    {
+      "name": "Whshbsf",
+      "mobilenumber": "dhfdhfdhfh",
+      "isActive": true,
+      "isDeleted": "",
+      "isFavorite": "",
+      "username": "fdg",
+      "email": "dfghjk",
+      "id": "qnDMxme"
+    },
+    {
+      "name": "Ttraa",
+      "mobilenumber": "075215425",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": "",
+      "username": "daniel_white_77",
+      "email": "johnll@ghf",
+      "id": "wfgsHyX"
+    }
+  ],
+  "user": [
+    {
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com",
+      "phone": "234324234",
+      "password": "12345678",
+      "role": "ADMIN",
+      "id": 1
+    },
+    {
+      "name": "Bill Jackson",
+      "email": "billjackson@gmail.com",
+      "phone": "12341234",
+      "password": "12341234",
+      "role": "USER",
+      "id": 2
+    },
+    {
+      "name": "Devis Dervishi",
+      "email": "dervishidevid@gmail.com",
+      "phone": "+355699555633",
+      "password": "67890",
+      "role": "USER",
+      "id": 3
+    },
+    {
+      "name": "Ttraa",
+      "email": "johnll@ghf",
+      "phone": "75215425",
+      "password": "ghcvbn",
+      "role": "ADMIN",
+      "id": 4
+    },
+    {
+      "name": "Angular",
+      "email": "ang@test.org",
+      "phone": "123478998654",
+      "password": "ang12345678754321",
+      "role": "ADMIN",
+      "id": 5
+    }
+  ]
+}

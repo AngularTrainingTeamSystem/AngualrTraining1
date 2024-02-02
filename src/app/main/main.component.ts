@@ -7,15 +7,13 @@ import { Contact } from '../models/contact';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  showContact(contact:Contact){
-    alert("Name:"+contact.name+"\n"+"Phone:"+contact.mobilenumber)
-  }
-  searchString!:string;
-  searchStringPasser(event: string){
-    
-      this.searchString=event;
-      
+  searchString!: string;
+
+  searchStringPasser(event: string) {
+    this.searchString = event;
   }
 
- 
+  showContact(contact: Contact) {
+    alert("Name:" + contact.name + "\n" + "Phone:" + contact.mobilenumber)
+  }
 }

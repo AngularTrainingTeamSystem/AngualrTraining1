@@ -1,6 +1,4 @@
 <body>
-  
-
     <br><br><form [formGroup]="form" (ngSubmit)="setFormAction()">
         Name:
         <input type="text"  name="name" formControlName="name">
@@ -11,7 +9,7 @@
           </ng-container>
         <br>
         Mobile:
-        <input type="text" name="mobile" formControlName="mobile">
+        <input type="text" name="mobile" formControlName="mobilenumber">
         <div class="error" *ngIf="contactMobile.errors?.['required']&&contactMobile.dirty">Mobile is required</div>
         <div class="error" *ngIf="contactMobile.errors?.['minlength']&&contactMobile.dirty">
           Mobile must be at least 8 numbers long</div>
@@ -25,8 +23,22 @@
         Is active
         <input  type="checkbox" value="true" id="isFavorite"  name="isActive" formControlName="isActive">
         <br>
+        Username:
+        <input type="text"  name="username" formControlName="username">
+        <ng-container *ngIf="form.controls['username'].errors">
+          <div class="error" *ngIf="form.controls['username'].hasError('required')&&form.controls['username'].dirty">Username is required</div>
+          <div class="error" *ngIf="form.controls['username'].hasError('unique')&&form.controls['username'].dirty">Username must be unique</div>
+        </ng-container>
+        <br>
+        Email:
+        <input type="text"  name="email" formControlName="email">
+        <ng-container *ngIf="form.controls['email'].errors">
+          <div class="error" *ngIf="form.controls['email'].hasError('required')&&form.controls['email'].dirty">Email is required</div>
+          <div class="error" *ngIf="form.controls['email'].hasError('unique')&&form.controls['email'].dirty">Email must be unique</div>
+          </ng-container>
+        <br>
         <button [disabled]="!form.valid" type="submit">Confirm</button>
-        <button [routerLink]="''">Home</button>
+        <button [routerLink]="'main'">Home</button>
       </form>
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>

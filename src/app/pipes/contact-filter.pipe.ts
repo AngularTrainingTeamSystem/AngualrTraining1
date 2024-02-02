@@ -6,7 +6,7 @@ import { Contact } from '../models/contact';
 })
 export class ContactFilterPipe implements PipeTransform {
 
-  transform(array: Contact[], search:string): any {
+  transform(array: Contact[] | null, search:string): any {
     
 if(typeof search === 'undefined'||search==''){
   
@@ -14,7 +14,7 @@ if(typeof search === 'undefined'||search==''){
 }
 else{
 
-   let filteredArr= array.filter(function(item) {
+   let filteredArr= array!.filter(function(item) {
     return item.name.toLowerCase().includes(search.toLowerCase());
 });
       

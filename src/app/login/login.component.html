@@ -1,0 +1,23 @@
+<body>
+    <br><br><form [formGroup]="form" (ngSubmit)="login()">
+       
+        Email:
+        <input type="text"  name="email" formControlName="email">
+        <ng-container *ngIf="form.controls['email'].errors">
+          <div class="error" *ngIf="form.controls['email'].hasError('required')&&form.controls['email'].dirty">Email is required</div>
+          <div class="error" *ngIf="form.controls['email'].hasError('unique')&&form.controls['email'].dirty">Email must be unique</div>
+        </ng-container>
+        <br>
+        Password:
+        <input type="password"  name="password" formControlName="password">
+        <ng-container *ngIf="form.controls['password'].errors">
+          <div class="error" *ngIf="form.controls['password'].hasError('required')&&form.controls['password'].dirty">Password is required</div>
+          <div class="error" *ngIf="form.controls['password'].hasError('unique')&&form.controls['password'].dirty">Password must be unique</div>
+          </ng-container>
+        <br>
+        <button [disabled]="!form.valid" type="submit">Confirm</button>
+        <button [routerLink]="'/signUp'">Sign Up</button>
+      </form>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </body>
+

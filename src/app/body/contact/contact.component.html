@@ -3,7 +3,7 @@
     [ngClass]="{'active':contact.isActive}"
      class="contact">
      <div (click)="sendContactToBody()">
-        <h5><a style="color: goldenrod;" [routerLink]="['update',contact.contactId]">Name:{{contact.name}}</a></h5>
+        <h5><a style="color: goldenrod;" [routerLink]="['update',contact.id]">Name:{{contact.name}}</a></h5>
         <p>Phone:{{contact.mobilenumber}}</p>
         <p>Username:{{contact.username}}</p>
         <p>Email:{{contact.email}}</p>

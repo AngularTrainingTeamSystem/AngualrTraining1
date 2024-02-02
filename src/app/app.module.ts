@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +14,28 @@ import { MainComponent } from './main/main.component';
 import {  StartsWithUpperCaseDirective } from './directives/starts-uppercase.directive';
 import { OneErrorPipe } from './pipes/one-error.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-
+import { ContactDisplayerComponent } from './body/contact-info-displayer/contact-displayer.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ContactRequestInterceptorInterceptor } from './interceptors/contact-request-interceptor.interceptor';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './authentication/auth.guard';
 const appRoutes: Routes = [
-  { path: 'main/add', component: ContactFormComponent },
-  { path: 'main', component: MainComponent },
-  {path: 'main/update/:contactId', component: ContactFormComponent },
-  {path:'', redirectTo:'main',pathMatch:'full'}
+  { path: 'main/add', component: ContactFormComponent,
+  canActivate: [AuthGuard],
+        data: {role: 'ADMIN'} },
+  { path: 'main', component: MainComponent,
+  canActivate: [AuthGuard],
+        data: {role: ['ADMIN','USER']}
+    },
+  {path: 'main/update/:contactId', component: ContactFormComponent,
+      canActivate: [AuthGuard],
+          data: {role: 'ADMIN'} },
+  {path:'signUp', component:SignUpComponent},
+  {path:'login', component:LoginComponent},
+  {path:'', redirectTo:'login',pathMatch:'full'}
 ];
+export let AppInjector: Injector;
 
 @NgModule({
   declarations: [
@@ -34,6 +49,10 @@ const appRoutes: Routes = [
     MainComponent,
     StartsWithUpperCaseDirective,
     ContactFormComponent,
+    ContactDisplayerComponent,
+    SignUpComponent,
+    LoginComponent,
+
     
     
     
@@ -44,10 +63,16 @@ const appRoutes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:ContactRequestInterceptorInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+export class AppModule {
+
+  
+ }
