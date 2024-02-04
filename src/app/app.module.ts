@@ -20,6 +20,7 @@ import { ContactRequestInterceptorInterceptor } from './interceptors/contact-req
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './authentication/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 const appRoutes: Routes = [
   { path: 'main/add', component: ContactFormComponent,
   canActivate: [AuthGuard],
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
           data: {role: 'ADMIN'} },
   {path:'signUp', component:SignUpComponent},
   {path:'login', component:LoginComponent},
-  {path:'', redirectTo:'login',pathMatch:'full'}
+  {path:'', redirectTo:'login',pathMatch:'full'},
+  { path: '**', component: NotFoundComponent }
 ];
 export let AppInjector: Injector;
 
@@ -52,6 +54,7 @@ export let AppInjector: Injector;
     ContactDisplayerComponent,
     SignUpComponent,
     LoginComponent,
+    NotFoundComponent,
 
     
     

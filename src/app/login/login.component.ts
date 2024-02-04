@@ -17,6 +17,7 @@ export class LoginComponent {
 
   }
   ngOnInit(): void {
+    localStorage.clear()
     this.form = this.fb.group(
       {
         email: ['', {
