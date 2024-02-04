@@ -1,0 +1,29 @@
+<h2>Welcome Back!</h2>
+<div class="container-wrapper">
+  <div class="image">
+    <img src="./assets/photos/login.jpg" alt="cat" height="450px" width="450px">
+  </div>
+  <div class="content">
+    <h3>Login</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
+      <div>
+        <label for="email">Email*</label>
+        <input id="email" formControlName="email" />
+        <div *ngIf="loginForm.get('email')?.hasError('required')" class="error">Email is required.</div>
+        <div *ngIf="loginForm.get('email')?.hasError('email')" class="error">Please enter a valid email address.</div>
+      </div>
+
+      <div>
+        <label for="password">Password*</label>
+        <input id="password" formControlName="password" />
+        <div *ngIf="loginForm.get('password')?.hasError('required')" class="error">Password is required</div>
+        <div *ngIf="loginForm.get('password')?.hasError('pattern')" class="error">Password must be at least 8 characters.</div>
+      </div>
+
+      <p>Forgot your password?</p>
+      <button type="submit" class="login-btn" [disabled]="!loginForm.valid">Login</button>
+      <button type="button" class="register-btn" routerLink="/signup">Register</button>
+    </form>
+  </div>
+</div>

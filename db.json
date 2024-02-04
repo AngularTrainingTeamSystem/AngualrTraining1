@@ -67,17 +67,6 @@
       "email": "james.carter@example.com"
     },
     {
-      "id": 330,
-      "mobilenumber": "355683050412",
-      "name": "Grace Taylorr",
-      "isActive": false,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2024-01-04",
-      "email": "grace@gmail.com",
-      "username": "gracie"
-    },
-    {
       "id": 16,
       "mobilenumber": "0101010101",
       "name": "Matthew Turner",
@@ -132,6 +121,121 @@
       "isDeleted": false,
       "contactDateCreated": "Thu Feb 01 2024",
       "id": 11114
+    },
+    {
+      "id": 11115,
+      "mobilenumber": "355683050412",
+      "name": "Daig",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "Sun Feb 04 2024",
+      "email": "daigooo@gmail.com",
+      "username": "daigoo"
+    }
+  ],
+  "user": [
+    {
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com",
+      "phone": "234324234",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "name": "Bill Jackson",
+      "email": "billjackson@gmail.com",
+      "phone": "12341234",
+      "password": "12341234",
+      "id": 2
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.com",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": true,
+      "id": 3
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.com",
+      "mobilenumber": "2001010100",
+      "name": "Sara",
+      "hasAccepted": true,
+      "id": 4
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.com",
+      "mobilenumber": "355683050412",
+      "name": "sara qorku",
+      "hasAccepted": false,
+      "id": 5
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.com",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": true,
+      "id": 6
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.comm",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": false,
+      "id": 7
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.co",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": false,
+      "id": 8
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.commm",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": true,
+      "id": 9
+    },
+    {
+      "password": "123456",
+      "email": "eliadaballazhi@gmail.commmm",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": false,
+      "id": 10
+    },
+    {
+      "password": "123456",
+      "email": "newuser@example.com",
+      "mobilenumber": "1234567890",
+      "name": "New User",
+      "hasAccepted": true,
+      "id": 11
+    },
+    {
+      "password": "123456",
+      "email": "daigo@gmail.com",
+      "mobilenumber": "355683050412",
+      "name": "Daigo",
+      "hasAccepted": true,
+      "id": 12
+    },
+    {
+      "password": "123456",
+      "email": "testio@gmail.com",
+      "mobilenumber": "355683050412",
+      "name": "Eliada Ballazhi",
+      "hasAccepted": true,
+      "id": 13
     }
   ]
 }

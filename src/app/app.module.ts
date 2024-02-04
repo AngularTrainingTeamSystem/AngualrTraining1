@@ -14,6 +14,9 @@ import { UserDetailsComponent } from './pages/users-details/user-details.compone
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestHeaderInterceptor } from './request-header.interceptor';
 import { FormUserComponent } from './pages/form-user/form-user.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { AuthenticationService } from './services/authentication-service';
 
 
 @NgModule({
@@ -25,6 +28,8 @@ import { FormUserComponent } from './pages/form-user/form-user.component';
     FormUserComponent,
     UsersListComponent,
     UserDetailsComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,8 +42,10 @@ import { FormUserComponent } from './pages/form-user/form-user.component';
   ],
   //STEP 6: Request Header interceptor declaration
   providers: [
+    AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: RequestHeaderInterceptor, multi:true},
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

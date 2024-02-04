@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact-service.service';
 import { User } from '../../models/user.model';
+import { AuthenticationService } from 'src/app/services/authentication-service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-users-list',
@@ -11,14 +14,24 @@ import { User } from '../../models/user.model';
 export class UsersListComponent implements OnInit {
   users: User[] = [];
   selectedUser?: User | null;
-  router: any;
 
-  constructor(private contactService: ContactService) { }
+  // isLoggedIn = false;
+  // isAdmin = false;
 
-  ngOnInit(): void {
-    this.getUserInfo(); // whenever app loads-> this happneds
-  }
 
+  constructor(private contactService: ContactService, 
+    public authenticationService: AuthenticationService,
+    private router: Router) {}
+
+    ngOnInit(): void {
+      this.getUserInfo();
+      this.authenticationService.isLoggedIn.subscribe((loggedIn) => {
+        // this.isLoggedIn = loggedIn;
+      });
+      this.authenticationService.userRole.subscribe((role) => {
+        // this.isAdmin = role === 'admin';
+      });
+    }
   getUserInfo() {
     this.contactService.getUsers().subscribe(
       (users) => {
