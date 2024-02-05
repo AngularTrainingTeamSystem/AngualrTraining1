@@ -2,7 +2,9 @@
 
 <div class="search-container">
     <input type="text" class="search-input" [(ngModel)]="searchTerm" placeholder="Search by name" />
+    <div *ngIf="isAdmin()">
     <button mat-raised-button (click)="openEditContact()">Add Contact</button>
+    </div>
     <button mat-raised-button class="logout" (click)="Logout()">Logout</button>
 </div>
 

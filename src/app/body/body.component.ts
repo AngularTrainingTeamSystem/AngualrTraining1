@@ -41,5 +41,14 @@ export class BodyComponent {
   }
 
   searchTerm : string = '';
+
+  isAdmin(){
+    
+    if(this.auth.getUserRole() === "admin"){
+      return true
+    }else{
+      return false
+    }
+  }
   
 }
