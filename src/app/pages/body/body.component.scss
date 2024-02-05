@@ -6,13 +6,15 @@ header {
     margin-bottom: auto;
     height: 10vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 h1 {
     margin: 0;
+    flex: 1;
 }
+
 section {
     max-width: 1000px;
     margin: 20px auto;
@@ -27,4 +29,8 @@ img {
 
 .info {
     margin-top: 20px;
+}
+
+.logout-button {
+    margin-left: auto;
 }

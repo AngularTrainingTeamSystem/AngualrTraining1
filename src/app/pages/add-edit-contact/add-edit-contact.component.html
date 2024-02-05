@@ -3,25 +3,25 @@
   <div>
     <label for="name">Name:</label>
     <input id="name" name="name" formControlName="name" required pattern="[a-zA-Z\s]*"/>
-    <div *ngIf="!contactForm.controls['name'].valid" class="error">Name should contain only characters and not be blank.</div>
+    <div *ngIf="!contactForm.controls['name'].valid && contactForm.controls['name'].touched" class="error">Name should contain only characters and not be blank.</div>
   </div>
 
   <div>
     <label for="mobilenumber">Mobile Number:</label>
     <input id="mobilenumber" name="mobilenumber" formControlName="mobilenumber" required pattern="\d*"/>
-    <div *ngIf="!contactForm.controls['mobilenumber'].valid && contactForm.controls['name'].touched" class="error">Mobile Number should contain only numbers and not be blank.</div>
+    <div *ngIf="!contactForm.controls['mobilenumber'].valid && contactForm.controls['mobilenumber'].touched" class="error">Mobile Number should contain only numbers and not be blank.</div>
   </div>
 
   <div>
     <label for="username">Username:</label>
     <input id="username" name="username" formControlName="username" required="true"/>
-    <div *ngIf="contactForm.controls['name'].touched && isUsernameTaken" class="error">Username is already taken.</div>
+    <div *ngIf="contactForm.controls['username'].touched && !contactForm.controls['username'].valid" class="error">Username is already taken.</div>
   </div>
 
   <div>
     <label for="email">Email:</label>
     <input id="email" name="email" formControlName="email" required="true"/>
-    <div *ngIf="contactForm.controls['name'].touched && isEmailTaken" class="error">Email is already taken.</div>
+    <div *ngIf="contactForm.controls['email'].touched && !contactForm.controls['email'].valid" class="error">Email is already taken.</div>
   </div>
 
   <div>

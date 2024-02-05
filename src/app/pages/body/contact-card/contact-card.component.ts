@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from 'src/app/models/contact.model';
 import { Router } from '@angular/router';
 import { ContactServiceService } from 'src/app/services/contact-service.service';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-contact-card',
@@ -10,9 +11,7 @@ import { ContactServiceService } from 'src/app/services/contact-service.service'
 })
 export class ContactCardComponent {
   
-  constructor(private contactService: ContactServiceService, private router: Router){
-    console.log(this.contact);
-  }
+  constructor(private contactService: ContactServiceService, private router: Router, public authService: AuthServiceService){}
 
   @Output() cardButtonClick = new EventEmitter<any>();
 
@@ -45,6 +44,10 @@ export class ContactCardComponent {
 
   toggleCardDetails(): void {
     this.showDetails = !this.showDetails;
+  }
+
+  isUserAdmin(): boolean {
+    return this.authService.getRole() === 'admin';
   }
 
   showAlert(){

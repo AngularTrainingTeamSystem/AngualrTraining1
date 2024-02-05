@@ -58,9 +58,9 @@
     {
       "id": "c13",
       "mobilenumber": "9990001111",
-      "name": "Emma Harrison",
+      "name": "Emma Harris",
       "isActive": true,
-      "isFavorite": "false",
+      "isFavorite": false,
       "isDeleted": false,
       "contactDateCreated": "2023-07-28",
       "username": "emma_harris_999",
@@ -111,15 +111,68 @@
       "id": "66uSk3m"
     },
     {
-      "name": "fasfgasfa",
-      "mobilenumber": "32412341",
-      "username": "vadvas",
-      "email": "dvasdvsdv",
+      "name": "Endri",
+      "mobilenumber": "4352435243",
+      "username": "endrishen",
+      "email": "endrishen@gmail.com",
       "isActive": true,
       "isFavorite": true,
       "isDeleted": false,
-      "contactDateCreated": "2024-02-06",
-      "id": "pPqhyxv"
+      "contactDateCreated": "2024-02-13",
+      "id": "q69RZML"
+    },
+    {
+      "name": "hahhhahahaha",
+      "mobilenumber": "75775775775",
+      "username": "hahahahahhah",
+      "email": "hahahahhaha",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-02-13",
+      "id": "u6zCUXa"
+    }
+  ],
+  "user": [
+    {
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com",
+      "phone": "234324234",
+      "password": "12345678",
+      "role": "user",
+      "id": 1
+    },
+    {
+      "name": "Bill Jackson",
+      "email": "billjackson@gmail.com",
+      "phone": "12341234",
+      "password": "12341234",
+      "role": "user",
+      "id": 2
+    },
+    {
+      "name": "Ceti",
+      "mobilenumber": "0695146171",
+      "email": "ceti.bevapi@gmail.com",
+      "password": "ujkucerrikut",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "name": "Endri",
+      "mobilenumber": "0987090",
+      "email": "endri.shen@gmail.com",
+      "password": "teamsystem",
+      "role": "admin",
+      "id": 4
+    },
+    {
+      "name": "gazgaz",
+      "mobilenumber": "9348903",
+      "email": "gazgaz@gmail.com",
+      "password": "trajnim",
+      "role": "user",
+      "id": 5
     }
   ]
 }

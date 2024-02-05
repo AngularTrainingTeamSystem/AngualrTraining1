@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, finalize, map, of, tap } from 'rxjs';
 import { Contact, contacts } from 'src/app/models/contact.model';
 
 @Injectable({
@@ -22,7 +22,10 @@ export class ContactServiceService {
   // }
 
   getContacts(): Observable<any> {
-    return this.http.get(this.url).pipe(tap((res => this.totalItems = Object.values(res).length)));
+    return this.http.get(this.url).pipe(
+      tap((res => this.totalItems = Object.values(res).length)),
+      catchError((error) => of(error))
+      );
   }
 
   getContactById(id: string): Observable<Contact> {
@@ -46,7 +49,9 @@ export class ContactServiceService {
   updateContact(updatedContact: Contact): Observable<any> {
     const headers = {'content-type': 'application/json'}
     const body = JSON.stringify(updatedContact);
-    return this.http.put(`${this.url}/${updatedContact.id}`, body, {'headers': headers})
+    return this.http.put(`${this.url}/${updatedContact.id}`, body, {'headers': headers}).pipe(
+      catchError((error) => of(error))
+    );
   }
 
   deleteContact(id: string): Observable<any>{
@@ -54,6 +59,21 @@ export class ContactServiceService {
     console.log('ID', id);
 
     return this.http.delete(`${this.url}/${id}`, {'headers': headers})
+  }
+
+  isUsernameTaken(username: string): Observable<boolean> {
+    return this.getContacts().pipe(
+      map((contacts: Contact[]) => contacts.some((contact: Contact) => contact.username === username)),
+      catchError(() => of(false))
+    );
+  }
+
+  // Check if email already exists
+  isEmailTaken(email: string): Observable<boolean> {
+    return this.getContacts().pipe(
+      map((contacts: Contact[]) => contacts.some((contact: Contact) => contact.email === email)),
+      catchError(() => of(false))
+    );
   }
 
   // isUsernameTaken(username: string): boolean {
