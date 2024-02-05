@@ -10,27 +10,26 @@ export class AuthenticationService {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const userExists = users.some((existingUser: any) => existingUser.email === user.email);
     if (userExists) {
-      return false; 
+      return false;
     }
+    user.role = user.userType === 'admin' ? 'admin' : 'user';  
     users.push(user);
-    localStorage.setItem('users', JSON.stringify(users)); return true;
+    localStorage.setItem('users', JSON.stringify(users));
+    return true;
   }
 
   login({ email, password }: { email: string; password: string }): any {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const user = users.find((u: any) => u.email === email && u.password === password);
     if (user) {
-      user.role = user.email === 'eliadaballazhi@gmail.com' ? 'admin' : 'user';  // admin credentials
       localStorage.setItem('currentUser', JSON.stringify(user));
       return user;
     }
-  
     return null;
   }
 
   logout(): void {
     localStorage.removeItem('currentUser');
-
   }
 
   isAuthenticated(): boolean {
@@ -46,4 +45,3 @@ export class AuthenticationService {
     return user.role === requiredRole;
   }
 }
-

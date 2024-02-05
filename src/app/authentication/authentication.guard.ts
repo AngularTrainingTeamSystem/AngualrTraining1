@@ -11,14 +11,27 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router) { }
   
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    const requiresLogin = route.data['requiresLogin'] || false; const requiredRole = route.data['requiredRole'];
+    const requiresLogin = route.data['requiresLogin'] || false;
+    const requiredRole = route.data['requiredRole'];
     if (requiresLogin && !this.authService.isAuthenticated()) {
-      //this.router.navigate(['/login']); 
+      this.router.navigate(['/login']); 
       return false;
     }
-    if (requiredRole && !this.authService.isAuthorized(requiredRole)) { 
-      //this.router.navigate(['/login']); 
-    }
     return true;
+    //return this.isAuthorized(route);
   }
+
+    //DEACTIVATE WHEN USER LEAVES: canDeactivate
+    //CanLoad, CanActivateChild
+
+
+
+  //   const isAuthorized(route: ActivatedRouteSnapshot): boolean{
+  //     const roles = ['Admin', 'User'];
+  //     const requiredRole = route.data.requiredRole;
+  //     const roleMatches= roles.findIndex(role => requiredRole.indexOf(role)! == -1);
+  //     return (roleMatches >= 0) ? true : false; 
+  // };
+
+  
 }

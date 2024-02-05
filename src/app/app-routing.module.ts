@@ -11,10 +11,9 @@ import { AuthGuard } from './authentication/authentication.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'form-user/:id', component: FormUserComponent, canActivate: [AuthGuard], data: { requiredRole: 'admin' } },
-  { path: 'form-user', component: FormUserComponent, canActivate: [AuthGuard], data: { requiredRole: 'admin' } },
-  { path: 'users', component: UsersListComponent, canActivate: [AuthGuard], data: { requiredRole: 'user' } },
-  { path: 'users/:id', component: UserDetailsComponent, canActivate: [AuthGuard], data: { requiredRole: 'user' } },
+  { path: 'form-user/:id', component: FormUserComponent, canActivate: [AuthGuard], data: { requiredRole: ['Admin', 'User'] } },
+  { path: 'form-user', component: FormUserComponent, canActivate: [AuthGuard], data: { requiredRole:'Admin'} },
+  { path: 'users', component: UsersListComponent, canActivate: [AuthGuard], data: { requiredRole: ['Admin', 'User'] } },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 ];
