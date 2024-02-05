@@ -1,0 +1,26 @@
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<form [formGroup]="form" (ngSubmit)="logIn()">
+  <body>
+    <div class="login-container">
+      <label for="email">Email:</label><br>
+      <input type="text" placeholder="Your Email" id="email" name="email" formControlName="email"><br>
+      <div class="error" *ngIf="form.controls['email'].hasError('required')&&form.controls['email'].dirty">Email is required</div>
+      <label for="password">Password:</label><br>
+      <input type="password" [type]="passwordVisible ? 'text' : 'password'" placeholder="Your Password" id="password" name="password" formControlName="password">
+      <div class="input-group-append">
+        <span class="input-group-text bi bi-eye-slash" id="togglePassword" (click)="passwordVisible = !passwordVisible"></span>
+      </div>
+      <div class="error" *ngIf="form.controls['password'].hasError('required')&&form.controls['password'].dirty">
+        Password is required </div>
+      <button type="submit"  [disabled]="!form.valid">Login</button>
+      <br>
+      <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+    </div>
+  </body>
+</form>

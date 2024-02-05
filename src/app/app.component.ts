@@ -8,11 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   title = 'project';
-
   //Validime per FORMBUILDER SIPAS KERKESES//
   form: FormGroup;
-
-
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       name: ['', Validators.required],
@@ -20,9 +17,4 @@ export class AppComponent {
       birthday: ['', Validators.required]
     });
   }
-
-
-
-
-
 }

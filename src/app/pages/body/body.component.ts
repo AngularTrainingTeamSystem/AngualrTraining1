@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Kontakt } from '../../models/kontakt';
 import { ContactServiceService } from '../../service/contact-service.service';
 import { CrudService } from '../../service/crud.service';
+import { AuthenticateUserService } from 'src/app/service/authenticate-user.service';
 
 @Component({
   selector: 'app-body',
@@ -11,16 +12,12 @@ import { CrudService } from '../../service/crud.service';
 export class BodyComponent {
   kontaktet: any = this.crudService.getAllContacts();
 
-  constructor(private contactService: ContactServiceService, private crudService: CrudService) {
+  constructor(private contactService: ContactServiceService, private crudService: CrudService,private authenticate : AuthenticateUserService) {
     // this.kontaktet = this.crudService.getAllContacts();
     // console.log(this.kontaktet);
   }
-
-
-
   @Input()
-  search!: string;
-
+  search!: string
   //   kontakt:Kontakt[]=[
   //     {"id": "c1", "mobilenumber": "1234567890", "name": "John Doe", "isActive": true, "isFavorite": false, "isDeleted": false, "contactDateCreated": "2023-07-12"},
   //  {"id": "c2", "mobilenumber": "9876543210", "name": "Jane Smith", "isActive": false, "isFavorite": true, "isDeleted": false, "contactDateCreated": "2023-05-24"},
@@ -39,8 +36,13 @@ export class BodyComponent {
   //  {"id": "c15", "mobilenumber": "7773336666", "name": "Ava Rodriguez", "isActive": true, "isFavorite": true, "isDeleted": false, "contactDateCreated": "2023-10-19"}
   //   ]
 
-
-
+  isAdmin(){
+   if(this.authenticate.getRole() === 'admin'){
+    return  true;
+   }else{
+     return false;
+   }
+  }
 
 }
 

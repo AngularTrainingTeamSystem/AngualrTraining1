@@ -79,7 +79,7 @@ export class EditPerdoruesComponent implements OnInit {
   deleteUser(): void {
     if (this.kontakt && this.kontakt.id) {
       this.crudService.deleteContact(this.kontakt.id).subscribe();
-      this.router.navigate(['/body']);
+      this.router.navigate(['']);
       alert('User deleted');
     }
   }
@@ -118,7 +118,7 @@ export class EditPerdoruesComponent implements OnInit {
     this.crudService.updateContact(this.kontakt!)
       .subscribe({
         next: () => {
-          this.router.navigate(['/body']);
+          this.router.navigate(['']);
         },
         error: (error) => {
           console.error('Error updating contact:', error);

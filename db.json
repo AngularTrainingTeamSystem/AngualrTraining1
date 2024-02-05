@@ -1,17 +1,6 @@
 {
   "contacts": [
     {
-      "id": "c1",
-      "mobilenumber": "1234567890",
-      "name": "John Zoteria",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": false,
-      "contactDateCreated": "2023-07-12",
-      "username": "john_doe_123",
-      "email": "john.doe@example.com"
-    },
-    {
       "id": "c3",
       "mobilenumber": "5551112233",
       "name": "Alice Johnson",
@@ -35,14 +24,14 @@
     },
     {
       "id": "c6",
-      "mobilenumber": "4445556666",
+      "mobilenumber": "4445556665",
       "name": "Charlie Brown",
-      "isActive": false,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-08-21",
-      "username": "charlie_brown_444",
-      "email": "charlie.brown@example.com"
+      "isActive": "true",
+      "isFavorite": "",
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-05T10:23:37.336Z",
+      "username": "charlie_brown_111",
+      "email": "kristijaupaj@example.com"
     },
     {
       "id": "c7",
@@ -54,17 +43,6 @@
       "contactDateCreated": "2023-04-06",
       "username": "grace_taylor_999",
       "email": "grace.taylor@example.com"
-    },
-    {
-      "id": "c8",
-      "mobilenumber": "7776665555",
-      "name": "Daniel White",
-      "isActive": false,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-09-14",
-      "username": "daniel_white_777",
-      "email": "daniel.white@example.com"
     },
     {
       "id": "c9",
@@ -80,11 +58,11 @@
     {
       "id": "c10",
       "mobilenumber": "2223334444",
-      "name": "Liam Anderson",
+      "name": "Liam Andersoi",
       "isActive": false,
       "isFavorite": true,
       "isDeleted": false,
-      "contactDateCreated": "2023-06-10",
+      "contactDateCreated": "2024-02-02T05:59:32.170Z",
       "username": "liam_anderson_222",
       "email": "liam.anderson@example.com"
     },
@@ -94,10 +72,10 @@
       "name": "Olivia Parker",
       "isActive": true,
       "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-03-19",
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T09:10:32.600Z",
       "username": "olivia_parker_111",
-      "email": "olivia.parker@example.com"
+      "email": "manuka@gmail.com"
     },
     {
       "id": "c12",
@@ -118,7 +96,7 @@
       "isFavorite": true,
       "isDeleted": false,
       "contactDateCreated": "2023-07-28",
-      "username": "emma_harris_999",
+      "username": "emma_harris666",
       "email": "emma.harris@example.com"
     },
     {
@@ -147,34 +125,570 @@
       "id": "k3",
       "mobilenumber": "0693339328",
       "name": "Aleksios Malasi",
-      "isActive": false,
-      "isFavorite": false,
-      "isDeleted": false,
-      "contactDateCreated": "2024-02-02",
+      "isActive": "",
+      "isFavorite": "true",
+      "isDeleted": true,
+      "contactDateCreated": "2024-02-02T14:17:50.658Z",
       "username": "babygecko",
-      "email": "a.malasi01@teamsystem.com"
+      "email": "malasialeks1@gmail.com"
     },
     {
       "id": "kk23",
-      "mobilenumber": "892581097589",
-      "name": "Tom",
+      "mobilenumber": "1111111111",
+      "name": "Tom Armstrong",
       "isActive": false,
       "isFavorite": false,
       "isDeleted": false,
-      "contactDateCreated": "2024-01-30T13:00:32.508Z",
+      "contactDateCreated": "2024-01-03",
       "username": "tomi__boy",
-      "email": "tomi@123.com"
+      "email": "tomi@123.al"
     },
     {
       "id": "k43i",
       "mobilenumber": "6969696969",
       "name": "Mister Honey",
+      "isActive": "",
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T09:36:40.203Z",
+      "username": "mister_honey_money",
+      "email": "manuka@gmail.com"
+    },
+    {
+      "id": "d9",
+      "mobilenumber": "7272374284",
+      "name": "Matia Malkollari",
       "isActive": false,
       "isFavorite": false,
       "isDeleted": false,
-      "contactDateCreated": "2024-01-30T15:22:20.860Z",
-      "username": "mister_honey_money",
-      "email": "honeyMoney@gmail.com"
+      "contactDateCreated": "2024-01-30T21:21:58.418Z",
+      "username": "xenoverse-DESTROYER",
+      "email": "matiamalkooo@gmail.com"
+    },
+    {
+      "id": ".",
+      "mobilenumber": "11111111111",
+      "name": "zoteri",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-30T21:30:37.970Z",
+      "username": "zoteria",
+      "email": "zoteria.com.al.gr.it.@gmail.uk"
+    },
+    {
+      "id": "4auPAng",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T08:11:07.506Z",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "hlU_a8d",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T08:13:48.720Z",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "l82ywLp",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T08:14:32.147Z",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "h2",
+      "mobilenumber": "2292929233",
+      "name": "dragomir",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T08:20:10.599Z",
+      "username": "dragoboiiii",
+      "email": "dragonigen@tml.com"
+    },
+    {
+      "id": "o6aoijZ",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T09:16:01.201Z",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "GfYTxND",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T09:19:22.421Z",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "e9cOMKU",
+      "mobilenumber": "8537626632",
+      "name": "kristi likaj",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-01-31T10:15:34.196Z",
+      "username": "kristi_zoteria7667",
+      "email": "kristijaupaj@example.com"
+    },
+    {
+      "id": "sQgoWva",
+      "mobilenumber": "4445556668",
+      "name": "Charlie Brown",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-02-02T06:21:21.951Z",
+      "username": "babygecko",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "f0R7nz6",
+      "mobilenumber": "7632141877",
+      "name": "Marsel Hasanbashaj",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T09:15:36.708Z",
+      "username": "jjjfjjfjfjjfjffjjfjf",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "QaDhAqW",
+      "mobilenumber": "0566361232",
+      "name": "Drini Telharaj",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T08:30:03.672Z",
+      "username": "drini_telharaj",
+      "email": "drinitelharaj@gmail.com"
+    },
+    {
+      "id": "6Q1t4ru",
+      "mobilenumber": "0693339328",
+      "name": "alexios ",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": true,
+      "contactDateCreated": "2024-02-02T08:30:24.691Z",
+      "username": "asd",
+      "email": ""
+    },
+    {
+      "id": "V_8gOiU",
+      "mobilenumber": "6266262626",
+      "name": "Sofia Vega",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-01T09:55:23.810Z",
+      "username": "sofiavega123",
+      "email": "214612@gmail.gr"
+    },
+    {
+      "id": "tPd7C-g",
+      "mobilenumber": "7377373773",
+      "name": "ardi",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": true,
+      "contactDateCreated": "2024-02-01T09:58:29.251Z",
+      "username": "ardiboi",
+      "email": "ardibujupi@gmail.com"
+    },
+    {
+      "id": "eYcwYjV",
+      "mobilenumber": "0693339328",
+      "name": "asd",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": true,
+      "contactDateCreated": "2024-02-01T09:59:12.351Z",
+      "username": "john_doe",
+      "email": "a.malasi01@teamsystem.com"
+    },
+    {
+      "id": "9SI2OBz",
+      "mobilenumber": "8888888888",
+      "name": "manuka",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": true,
+      "contactDateCreated": "2024-02-01T10:44:26.533Z",
+      "username": "manuka",
+      "email": "manuka@gmail.com"
+    },
+    {
+      "id": "QCwD-IB",
+      "mobilenumber": "0693339328",
+      "name": "Aleksios Malasi",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-01T15:04:00.543Z",
+      "username": "manuka",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "J1eDksJ",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "0UeJQK3",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "TC856CL",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "W3INW5B",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "kCixovo",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "uyqrFXV",
+      "mobilenumber": "0693339328",
+      "name": "Charlie Brown",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T05:35:54.714Z",
+      "username": "asd",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "7s4WB9D",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "8y3yCqr",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "xrm4dDS",
+      "mobilenumber": "8888888888",
+      "name": "alex",
+      "isActive": "true",
+      "isFavorite": "true",
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T14:18:04.255Z",
+      "username": "babygecko",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "dzKqYux",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "WTXH1q4",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "slnclcE",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "JAJXe6Q",
+      "mobilenumber": "",
+      "name": "",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "",
+      "username": "",
+      "email": ""
+    },
+    {
+      "id": "IC59sYT",
+      "mobilenumber": "0693339328",
+      "name": "asd",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T05:58:48.414Z",
+      "username": "babygecko",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "PEnLOxD",
+      "mobilenumber": "0693339328",
+      "name": "asd",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T06:27:37.075Z",
+      "username": "babygecko",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "iefRmD2",
+      "mobilenumber": "0693339328",
+      "name": "Aleksios Malasi",
+      "isActive": "",
+      "isFavorite": "",
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T09:03:14.539Z",
+      "username": "asd",
+      "email": "kristijaupaj@example.com"
+    },
+    {
+      "id": "v5fPCzC",
+      "mobilenumber": "8888888888",
+      "name": "Charlie Brown",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T09:37:33.374Z",
+      "username": "babygecko",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "A6zbjE4",
+      "mobilenumber": "4445556666",
+      "name": "Aleksios Malasi",
+      "isActive": "",
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-02T15:36:12.360Z",
+      "username": "asd",
+      "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "B2Yk2FV",
+      "mobilenumber": "8888888888",
+      "name": "alex",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-04T21:53:05.265Z",
+      "username": "babygecko",
+      "email": "malasialeks1@gmail.com"
+    },
+    {
+      "id": "c7mRTdG",
+      "mobilenumber": "8888888888",
+      "name": "Aleksios Malasi",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "2024-02-04T22:21:20.068Z",
+      "username": "babygecko",
+      "email": "charlie.brown@example.com"
+    }
+  ],
+  "user": [
+    {
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com",
+      "phone": "234324234",
+      "password": "12345678",
+      "id": 1,
+      "role": "admin"
+    },
+    {
+      "name": "Bill Jackson",
+      "email": "billjackson@gmail.com",
+      "phone": "12341234",
+      "password": "12341234",
+      "id": 2,
+      "role": "user"
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": "admin",
+      "id": 5
+    },
+    {
+      "name": "Kiara",
+      "email": "kiara@gmail.com",
+      "password": "kiara123456789",
+      "role": "admin",
+      "id": 6
+    },
+    {
+      "name": "Aleksios Malasi",
+      "email": "malasialeks1@gmail.com",
+      "phone": "0693339428",
+      "password": "aleksmalasi",
+      "role": "admin",
+      "id": 7
+    },
+    {
+      "name": "alex",
+      "email": "charlie.brown@example.com",
+      "phone": "0693339428",
+      "password": "saddfasfasfsa",
+      "role": "user",
+      "id": 8
+    },
+    {
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com",
+      "phone": "0693339428",
+      "password": "76876686654",
+      "role": "admin",
+      "id": 9
+    },
+    {
+      "name": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "role": "admin",
+      "id": 10
+    },
+    {
+      "name": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "role": "",
+      "id": 11
+    },
+    {
+      "name": "",
+      "email": "",
+      "phone": "",
+      "password": "k",
+      "role": "admin",
+      "id": 12
+    },
+    {
+      "name": "Elisa",
+      "email": "elisajahaj@gmail.com",
+      "phone": "86521936",
+      "password": "elisajahaj69",
+      "role": "user",
+      "id": 13
+    },
+    {
+      "name": "Aleksios Malasi",
+      "email": "aleks@gmail.com",
+      "phone": "0693339428",
+      "password": "1234",
+      "role": "admin",
+      "id": 14
+    },
+    {
+      "name": "elida",
+      "email": "eliada@gmail.com",
+      "phone": "7251248581",
+      "password": "123456",
+      "role": "user",
+      "id": 15
     }
   ]
 }

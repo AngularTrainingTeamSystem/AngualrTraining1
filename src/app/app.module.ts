@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { BodyComponent } from './pages/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
@@ -20,11 +19,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { RequestheaderinterceptorInterceptor } from './interceptor/requestheaderinterceptor.interceptor';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
-
-
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { AuthGuard } from './guards/authenticationGuard';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -37,15 +36,17 @@ import { HttpClientModule } from '@angular/common/http';
     FormaPerdoruesComponent,
     BodyHolderComponent,
     EditPerdoruesComponent,
-
+    LoginComponent,
+    SignupComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    CommonModule,
   ],
   providers: [ContactServiceService, CrudService,
     { provide: HTTP_INTERCEPTORS, useClass: RequestheaderinterceptorInterceptor, multi: true },

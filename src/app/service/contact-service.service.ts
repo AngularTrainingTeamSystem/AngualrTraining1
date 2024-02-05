@@ -5,7 +5,7 @@ import { Kontakt } from '../models/kontakt';
   providedIn: 'root'
 })
 export class ContactServiceService {
-  kontaktet:Kontakt[]=[
+  kontaktet: Kontakt[] = [
     { "id": "c1", "mobilenumber": "1234567890", "name": "John Doe", "isActive": true, "isFavorite": false, "isDeleted": false, "contactDateCreated": "2023-07-12", "username": "john_doe", "email": "john.doe@example.com" },
     { "id": "c2", "mobilenumber": "9876543210", "name": "Jane Smith", "isActive": false, "isFavorite": true, "isDeleted": false, "contactDateCreated": "2023-05-24", "username": "jane_smith", "email": "jane.smith@example.com" },
     { "id": "c3", "mobilenumber": "5551112233", "name": "Alice Johnson", "isActive": true, "isFavorite": false, "isDeleted": true, "contactDateCreated": "2023-10-08", "username": "alice_johnson", "email": "alice.johnson@example.com" },
@@ -24,13 +24,13 @@ export class ContactServiceService {
   ]
   constructor() { }
 
-  getContacts() : Kontakt[]{
+  getContacts(): Kontakt[] {
     return this.kontaktet;
   }
 
-  getContactById(id: string){
+  getContactById(id: string) {
     let contact: Kontakt[];
-    contact = this.kontaktet.filter(kontaktet=> kontaktet.id === id)
+    contact = this.kontaktet.filter(kontaktet => kontaktet.id === id)
     return contact[0];
   }
 }

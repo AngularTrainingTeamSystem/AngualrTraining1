@@ -2,98 +2,96 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-
-
-
 <div class="container">
   <h2>Personal Information</h2>
-
-  <!-- NEVOJITET NESE DUAM T BEJME BUTONIN DISABLED-->
-  <form #personalForm="ngForm">
+  <form [formGroup]="form">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" name="name" [(ngModel)]="kontakti.name" #name="ngModel" required placeholder="Name">
+      <input type="text" name="name" formControlName="name" required placeholder="Name">
     </div>
-    <!-- NEW ERROR MESSAGE DIVS -->
-    <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
-      Name is required.
+
+    <div *ngIf="form.get('name')?.errors?.['required'] && form.get('name')?.touched">Name is required
     </div>
 
     <div class="form-group">
       <label for="mobilenumber">Mobile Number:</label>
-      <input type="tel" name="mobilenumber" [(ngModel)]="kontakti.mobilenumber" #mobilenumber="ngModel" required
-        placeholder="MobileNumber">
-    </div>
-    <!-- END NEW ERROR MESSAGE DIVS -->
-    <div *ngIf="mobilenumber.invalid && mobilenumber.touched" class="alert alert-danger">
-      Mobile Number is required.
+      <input type="tel" name="mobilenumber" formControlName="number" required placeholder="MobileNumber">
     </div>
 
+    <div *ngIf="form.get('number')?.errors?.['required'] && form.get('number')?.touched">Number is required</div>
+    <div *ngIf="form.get('number')?.errors?.['pattern'] && form.get('number')?.touched">Please enter a valid number in
+      the format XXX-XXX-XXXX</div>
 
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" name="username" formControlName="username" required placeholder="Username">
+    </div>
+    <div *ngIf="form.get('username')?.errors?.['required'] && form.get('username')?.touched">Username is required
+      <div *ngIf="form.get('username')?.hasError('uniqueUsername')">
+        <p>Username already exists.</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" name="email" formControlName="email" required placeholder="email">
+    </div>
+    <div *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched">Email is required
+    </div>
+    <div *ngIf="form.get('email')?.errors?.['required']&&form.get('email')?.errors?.['uniqueEmail'] && form.get('email')?.touched">Email already exists</div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isActive" placeholder="isActive">
+      <label class="form-check-label" for="isActive"> Is Active</label>
+
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isFavorite" placeholder="isFavorite">
+      <label class="form-check-label" for="isFavorite">Is Favorite</label>
+
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isDeleted" placeholder="isDeleted">
+      <label class="form-check-label" for="isDeleted">Is Deleted</label>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="contactDateCreated">Birthday:</label>
+      <input type="date" name="contactDateCreated" formControlName="contactDateCreated" placeholder="ontactDateCreated">
+    </div>
+
+    <!--BUTONI ESHTE DISSABLED -->
+    <!--crud operation -->
+    <button class="btn btn-success btn-lg save-btn" (click)="makeAction()" [disabled]="form.invalid">Save</button>
+    <button class="btn btn-success btn-lg save-btn" routerLink="/bodyholder">Close</button>
+    <br>
+    <!-- IF WE DONT HAVE ID BUTTON IS HIDDEN-->
+    <div *ngIf="id!=null">
+      <br>
+      <button class="btn btn-success btn-lg save-btn" type="button" (click)="deleteUser()">Delete User</button>
+    </div>
+    <!-- 
     <div class="form-group">
       <label for="id">ID:</label>
       <input type="text" name="id" [(ngModel)]="kontakti.id" #id="ngModel" required placeholder="ID">
     </div>
-    <!-- END NEW ERROR MESSAGE DIVS -->
     <div *ngIf="id.invalid && id.touched" class="alert alert-danger">
       ID is required.
-    </div>
-
-    <div class="form-group">
+    </div> -->
+    <!-- <div class="form-group">
       <label for="name">Username:</label>
-      <input type="text" name="username" [(ngModel)]="kontakti.username" #name="ngModel" required
+      <input type="text" name="username" required
         placeholder="Username">
     </div>
-
     <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
       Username is required.
     </div>
-
     <div class="form-group">
       <label for="name">Email:</label>
-      <input type="text" name="email" [(ngModel)]="kontakti.email" #name="ngModel" required placeholder="Email">
+      <input type="text" name="email"  required placeholder="Email">
     </div>
-
     <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
       Email is required.
-    </div>
-
-    <!--KONTROLLOJME NESE REQUIRED FUNKSIONON  -->
-    <!-- <div>
-         {{name.valid + " " + mobilenumber.valid}}
-      </div>
-     -->
-
-
-
-
-    <br>
-    <br>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="true" id="isActive" [(ngModel)]="kontakt.isActive">
-      <label class="form-check-label" for="isActive">
-        Is Active
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="true" id="isFavorite" [(ngModel)]="kontakt.isFavorite">
-      <label class="form-check-label" for="isFavorite">
-        Is Favorite
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="true" id="isDeleted" [(ngModel)]="kontakt.isDeleted">
-      <label class="form-check-label" for="isDeleted">
-        Is Deleted
-      </label>
-    </div>
-    <br>
-    <!--BUTONI ESHTE DISSABLED -->
-    <!--crud operation -->
-    <button class="btn btn-success btn-lg" (click)="createContact()" [disabled]="personalForm.invalid">CREATE</button>
-
-
+    </div> -->
   </form>
 </div>

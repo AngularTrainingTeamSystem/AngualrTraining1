@@ -8,6 +8,5 @@ export class Kontakt {
   contactDateCreated!: string;
   username!: string;
   email!: string;
-
 }
 

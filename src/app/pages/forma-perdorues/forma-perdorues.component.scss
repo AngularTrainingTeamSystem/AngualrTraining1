@@ -22,7 +22,9 @@ label {
 }
 
 input[type="text"],
-input[type="tel"] {
+input[type="tel"] ,
+input[type="text"],
+input[type="text"]{
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -52,4 +54,9 @@ input[type="tel"]:valid {
   border: 1px solid green;
   background-repeat: no-repeat;
   background-position: center right;
+}
+
+.save-btn{
+  margin-right: 10px;
+ 
 }

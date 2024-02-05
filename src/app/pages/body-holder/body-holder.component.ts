@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticateUserService } from 'src/app/service/authenticate-user.service';
 
 @Component({
   selector: 'app-body-holder',
@@ -8,10 +9,15 @@ import { Component } from '@angular/core';
 export class BodyHolderComponent {
   search!: string;
 
-  receiveInformation(event: string) {
+  constructor(private authenticate : AuthenticateUserService){}
 
+  receiveInformation(event: string) {
     this.search = event;
     console.log(this.search)
+  }
+
+  isAdmin(){
+    
   }
 }
 
