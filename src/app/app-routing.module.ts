@@ -6,17 +6,17 @@ import { UserDetailsComponent } from './pages/users-details/user-details.compone
 import { FormUserComponent } from './pages/form-user/form-user.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { AuthGuard } from './authentication/authentication.guard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent}, 
-  { path: 'form-user/:id', component: FormUserComponent },
-  { path: 'form-user', component: FormUserComponent }, 
-  { path: 'users', component: UsersListComponent },
-  { path: 'users/:id', component: UserDetailsComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'signup', component: SignupComponent},
-
+  { path: '', component: HomeComponent },
+  { path: 'form-user/:id', component: FormUserComponent, canActivate: [AuthGuard], data: { requiredRole: 'admin' } },
+  { path: 'form-user', component: FormUserComponent, canActivate: [AuthGuard], data: { requiredRole: 'admin' } },
+  { path: 'users', component: UsersListComponent, canActivate: [AuthGuard], data: { requiredRole: 'user' } },
+  { path: 'users/:id', component: UserDetailsComponent, canActivate: [AuthGuard], data: { requiredRole: 'user' } },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
 ];
 
 @NgModule({

@@ -1,36 +1,49 @@
-// authentication.service.ts
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Observable, throwError, BehaviorSubject } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private loggedIn = new BehaviorSubject<boolean>(false);
-  private role = new BehaviorSubject<string>(''); 
+  constructor() { }
 
-  get isLoggedIn(): Observable<boolean> {
-    return this.loggedIn.asObservable();
+  register(user: any): boolean {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const userExists = users.some((existingUser: any) => existingUser.email === user.email);
+    if (userExists) {
+      return false; 
+    }
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users)); return true;
   }
 
-  get userRole(): Observable<string> {
-    return this.role.asObservable();
+  login({ email, password }: { email: string; password: string }): any {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find((u: any) => u.email === email && u.password === password);
+    if (user) {
+      user.role = user.email === 'eliadaballazhi@gmail.com' ? 'admin' : 'user';  // admin credentials
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      return user;
+    }
+  
+    return null;
   }
 
-  get hasRoleAdmin(): Observable<boolean> {
-    return this.userRole.pipe(map(role => role === 'admin'));
+  logout(): void {
+    localStorage.removeItem('currentUser');
+
   }
 
-  login(credentials: { email: string, password: string }): void {
-    this.loggedIn.next(true);
-    const userRole = this.determineUserRole(credentials.email);
-    this.role.next(userRole);
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('currentUser');
   }
-  private determineUserRole(email: string): string {
-    return 'user';
+
+  currentUser(): any {
+    return JSON.parse(localStorage.getItem('currentUser') || '{}');
+  }
+
+  isAuthorized(requiredRole: string): boolean {
+    const user = this.currentUser();
+    return user.role === requiredRole;
   }
 }
 

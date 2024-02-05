@@ -1,7 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/user-service.service';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication-service';
 
 
 @Component({
@@ -11,9 +11,9 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  loginError = false; 
+  loginError = false;
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -29,15 +29,30 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       const credentials = this.loginForm.value;
-      this.userService.login(credentials).subscribe(
-        () => {
-        },error => {
-          console.error('Login error:', error);
-          this.loginError = true;
-        }
-      );
+      const user = this.authService.login(credentials);
+      if (user) {
+        console.log('Login successful!');
+        this.router.navigate(['/users']);
+      } else {
+        console.error('Login failed. Invalid credentials.');
+        this.loginError = true;
+      }
     } else {
       console.log('Form is invalid. Please check the fields.');
     }
   }
+  // onSubmit() {
+  //   if (this.loginForm.valid) {
+  //     const credentials = this.loginForm.value;
+  //     this.userService.login(credentials).subscribe(
+  //       () => {
+  //       },error => {
+  //         console.error('Login error:', error);
+  //         this.loginError = true;
+  //       }
+  //     );
+  //   } else {
+  //     console.log('Form is invalid. Please check the fields.');
+  //   }
+  // }
 }
