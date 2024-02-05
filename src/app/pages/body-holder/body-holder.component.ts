@@ -9,15 +9,12 @@ import { AuthenticateUserService } from 'src/app/service/authenticate-user.servi
 export class BodyHolderComponent {
   search!: string;
 
-  constructor(private authenticate : AuthenticateUserService){}
+  constructor(private authenticate: AuthenticateUserService) { }
 
   receiveInformation(event: string) {
     this.search = event;
     console.log(this.search)
   }
 
-  isAdmin(){
-    
-  }
 }
 

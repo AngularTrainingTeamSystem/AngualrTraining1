@@ -13,7 +13,6 @@ export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
 
-
   constructor(private formBuilder: FormBuilder, private crudService: CrudService, private router: Router) { }
 
   ngOnInit() {
@@ -41,5 +40,4 @@ export class SignupComponent implements OnInit {
     this.crudService.createUserBySignUp(user);
     this.router.navigate(['']);
   }
-
 }

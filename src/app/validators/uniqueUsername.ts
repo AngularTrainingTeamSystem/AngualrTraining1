@@ -7,19 +7,16 @@ import { Injectable } from "@angular/core";
 @Injectable({
     providedIn: 'root'
 })
-export class UniqueUsername implements AsyncValidator{
+export class UniqueUsername implements AsyncValidator {
 
-    constructor(private  service:CrudService) {}
-    
+    constructor(private service: CrudService) { }
+
     validate(control: AbstractControl): Observable<ValidationErrors | null> | Promise<ValidationErrors | null> {
-       return this.service.getAllContacts().pipe(
-        map((contacts:any) => contacts as Array<any>),
-        map((contacts:Array<any>)=>contacts.some(contact=>contact.username==control.value)),
-        map((isUnique:boolean)=>{return isUnique?{uniqueUsername:true}:null}
-       ))
+        return this.service.getAllContacts().pipe(
+            map((contacts: any) => contacts as Array<any>),
+            map((contacts: Array<any>) => contacts.some(contact => contact.username == control.value)),
+            map((isUnique: boolean) => { return isUnique ? { uniqueUsername: true } : null }
+            ))
     }
- 
-
-
 
 }
