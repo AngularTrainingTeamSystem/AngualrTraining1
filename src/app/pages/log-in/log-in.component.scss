@@ -7,41 +7,41 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-  
-  form {
+}
+
+form {
     text-align: center;
-  }
-  
-  h2 {
+}
+
+h2 {
     text-align: center;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
-  }
-  
-  input {
+}
+
+input {
     width: 100%;
     padding: 8px;
     margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-  }
-  
-  .error {
+}
+
+.error {
     color: red;
     font-size: 14px;
     margin-top: 4px;
-  }
-  
-  button {
+}
+
+button {
     margin-right: 5px;
     padding: 8px 16px;
     background-color: #007bff;
@@ -49,30 +49,30 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button[disabled] {
+}
+
+button[disabled] {
     background-color: #ccc;
     cursor: not-allowed;
-  }
+}
 
-  .switch-form {
+.switch-form {
     margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .switch-form span {
+}
+
+.switch-form span {
     margin-right: 5px;
-  }
-  
-  .switch-form a {
+}
+
+.switch-form a {
     color: #007bff;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  .switch-form a:hover {
+}
+
+.switch-form a:hover {
     text-decoration: underline;
-  }
+}

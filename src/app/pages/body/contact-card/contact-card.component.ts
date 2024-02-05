@@ -10,8 +10,8 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./contact-card.component.scss']
 })
 export class ContactCardComponent {
-  
-  constructor(private contactService: ContactServiceService, private router: Router, public authService: AuthServiceService){}
+
+  constructor(private contactService: ContactServiceService, private router: Router, public authService: AuthServiceService) { }
 
   @Output() cardButtonClick = new EventEmitter<any>();
 
@@ -28,14 +28,14 @@ export class ContactCardComponent {
 
   confirmDelete(): void {
     const isConfirmed = window.confirm('Are you sure you want to delete this contact?');
-    
+
     if (isConfirmed) {
       this.deleteClient();
     }
   }
 
   deleteClient(): void {
-    this.contactService.deleteContact(this.contact.id).subscribe( res =>
+    this.contactService.deleteContact(this.contact.id).subscribe(res =>
       this.contactService.getContacts().subscribe(contact =>
         this.deleteContact.emit(contact)
       )
@@ -50,10 +50,10 @@ export class ContactCardComponent {
     return this.authService.getRole() === 'admin';
   }
 
-  showAlert(){
-    alert("Contact Info: \nName: " + this.contact.name + "\nMobile Number: " + this.contact.mobilenumber + 
-    "\nActive: " + this.contact.isActive + "\nFavourite: " + this.contact.isFavorite +
-    "\nDeleted: " + this.contact.isDeleted + "\nDate Created: " + this.contact.contactDateCreated +
-    "\nUsername: " + this.contact.username + "\nEmail: " + this.contact.email + "\nComment: " + this.inputField);
+  showAlert() {
+    alert("Contact Info: \nName: " + this.contact.name + "\nMobile Number: " + this.contact.mobilenumber +
+      "\nActive: " + this.contact.isActive + "\nFavourite: " + this.contact.isFavorite +
+      "\nDeleted: " + this.contact.isDeleted + "\nDate Created: " + this.contact.contactDateCreated +
+      "\nUsername: " + this.contact.username + "\nEmail: " + this.contact.email + "\nComment: " + this.inputField);
   }
 }

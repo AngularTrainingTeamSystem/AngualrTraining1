@@ -5,12 +5,12 @@
         <p>{{ contact.mobilenumber }}</p>
     </div>
     <input type="text" [(ngModel)]="inputField" placeholder="Comment">
-    
+
     <div *ngIf="!contact.isDeleted && isUserAdmin()">
-        <button (click)="updateContact()" >Update</button>
-        <button (click)="confirmDelete()" >Delete</button>
+        <button (click)="updateContact()">Update</button>
+        <button (click)="confirmDelete()">Delete</button>
     </div>
-    
+
     <div *ngIf="showDetails" [ngStyle]="{'margin-top': '10px'}">
         <p>Name: {{ contact.name }}</p>
         <p>Mobile Number: {{ contact.mobilenumber }}</p>
