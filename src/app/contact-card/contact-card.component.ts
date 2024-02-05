@@ -22,8 +22,6 @@ export class ContactCardComponent {
   constructor(private router: Router , private service : ContactServiceService , private _dialog : MatDialog  , private auth : AuthService){}
 
   ngOnInit() {
-
-
   }
 
   updateContact(id: string) {
@@ -31,14 +29,12 @@ export class ContactCardComponent {
   
   }
 
-  
 
   inputValue: string = '';
 
   onGetInfo(){
     this.sendData.emit(this.inputValue);
   }
-
 
   removeContact(id: string) {
     const dialogRef = this._dialog.open(ConfirmationDialogComponent, {
@@ -57,8 +53,6 @@ export class ContactCardComponent {
       }
     });
   }
-
-
 
   isAdmin(){
     

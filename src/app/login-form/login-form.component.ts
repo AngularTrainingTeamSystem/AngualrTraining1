@@ -32,12 +32,7 @@ constructor(private router : Router,
           email : ['' , Validators.email],
           password : [''],
       });
-
-
   }
-
-
-
 
 
   onSubmit() {
@@ -48,9 +43,6 @@ constructor(private router : Router,
         password: data.password
       };
 
-      
-      
-  
       this.Auth.checkEmailAndPassword(userInfo.email, userInfo.password)
         .subscribe(result => {
           if (result) {
@@ -74,15 +66,8 @@ constructor(private router : Router,
         }, error => {
           console.error("An error occurred:", error);
         });
-
-
         this.RoleChecker(userInfo.email)
-    }
-
-    
-
-
-    
+    } 
   }
 
 
@@ -90,13 +75,8 @@ constructor(private router : Router,
     this.Auth.adminOrUser(email).subscribe(isAdmin => {
       if (isAdmin) {
         console.log('User has the role "admin".');
-
-        
-        
       } else {
         console.log('User does not have the role "admin".');
-        
-        
         // this.router.navigate(['/contact-list'])
       }
     }, error => {
@@ -104,9 +84,4 @@ constructor(private router : Router,
     });
   }
 
-  
-  
-    
-    
-   
   }

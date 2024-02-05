@@ -40,19 +40,11 @@ export class AuthService {
     return of({ success: this.loggedIn, role: '' });
    }
 
-
-
    getUserRole(){
     this.user_role = localStorage.getItem('ROLE')!;
     return this.user_role;
    }
  
-   
-
-   
-
-
-
   setValue(string : string){
     return string
   }
@@ -72,11 +64,7 @@ export class AuthService {
     return this.http.get(this.url).pipe(
       map((response: any) => response as Array<any>),
       map((users: Array<any>) => users.some(user => user.email === email && user.role === 'admin')),
-      
-      
     );
-
-    
   }
 
 

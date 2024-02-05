@@ -22,9 +22,6 @@ export class SignUpFormComponent implements OnInit{
       this.initializeSignUpForm();
     }
 
-
-
-
     private initializeSignUpForm() {
       this.signUpForm = this._fb.group({
         name: [''],
@@ -50,14 +47,8 @@ export class SignUpFormComponent implements OnInit{
         password : data.password
 
       };
-
       this.Auth.addNewUser(newUser).subscribe();
     }
-
-
-    this.router.navigate(['/login']);
-
-    
-    
+    this.router.navigate(['/login']); 
   }
 }

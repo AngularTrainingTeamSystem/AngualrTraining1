@@ -89,17 +89,6 @@
       "email": "liam.anderson@example.com"
     },
     {
-      "id": "c11",
-      "mobilenumber": "0612223333",
-      "name": "Olivia Parker",
-      "isActive": "true",
-      "isFavorite": "true",
-      "isDeleted": "true",
-      "contactDateCreated": "2024-02-02T15:02:22.974Z",
-      "email": "elviesf@gmail.com",
-      "username": "olivia_parkeer_1121"
-    },
-    {
       "id": "c12",
       "mobilenumber": "5554443333",
       "name": "Matthew Turner",
