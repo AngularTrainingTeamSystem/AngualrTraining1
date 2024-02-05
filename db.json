@@ -89,17 +89,6 @@
       "email": "ava.rodriguez@example.com"
     },
     {
-      "name": "ewfeeds",
-      "mobilenumber": "345435234",
-      "contactDateCreated": "2024-01-02",
-      "isActive": true,
-      "isDeleted": false,
-      "isFavorite": true,
-      "id": "c16",
-      "username": "fdgsvdfs",
-      "email": "gdfgsdfgs"
-    },
-    {
       "name": "Ina",
       "mobilenumber": "4581743561",
       "contactDateCreated": "2024-01-01",
@@ -131,6 +120,17 @@
       "isDeleted": false,
       "contactDateCreated": "2024-02-13",
       "id": "u6zCUXa"
+    },
+    {
+      "name": "bzbzzbzbbzbz",
+      "mobilenumber": "54545455454",
+      "username": "bzbzbzbbzbz",
+      "email": "bzbzbbzbzbz",
+      "isActive": false,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2024-02-14",
+      "id": "Tv6LD21"
     }
   ],
   "user": [
