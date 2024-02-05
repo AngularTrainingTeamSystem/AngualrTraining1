@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project';
-  search!: string;
-
-  getSearch(event: string){
-    this.search = event;
-  }
 }

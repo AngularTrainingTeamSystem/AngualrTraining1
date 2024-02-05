@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TS</a>
+  <a class="navbar-brand" href="/main">TS</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
       </li>
     </ul>
 
@@ -16,10 +16,13 @@
       <button class="btn  my-2 my-sm-0" type="submit" (click)="search.emit(searchContact)">Search</button>
     </form> -->
 
-    <select class="form-control" [(ngModel)]="selectedValue" (change)="onDropdownChange($event)">
-      <option value="main" selected>Contact List</option>
-      <option value="main/deleted-contacts">Deleted Contacts</option>
-    </select>
+    <ng-container *ngIf="authService.isLoggedIn()">
+      <select class="form-control" [(ngModel)]="selectedValue" (change)="onDropdownChange($event)">
+        <option value="main" selected>Contact List</option>
+        <option value="main/deleted-contacts">Deleted Contacts</option>
+      </select>
 
+      <button class="logout-button" (click)="logout()">Log Out</button>
+  </ng-container>
   </div>
 </nav>

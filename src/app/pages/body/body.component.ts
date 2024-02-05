@@ -40,8 +40,4 @@ export class BodyComponent implements OnInit{
     return this.authService.getRole() === 'admin';
   }
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/log-in']);
-  }
 }
