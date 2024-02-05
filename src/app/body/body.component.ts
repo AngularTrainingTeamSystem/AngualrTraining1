@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { Contacts } from '../contacts-db';
 import { ContactServiceService } from '../service/contact-service.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AddNewContact } from '../add-new-contact/add-new-contact.component';
+import { UserFormComponetnt } from '../user-form/user-form.component';
+import { AuthService } from '../service/auth/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-body',
@@ -13,7 +16,9 @@ export class BodyComponent {
 
   constructor(
     private contactService : ContactServiceService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private auth : AuthService,
+    private route : Router
   ){
   }
 
@@ -26,7 +31,13 @@ export class BodyComponent {
   }
 
   openEditContact(){
-    this._dialog.open(AddNewContact);
+    this._dialog.open(UserFormComponetnt);
+  }
+
+
+  Logout(){
+    this.auth.userLoggedOut().subscribe();
+      this.route.navigate(['/login']);
   }
 
   searchTerm : string = '';

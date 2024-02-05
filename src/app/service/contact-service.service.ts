@@ -3,7 +3,7 @@ import { Contact } from '../model/contat';
 import { Contacts } from '../contacts-db';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,12 +44,28 @@ export class ContactServiceService {
   }
 
   hasEmail(emailToCheck: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.url}/hasEmail/${emailToCheck}`);
+    return this.http.get(this.url).pipe(
+      map((response : any) => response as Array<any>),
+      map((contactz : Array<any>) => contactz.some((contactzi: { email: string; }) => contactzi.email == emailToCheck))
+    );
   }
 
+  // hasEmail(http: HttpClient, emailToCheck: string): Observable<boolean> {
+  //   return http.get<any[]>(`${this.url}?email=${emailToCheck}`).pipe(
+  //     map(contacts => contacts.length > 0)
+  //   );
+  // }
+
   hasUsername(usernameToCheck: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.url}/hasUsername/${usernameToCheck}`);
+    // return this.http.get<boolean>(`${this.url}/hasUsername/${usernameToCheck}`);
+    return this.http.get(this.url).pipe(
+      map((response :any) => response as Array<any>),
+      map((contactz : Array<any>) => contactz.some(contactzi => contactzi.username == usernameToCheck))
+    );
   }
+
+
+  
 
 
 

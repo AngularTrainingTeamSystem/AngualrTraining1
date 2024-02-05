@@ -5,6 +5,7 @@ import { Contacts } from '../contacts-db';
 import { ContactServiceService } from '../service/contact-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { AuthService } from '../service/auth/auth.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ContactCardComponent {
   @Input()
   contact! : Contact;
 
-  constructor(private router: Router , private service : ContactServiceService , private _dialog : MatDialog ){}
+  constructor(private router: Router , private service : ContactServiceService , private _dialog : MatDialog  , private auth : AuthService){}
 
   ngOnInit() {
 
@@ -43,7 +44,7 @@ export class ContactCardComponent {
     const dialogRef = this._dialog.open(ConfirmationDialogComponent, {
       width: '300px',
       data: {
-        title: 'Confirmation',
+        title: 'Confirmation ',
         message: 'Are you sure you want to delete this contact?'
       }
     });
@@ -56,4 +57,15 @@ export class ContactCardComponent {
       }
     });
   }
+
+
+
+  isAdmin(){
+    
+  if(this.auth.getUserRole() === "admin"){
+    return true
+  }else{
+    return false
+  }
+}
 }

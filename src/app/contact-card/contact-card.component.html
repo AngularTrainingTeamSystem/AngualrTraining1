@@ -23,7 +23,7 @@
         <span>{{contact.contactDateCreated | date}}</span>
       </div> 
       <br>
-      <div class="button-container">
+      <div class="button-container" *ngIf="isAdmin()"  >
       <button mat-raised-button color="primary" (click)="updateContact(contact.id)">Update</button>
       <button mat-raised-button color="warn" (click)="removeContact(contact.id)">Delete</button>
     </div>

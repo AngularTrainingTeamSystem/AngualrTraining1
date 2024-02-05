@@ -24,12 +24,12 @@
     },
     {
       "id": "c5",
-      "mobilenumber": "3332221111",
+      "mobilenumber": "0685828980",
       "name": "Eve Davis",
       "isActive": "true",
       "isFavorite": "true",
       "isDeleted": "true",
-      "contactDateCreated": "2024-01-31T09:13:47.450Z",
+      "contactDateCreated": "2024-02-01T09:54:58.792Z",
       "email": "eve.davis@example.com",
       "username": "eve_davis_333"
     },
@@ -90,14 +90,14 @@
     },
     {
       "id": "c11",
-      "mobilenumber": "1112223333",
+      "mobilenumber": "0612223333",
       "name": "Olivia Parker",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2023-03-19",
-      "username": "olivia_parker_111",
-      "email": "olivia.parker@example.com"
+      "isActive": "true",
+      "isFavorite": "true",
+      "isDeleted": "true",
+      "contactDateCreated": "2024-02-02T15:02:22.974Z",
+      "email": "elviesf@gmail.com",
+      "username": "olivia_parkeer_1121"
     },
     {
       "id": "c12",
@@ -120,6 +120,62 @@
       "contactDateCreated": "2023-02-05",
       "username": "james_carter_444",
       "email": "james.carter@example.com"
+    },
+    {
+      "id": "695cd6a2-6db5-4778-a1e5-aee2fd687441",
+      "mobilenumber": "0693625147",
+      "name": "Elvis",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-02-01T11:31:02.365Z",
+      "email": "elvis@gmail.com",
+      "username": "elvisii"
+    },
+    {
+      "id": "43bb37ee-ad2d-4b39-9c0e-0b43a1909c9b",
+      "mobilenumber": "0693625147",
+      "name": "test123456",
+      "isActive": false,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2024-02-01T12:07:58.345Z",
+      "email": "1234567@gmail.com",
+      "username": "qwertyuiop"
+    }
+  ],
+  "user": [
+    {
+      "name": "John Smith",
+      "email": "johnsmith@gmail.com",
+      "role ": "user",
+      "phone": "234324234",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "name": "Bill Jackson",
+      "email": "billjackson@gmail.com",
+      "role ": "user",
+      "phone": "12341234",
+      "password": "12341234",
+      "id": 2
+    },
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "phone": "0695847123",
+      "role": "user",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "phone": "0695847654",
+      "role": "admin",
+      "password": "1234",
+      "id": 4
     }
   ]
 }

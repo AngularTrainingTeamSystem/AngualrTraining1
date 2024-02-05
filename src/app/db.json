@@ -166,4 +166,22 @@
         "email": "ava.rodriguez@example.com"
       }
     ]
+  ,
+  
+    "user": [
+      {
+        "name": "John Smith",
+        "email": "johnsmith@gmail.com",
+        "phone": "234324234",
+        "password": "12345678",
+        "id": 1
+      },
+      {
+        "name": "Bill Jackson",
+        "email": "billjackson@gmail.com",
+        "phone": "12341234",
+        "password": "12341234",
+        "id": 2
+      }
+    ]
   }
