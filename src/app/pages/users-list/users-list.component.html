@@ -1,5 +1,6 @@
 <div class="wrapper">
   <h2>List of all the users</h2>
+  <button class="logoutButton" type="button" (click)="logout()">Logout</button>
   <div class="container">
     <ng-container *ngFor="let user of users ">
       <div class="user-container">
@@ -10,10 +11,6 @@
         <button *ngIf="!user.isDeleted && authenticationService.isAuthorized('admin')" class="removeButton" type="button" (click)="removeUser(user.id)"> Remove </button>
         <button *ngIf="!user.isDeleted" class="updateButton" type="button"  [routerLink]="['/form-user', user.id]"> Update </button>
         <button *ngIf="!user.isDeleted && authenticationService.isAuthorized('admin')" class="updateButton" type="button"  [routerLink]="['/form-user']"> Add </button>
-        
-        <!-- <ng-container *ngIf="(authenticationService.isLoggedIn | async) && (authenticationService.hasRoleAdmin | async)">
-          <button class="removeButton" type="button" [routerLink]="['/form-user']">Add</button>
-        </ng-container> -->
       </div>
     </ng-container>
     <div class="divider"></div>
@@ -23,4 +20,5 @@
   <div class="newDtetails">
     <app-user-details [user]="selectedUser" (userDeselected)="deselectUser()"></app-user-details>
   </div>
+
 </ng-container>

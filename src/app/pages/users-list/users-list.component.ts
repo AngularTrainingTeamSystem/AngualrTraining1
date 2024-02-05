@@ -43,6 +43,11 @@ export class UsersListComponent implements OnInit {
     this.selectedUser = null;
   }
 
+  logout(): void {
+    this.authenticationService.logout();
+    this.router.navigate(['']);
+  }
+
   removeUser(userId: number): void {
     this.contactService.removeUser(userId).subscribe(
       () => {
