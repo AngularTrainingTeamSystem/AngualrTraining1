@@ -67,10 +67,9 @@ export class CrudService {
   createUserLogin(user: User): Observable<User> {
     return this.http.post<User>(this.urlUser, user);
   }
-  //creation by sign up
-  createUserBySignUp(user:User){
-    this.http.post(`${this.urlUser}`,user).subscribe(
-    )
+  
+  createUserBySignUp(user: User): Observable<any> {
+    return this.http.post(`${this.urlUser}`, user);
   }
 
   getUserLogin(email: string, password: string) {
@@ -118,4 +117,10 @@ export class CrudService {
 // getAllContacts(): Kontakt[] {
 //   return this.kontaktet;
 // }
+
+//creation by sign up
+  // createUserBySignUp(user:User){
+  //   this.http.post(`${this.urlUser}`,user).subscribe(
+  //   )
+  // }
 //-----------------------------------------------------------------------------------------------------------------//

@@ -18,5 +18,4 @@ export class UniqueUsername implements AsyncValidator {
             map((isUnique: boolean) => { return isUnique ? { uniqueUsername: true } : null }
             ))
     }
-
 }

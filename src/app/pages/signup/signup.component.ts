@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { CrudService } from 'src/app/service/crud.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private crudService: CrudService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private http: HttpClient, private crudService: CrudService, private router: Router) { }
 
   ngOnInit() {
     this.formIntialization();
@@ -30,14 +31,33 @@ export class SignupComponent implements OnInit {
   }
 
   signUpNewUser() {
-    const data = this.signupForm.getRawValue();
-    let user: User = new User
-    user.name = data.name;
-    user.email = data.email;
-    user.phone = data.phone;
-    user.password = data.password;
-    user.role = data.role;
-    this.crudService.createUserBySignUp(user);
-    this.router.navigate(['']);
-  }
+  const data = this.signupForm.getRawValue();
+  let user: User = new User();
+  user.name = data.name;
+  user.email = data.email;
+  user.phone = data.phone;
+  user.password = data.password;
+  user.role = data.role;
+  
+  this.crudService.createUserBySignUp(user).subscribe({
+    next: (response) => {
+      console.log('User created successfully:', response);
+      this.router.navigate(['']);
+    },
+    error: (error) => {
+      console.log('Error creating user:', error);
+    }
+  });
+}
+  // signUpNewUser() {
+  //   const data = this.signupForm.getRawValue();
+  //   let user: User = new User
+  //   user.name = data.name;
+  //   user.email = data.email;
+  //   user.phone = data.phone;
+  //   user.password = data.password;
+  //   user.role = data.role;
+  //   this.crudService.createUserBySignUp(user);
+  //   this.router.navigate(['']);
+  // }
 }

@@ -13,9 +13,9 @@
       <div class="error" *ngIf="form.controls['email'].hasError('required')&&form.controls['email'].dirty">Email is required</div>
       <label for="password">Password:</label><br>
       <input type="password" [type]="passwordVisible ? 'text' : 'password'" placeholder="Your Password" id="password" name="password" formControlName="password">
-      <div class="input-group-append">
+      <!-- <div class="input-group-append">
         <span class="input-group-text bi bi-eye-slash" id="togglePassword" (click)="passwordVisible = !passwordVisible"></span>
-      </div>
+      </div> -->
       <div class="error" *ngIf="form.controls['password'].hasError('required')&&form.controls['password'].dirty">
         Password is required </div>
       <button type="submit"  [disabled]="!form.valid">Login</button>

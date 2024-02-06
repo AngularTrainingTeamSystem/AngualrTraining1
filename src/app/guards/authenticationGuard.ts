@@ -17,6 +17,7 @@ export class AuthGuard implements CanActivate {
       let url: string = state.url;
       return this.checkUserLogin(route, url);
   }
+  //check the role of the user
   checkUserLogin(route: ActivatedRouteSnapshot, url: any): boolean {
     if (this.authService.isLoggedIn()) {
       const userRole = this.authService.getRole();

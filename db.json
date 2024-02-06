@@ -27,10 +27,10 @@
       "mobilenumber": "4445556665",
       "name": "Charlie Brown",
       "isActive": "true",
-      "isFavorite": "",
+      "isFavorite": true,
       "isDeleted": "",
-      "contactDateCreated": "2024-02-05T10:23:37.336Z",
-      "username": "charlie_brown_111",
+      "contactDateCreated": "2024-02-05T20:39:53.213Z",
+      "username": "charlie_brown_69",
       "email": "kristijaupaj@example.com"
     },
     {
@@ -551,17 +551,6 @@
       "email": "charlie.brown@example.com"
     },
     {
-      "id": "B2Yk2FV",
-      "mobilenumber": "8888888888",
-      "name": "alex",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": "",
-      "contactDateCreated": "2024-02-04T21:53:05.265Z",
-      "username": "babygecko",
-      "email": "malasialeks1@gmail.com"
-    },
-    {
       "id": "c7mRTdG",
       "mobilenumber": "8888888888",
       "name": "Aleksios Malasi",
@@ -705,6 +694,22 @@
       "password": "user",
       "role": "user",
       "id": 17
+    },
+    {
+      "name": "daniel ",
+      "email": "daniel@gmail.com",
+      "phone": "27365952",
+      "password": "daniel",
+      "role": "admin",
+      "id": 18
+    },
+    {
+      "name": "eria miga",
+      "email": "eria@gmail.com",
+      "phone": "7361938519",
+      "password": "eria",
+      "role": "user",
+      "id": 19
     }
   ]
 }

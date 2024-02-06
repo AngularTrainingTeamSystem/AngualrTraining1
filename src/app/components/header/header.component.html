@@ -10,15 +10,12 @@
       <li class="nav-item active">
         <a class="nav-link" href="/bodyholder">Home <span class="sr-only">(current)</span></a>
       </li>
-
-
-
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input [(ngModel)]="search" [ngModelOptions]="{standalone:true}" class="form-control mr-sm-2" type="search"
         placeholder="Search" aria-label="Search">
       <button class="btn  my-2 my-sm-0" type="submit" (click)="stringSearch()">Search</button>
-      <button  class="btn  my-2 my-sm-0 logout-btn" (click)="logOut()">Log Out</button>
+      <button class="btn  my-2 my-sm-0 logout-btn" (click)="logOut()">Log Out</button>
     </form>
   </div>
 </nav>

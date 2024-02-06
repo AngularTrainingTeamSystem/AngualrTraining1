@@ -9,12 +9,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/authenticationGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
 
+
 const routes: Routes = [
   //path directions
   // { path: 'bodyholder', component: BodyHolderComponent },
   { path: 'body', component: BodyComponent },
   // { path: 'forma', component: FormaPerdoruesComponent },
-  { path: 'edit/:id', component: EditPerdoruesComponent },
+  // { path: 'edit/:id', component: EditPerdoruesComponent },
   // { path: 'forma/:id', component: FormaPerdoruesComponent },
   { path: 'signup', component: SignupComponent},
   { path: '', component: LoginComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'forma/:id', component: FormaPerdoruesComponent,
       canActivate: [AuthGuard],
           data: {role: 'admin'} },
-  { path: '**', component: NotfoundComponent }
+  { path: '**', component: NotfoundComponent },
+
 ];
 
 @NgModule({

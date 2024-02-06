@@ -25,6 +25,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { AuthGuard } from './guards/authenticationGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     SignupComponent,
     NotfoundComponent,
+   
   ],
   imports: [
     BrowserModule,
