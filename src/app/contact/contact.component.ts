@@ -5,6 +5,7 @@ import { CrudService } from '../service/crud.service';
 import { AuthenticateUserService } from '../service/authenticate-user.service';
 
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
