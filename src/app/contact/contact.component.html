@@ -6,7 +6,13 @@
     <h3> {{input}}</h3><br>
     <button (click)="getUserInformation()">Get User Infromation </button>
     <br><br>
-    <div *ngIf="userInformation">
+    <!-- component interaction -->
+</div>
+    <app-userinfo  [userInformation]="userInformation"></app-userinfo> 
+
+
+
+<!-- <div *ngIf="userInformation">
         <p>Name: {{userInformation.name}}</p>
         <p>Id: {{userInformation.id}}</p>
         <p>MobileNumber: {{userInformation.mobilenumber}}</p>
@@ -15,5 +21,4 @@
         <p>Email: {{userInformation.email}}</p>
         <p>Active: {{userInformation.isActive}}</p>
         <p>Favorite: {{userInformation.isFavorite}}</p>
-    </div>
-</div>
+    </div> -->

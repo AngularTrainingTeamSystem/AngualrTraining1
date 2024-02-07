@@ -24,6 +24,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AuthGuard } from './guards/authenticationGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 
 
 
@@ -41,6 +42,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     SignupComponent,
     NotfoundComponent,
+    UserinfoComponent,
    
   ],
   imports: [

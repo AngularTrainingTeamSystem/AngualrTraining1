@@ -1,0 +1,11 @@
+
+ <div *ngIf="userInformation">
+        <p>Name: {{userInformation.name}}</p>
+        <p>Id: {{userInformation.id}}</p>
+        <p>MobileNumber: {{userInformation.mobilenumber}}</p>
+        <p>Date Of Birth: {{userInformation.contactDateCreated | date}}</p>
+        <p>Username: {{userInformation.username}}</p>
+        <p>Email: {{userInformation.email}}</p>
+        <p>Active: {{userInformation.isActive}}</p>
+        <p>Favorite: {{userInformation.isFavorite}}</p>
+</div> 
