@@ -27,9 +27,9 @@
       "mobilenumber": "4445556665",
       "name": "Charlie Brown",
       "isActive": "true",
-      "isFavorite": true,
+      "isFavorite": "true",
       "isDeleted": "",
-      "contactDateCreated": "2024-02-05T20:39:53.213Z",
+      "contactDateCreated": "1986-02-11T00:00:00.000Z",
       "username": "charlie_brown_69",
       "email": "kristijaupaj@example.com"
     },
@@ -246,10 +246,10 @@
       "id": "e9cOMKU",
       "mobilenumber": "8537626632",
       "name": "kristi likaj",
-      "isActive": true,
-      "isFavorite": false,
-      "isDeleted": false,
-      "contactDateCreated": "2024-01-31T10:15:34.196Z",
+      "isActive": "true",
+      "isFavorite": "",
+      "isDeleted": "",
+      "contactDateCreated": "2004-07-28T00:00:00.000Z",
       "username": "kristi_zoteria7667",
       "email": "kristijaupaj@example.com"
     },
@@ -268,10 +268,10 @@
       "id": "f0R7nz6",
       "mobilenumber": "7632141877",
       "name": "Marsel Hasanbashaj",
-      "isActive": true,
-      "isFavorite": true,
+      "isActive": "true",
+      "isFavorite": "true",
       "isDeleted": "",
-      "contactDateCreated": "2024-02-02T09:15:36.708Z",
+      "contactDateCreated": "2024-02-06T13:13:56.480Z",
       "username": "jjjfjjfjfjjfjffjjfjf",
       "email": "charlie.brown@example.com"
     },
@@ -507,17 +507,6 @@
       "email": "charlie.brown@example.com"
     },
     {
-      "id": "PEnLOxD",
-      "mobilenumber": "0693339328",
-      "name": "asd",
-      "isActive": "",
-      "isFavorite": "",
-      "isDeleted": "",
-      "contactDateCreated": "2024-02-02T06:27:37.075Z",
-      "username": "babygecko",
-      "email": "charlie.brown@example.com"
-    },
-    {
       "id": "iefRmD2",
       "mobilenumber": "0693339328",
       "name": "Aleksios Malasi",
@@ -560,6 +549,17 @@
       "contactDateCreated": "2024-02-04T22:21:20.068Z",
       "username": "babygecko",
       "email": "charlie.brown@example.com"
+    },
+    {
+      "id": "9PT9V_S",
+      "mobilenumber": "8923748888",
+      "name": "azet",
+      "isActive": "",
+      "isFavorite": true,
+      "isDeleted": "",
+      "contactDateCreated": "1994-01-03",
+      "username": "azetdardani",
+      "email": "azerdardani@yahoo.com"
     }
   ],
   "user": [
@@ -710,6 +710,70 @@
       "password": "eria",
       "role": "user",
       "id": 19
+    },
+    {
+      "name": "admin",
+      "email": "admin1@gmail.com",
+      "phone": "2764817248",
+      "password": "admin1",
+      "role": "admin",
+      "id": 20
+    },
+    {
+      "name": "userr",
+      "email": "user1@gmail.com",
+      "phone": "7264812",
+      "password": "user1",
+      "role": "user",
+      "id": 21
+    },
+    {
+      "name": "asd",
+      "email": "test@yahho.com",
+      "phone": "0693339428",
+      "password": "test",
+      "role": "admin",
+      "id": 22
+    },
+    {
+      "name": "Eriketa",
+      "email": "eriketa@gmail.com",
+      "phone": "72359324",
+      "password": "eriketa",
+      "role": "admin",
+      "id": 23
+    },
+    {
+      "name": "Aleksios Malasi",
+      "email": "charlie.brown@example.com",
+      "phone": "0693339428",
+      "password": "34334",
+      "role": "user",
+      "id": 24
+    },
+    {
+      "name": "Aleksios Malasi",
+      "email": "aleks@lexe.com",
+      "phone": "0693339428",
+      "password": "asd21311",
+      "role": "user",
+      "id": 25
+    },
+    {
+      "name": "trako",
+      "email": "trako@gmail.com",
+      "phone": "8912376549",
+      "password": "trakotrako",
+      "role": "admin",
+      "id": 26
+    },
+    {
+      "name": "",
+      "email": "charlie.brown@example.com",
+      "phone": "",
+      "password": "",
+      "role": "user",
+      "id": 27
     }
   ]
 }

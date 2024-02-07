@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { CrudService } from 'src/app/service/crud.service';
 import { HttpClient } from '@angular/common/http';
+import { UserRole } from 'src/app/models/user-role';
+import { CheckEmailAvailability } from 'src/app/validators/checkEmailAvailability';
+
 
 @Component({
   selector: 'app-signup',
@@ -13,8 +16,9 @@ import { HttpClient } from '@angular/common/http';
 export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
+  UserRole = UserRole;
 
-  constructor(private formBuilder: FormBuilder,private http: HttpClient, private crudService: CrudService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private http: HttpClient, private crudService: CrudService, private router: Router ,private uniqueEmail:CheckEmailAvailability) { }
 
   ngOnInit() {
     this.formIntialization();
@@ -23,10 +27,10 @@ export class SignupComponent implements OnInit {
   formIntialization() {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['',  {validators:[Validators.required, Validators.email],asyncValidators:[this.uniqueEmail.validate.bind(this.uniqueEmail)]}],
       phone: ['', [Validators.required, Validators.pattern('[0-9]{3}[0-9]{3}[0-9]{4}')]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      role: ['', [Validators.required]]
+      role: [UserRole.User, [Validators.required]],
     });
   }
 
@@ -39,7 +43,7 @@ export class SignupComponent implements OnInit {
   user.password = data.password;
   user.role = data.role;
   
-  this.crudService.createUserBySignUp(user).subscribe({
+  this.crudService.createUserBySignUp(user).subscribe({  //fixed it was deprecated
     next: (response) => {
       console.log('User created successfully:', response);
       this.router.navigate(['']);

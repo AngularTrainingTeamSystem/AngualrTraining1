@@ -90,7 +90,7 @@ export class FormaPerdoruesComponent implements OnInit {
     this.kontakti.isActive = formData.isActive;
     this.kontakti.isFavorite = formData.isFavorite;
     this.kontakti.isDeleted = formData.isDeleted;
-    this.kontakti.contactDateCreated = new Date().toISOString();
+    this.kontakti.contactDateCreated = formData.contactDateCreated;
     //pipe is used to chain toghether the Observable operators
     this.crudService.createContact(this.kontakti).pipe(  //an observable is passed to the method
       tap(() => {                                       //it gets piped and it gets created while navigating to main
@@ -129,7 +129,7 @@ export class FormaPerdoruesComponent implements OnInit {
     this.kontakt!.isActive = formData.isActive;
     this.kontakt!.isFavorite = formData.isFavorite;
     this.kontakt!.isDeleted = formData.isDeleted;
-    this.kontakt!.contactDateCreated = new Date().toISOString();
+    this.kontakt!.contactDateCreated = formData.contactDateCreated ? new Date(formData.contactDateCreated) : undefined;
 
     this.crudService.updateContact(this.kontakt!).pipe(
       switchMap(() => {
