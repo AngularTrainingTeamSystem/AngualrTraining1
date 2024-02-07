@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createStartsWithUpperCase } from '../validations/startsWithUpperCase.validator';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   form!: FormGroup
+  userNotPresent:boolean=false
   constructor(private fb:FormBuilder,private authService:AuthenticationService,
     private router:Router){
 
   }
   ngOnInit(): void {
-    localStorage.clear()
     this.form = this.fb.group(
       {
         email: ['', {
@@ -29,22 +30,37 @@ export class LoginComponent {
         }]
       }
     )
+    let emailControl=this.form.get('email')
+    let passwordControl=this.form.get('password')
+    emailControl?.valueChanges.pipe(
+      tap(()=>{this.userNotPresent=false})
+    ).subscribe()
+    passwordControl?.valueChanges.pipe(
+      tap(()=>{this.userNotPresent=false})
+    ).subscribe()
   }
   login(){
     let user
+    let formData=this.form.getRawValue()
     this.authService.getUserByEmailAndPassword(
-      this.form.controls['email'].value,
-      this.form.controls['password'].value).subscribe(
-        (res)=>{
+      formData.email,
+      formData.password).subscribe({
+        next:(res)=>{
         user=res
         if(user){
+          this.userNotPresent=false
           this.authService.login(user.role)
           this.router.navigate(['main'])
         }
         else{
+          this.userNotPresent=true;
           this.router.navigate(['login'])
         }
+      },
+      error:(err)=>{
+        console.log(err)
       }
+    }
       )
       
       

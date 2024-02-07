@@ -34,7 +34,7 @@
       "email": "grace.taylor@example.com"
     },
     {
-      "name": "Daniel Bardhi",
+      "name": "Daniel Bardhiiiohgf",
       "mobilenumber": "7776665555",
       "isActive": false,
       "isDeleted": false,
@@ -55,8 +55,8 @@
       "email": "sophia.miller@example.com"
     },
     {
-      "name": "Olivia Parkerrr",
-      "mobilenumber": "1112223333",
+      "name": "Olivia Parker",
+      "mobilenumber": "1112223335",
       "isActive": true,
       "isDeleted": false,
       "isFavorite": true,
@@ -105,36 +105,6 @@
       "username": "devis",
       "email": "devis.dervishi@fshnstudent.info",
       "id": "jY4Ahoq"
-    },
-    {
-      "name": "",
-      "mobilenumber": "",
-      "isActive": "",
-      "isFavorite": "",
-      "isDeleted": "",
-      "username": "",
-      "email": "",
-      "id": "mRjmUSd"
-    },
-    {
-      "name": "Whshbsf",
-      "mobilenumber": "dhfdhfdhfh",
-      "isActive": true,
-      "isDeleted": "",
-      "isFavorite": "",
-      "username": "fdg",
-      "email": "dfghjk",
-      "id": "qnDMxme"
-    },
-    {
-      "name": "Ttraa",
-      "mobilenumber": "075215425",
-      "isActive": "",
-      "isFavorite": "",
-      "isDeleted": "",
-      "username": "daniel_white_77",
-      "email": "johnll@ghf",
-      "id": "wfgsHyX"
     }
   ],
   "user": [
@@ -177,6 +147,38 @@
       "password": "ang12345678754321",
       "role": "ADMIN",
       "id": 5
+    },
+    {
+      "name": "Aaa",
+      "email": "wertyuuytrewq",
+      "phone": "887878787",
+      "password": "12345678",
+      "role": "ADMIN",
+      "id": 6
+    },
+    {
+      "name": "Test",
+      "email": "test@test.com",
+      "phone": "234562345654",
+      "password": "12345",
+      "role": "ADMIN",
+      "id": 7
+    },
+    {
+      "name": "Adghfdgdfhg",
+      "email": "tt",
+      "phone": "gdmnmnbnm",
+      "password": "aa",
+      "role": "ADMIN",
+      "id": 8
+    },
+    {
+      "name": "Afgdgn",
+      "email": "vv",
+      "phone": "fhfghfghghf",
+      "password": "kk",
+      "role": "ADMIN",
+      "id": 9
     }
   ]
 }

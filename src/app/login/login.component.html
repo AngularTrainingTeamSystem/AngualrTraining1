@@ -15,6 +15,7 @@
           <div class="error" *ngIf="form.controls['password'].hasError('unique')&&form.controls['password'].dirty">Password must be unique</div>
           </ng-container>
         <br>
+        <div class="error" *ngIf="userNotPresent">No user exists with this credentials</div>
         <button [disabled]="!form.valid" type="submit">Confirm</button>
         <button [routerLink]="'/signUp'">Sign Up</button>
       </form>

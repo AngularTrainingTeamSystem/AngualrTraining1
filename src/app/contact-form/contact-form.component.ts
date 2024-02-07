@@ -65,13 +65,9 @@ export class ContactFormComponent {
         isDeleted: [''],
         username: ['', {
            validators: [Validators.required],
-           asyncValidators:[this.uniqueUsername.validate.bind(this.uniqueUsername)]
-      
         }],
         email: ['', {
            validators: [Validators.required],
-           asyncValidators:[this.uniqueEmail.validate.bind(this.uniqueEmail)]
-      
         }]
       }
     )
@@ -85,6 +81,7 @@ export class ContactFormComponent {
     }
   else{
       emailControl.setAsyncValidators(this.uniqueEmail.validate.bind(this.uniqueEmail))
+      this.form.updateValueAndValidity({emitEvent:true})
   }
 })
   const usernameControl=this.form.get('username')
@@ -95,10 +92,9 @@ export class ContactFormComponent {
       }
       else{
         usernameControl.setAsyncValidators(this.uniqueUsername.validate.bind(this.uniqueUsername))
-    }
+         this.form.updateValueAndValidity({emitEvent:true})
+       }
     })
-  
-   
   }
   get contactName() {
     return this.form.controls['name']
@@ -111,10 +107,16 @@ export class ContactFormComponent {
     let updatedContact: ContactModel = new ContactModel(this.form.value['mobilenumber'], this.form.value['name'],
       this.form.value['isActive'], this.form.value['isFavorite'], this.form.value['isDeleted'],
       this.form.value['username'], this.form.value['email']);
-
-    this.contactService.updateContact(updatedContact, id)
+    this.contactService.updateContact(updatedContact, id).subscribe({
+      next:()=>{console.log("Updated")},
+      error(err) {
+        console.log(err)
+      },
+    }
+    )
     this.router.navigate(['/main'])
   }
+
   setFormAction() {
     const routeParams = this.route.snapshot.paramMap;
     const contactIdFromRoute = (routeParams.get('contactId'));
@@ -133,7 +135,13 @@ export class ContactFormComponent {
     createdContact.isDeleted = this.form.value['isDeleted']
     createdContact.username = this.form.value['username']
     createdContact.email = this.form.value['email']
-    this.contactService.addContact(createdContact)
+    this.contactService.addContact(createdContact).subscribe({
+      next:()=>{console.log("Added")},
+      error(err) {
+        console.log(err)
+      },
+    }
+    )
     this.router.navigate(['/main'])
   }
 }

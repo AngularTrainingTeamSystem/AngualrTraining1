@@ -16,39 +16,26 @@ export class ContactService {
    
   }
 
-  
-
   getContacts():Observable<any>{
    return this.http.get(this.url)
   }
+
   getContactById(id:string):Observable<any>{
     return this.http.get(`${this.url}/${id}`)
   }
 
-  updateContact(contact:ContactModel,id:string){
-    const body=JSON.stringify(contact)
-    
-    this.http.put(`${this.url}/${id}`,contact).subscribe(
-      value=>console.log("Updated"),
-      catchError((err)=>{return err})
-    )
-    
+  updateContact(contact:ContactModel,id:string):Observable<any>{
+   return this.http.put(`${this.url}/${id}`,contact)
   }
-  addContact(newContact: Contact) {
-    const body=JSON.stringify(newContact)
-    this.http.post(`${this.url}`,newContact).subscribe(
-      value=>console.log("Added"),
-      catchError((err)=>{return err})
-    )
+
+  addContact(newContact: Contact):Observable<any> {
+    return this.http.post(`${this.url}`,newContact)
   }
-  deleteContactById(contactId: string) {
-    this.http.delete(`${this.url}/${contactId}`).subscribe(
-      value=>console.log("Deleted"),
-      catchError((err)=>{return err})
-    )
+
+  deleteContactById(contactId: string):Observable<any> {
+   return this.http.delete(`${this.url}/${contactId}`)
   }
  
-
   findEmail(email: string): Observable<boolean> {
     return this.http.get(this.url).pipe(
       map((response: any) => response as Array<any>),
@@ -56,13 +43,11 @@ export class ContactService {
     );
   }
 
-  
   findUsername(username: string): Observable<boolean> {
     return this.http.get(this.url).pipe(
       map((response: any) => response as Array<any>),
       map((contacts: Array<any>) => contacts.some(contact => contact.username == username))
     );
   }
-  
   
 }

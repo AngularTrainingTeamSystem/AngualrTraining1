@@ -5,6 +5,7 @@ import { UniqueEmail } from '../validations/uniqueEmail';
 import { Route, Router } from '@angular/router';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
+import { UniqueEmailUser } from '../validations/uniqueEmailForUser';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +16,7 @@ export class SignUpComponent implements OnInit{
   
   form!: FormGroup
   constructor(private fb:FormBuilder,
-    private uniqueEmail:UniqueEmail,
+    private uniqueEmail:UniqueEmailUser,
     private router:Router,
     private userService:UserService){
   }
@@ -56,6 +57,14 @@ export class SignUpComponent implements OnInit{
       user.password=data.password
       user.role=data.role
       this.userService.saveUser(user)
+      .subscribe({
+        next: () => {
+          console.log("Added")
+        },
+        error: (e) => {
+          console.log(e);
+        }
+      });
       this.router.navigate(['/login'])
   }
 }

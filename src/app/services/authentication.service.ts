@@ -8,46 +8,22 @@ import { UserService } from './user.service';
 })
 export class AuthenticationService {
 
-  constructor(private userService:UserService) { 
-   
-  }
-  isLogin = false;
-    
-  roleAs?: string;
-
-
+  constructor(private userService:UserService) {}
+  
   login(role: string) {
-    this.isLogin = true;
-    this.roleAs = role;
     localStorage.setItem('STATE', 'true');
-    localStorage.setItem('ROLE', this.roleAs);
-    return of({ success: this.isLogin, role: this.roleAs });
+    localStorage.setItem('ROLE', role);
   }
   logout() {
-    this.isLogin = false;
-    this.roleAs = '';
-    localStorage.setItem('STATE', 'false');
-    localStorage.setItem('ROLE', '');
-    return of({ success: this.isLogin, role: '' });
+    localStorage.clear()
   }
-
   isLoggedIn() {
-    const loggedIn = localStorage.getItem('STATE');
-    if (loggedIn == 'true')
-      this.isLogin = true;
-    else
-      this.isLogin = false;
-    return this.isLogin;
+    return localStorage.getItem('STATE');
   }
-
   getRole() {
-    this.roleAs = localStorage.getItem('ROLE')!;
-    return this.roleAs;
+    return localStorage.getItem('ROLE')!;
   }
-
   getUserByEmailAndPassword(email:string,password:string):Observable<any>{
     return this.userService.loadUserByCredentials(email,password)  
   }
-
-
 }

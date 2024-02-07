@@ -11,6 +11,6 @@
         <p *ngIf="comment">Comment:{{comment}}</p>
      </div>
         <button (click)="buttonClicked.emit(contact)">Click to alert contact</button>
-        <button (click)="deleteContact()">Delete</button>
+        <button *ngIf="isAdmin()" (click)="deleteContact()">Delete</button>
     </div>
 

@@ -6,6 +6,7 @@ import { ContactService } from '../services/contact.service';
 import { ContactFilterPipe } from '../pipes/contact-filter.pipe';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { UserRole } from '../models/userRole.enum';
 
 
 @Component({
@@ -49,7 +50,7 @@ export class BodyComponent implements OnInit{
       this.router.navigate(['login'])
    }
    isAdmin(){
-      return this.authService.getRole()=="ADMIN"?true:false
+      return this.authService.getRole()==UserRole.ADMIN
    }
   
    }
