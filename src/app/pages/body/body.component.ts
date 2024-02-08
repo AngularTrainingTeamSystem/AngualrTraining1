@@ -3,6 +3,7 @@ import { Contact, contacts } from 'src/app/models/contact.model';
 import { ContactServiceService } from '../../services/contact-service.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { UserRole } from 'src/app/models/user-role.enum';
 
 @Component({
   selector: 'app-body',
@@ -18,14 +19,14 @@ export class BodyComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.contacts = this.contactsService.getContacts().subscribe(
-      (data: Contact[]) => {
+    this.contacts = this.contactsService.getContacts().subscribe({
+      next: (data: Contact[]) => {
         this.contacts = data;
       },
-      (error) => {
+      error: (error) => {
         console.error('Error fetching contacts:', error);
       }
-    );
+    });
   }
 
   updateList(contact: Contact[]){
@@ -37,7 +38,7 @@ export class BodyComponent implements OnInit{
   }
 
   isUserAdmin(): boolean {
-    return this.authService.getRole() === 'admin';
+    return this.authService.getRole() === UserRole.Admin;
   }
 
 }

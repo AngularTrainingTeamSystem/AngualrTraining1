@@ -1,3 +1,7 @@
+<header>
+  <h1>Welcome to Smart Contacts!</h1>
+</header>
+
 <div class="login-container">
   <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -6,11 +10,12 @@
       <input type="email" id="email" formControlName="email" />
       <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.controls['email'].touched" class="error">
         Email is required.</div>
+      <div *ngIf="loginForm.get('email')?.hasError('email')" class="error">Invalid email type.</div>
     </div>
 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password" />
+      <input type="password" id="password" formControlName="password"/>
       <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.controls['password'].touched"
         class="error">Password is required.</div>
       <div *ngIf="loginForm.get('password')?.hasError('minlength')" class="error">Password must be at least 6
@@ -24,5 +29,8 @@
       <a routerLink="/sign-up">Sign Up here</a>
     </div>
 
+    <div *ngIf="loginFailed" class="error">
+      Incorrect email or password. Please try again or Sign Up if you don't have an account.
+    </div>
   </form>
 </div>

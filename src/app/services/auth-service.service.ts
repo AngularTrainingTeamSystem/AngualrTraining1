@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
+  users!: User[];
+  totalItems!: number;
   private url = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
@@ -40,5 +43,19 @@ export class AuthServiceService {
   getRole(): string | null {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     return currentUser.role || null;
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.url}/user`).pipe(
+      tap((res => this.totalItems = Object.values(res).length)),
+      catchError((error) => of(error))
+      );
+  }
+
+  isEmailTaken(email: string): Observable<boolean> {
+    return this.getUsers().pipe(
+      map((users: User[]) => users.some((user: User) => user.email === email)),
+      catchError(() => of(false))
+    );
   }
 }

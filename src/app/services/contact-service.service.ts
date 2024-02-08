@@ -36,14 +36,14 @@ export class ContactServiceService {
     const headers = {'content-type': 'application/json'}
     const body = JSON.stringify(newContact);
     
-    this.http.post(this.url, body, {headers: headers}).subscribe(
-      data => {
+    this.http.post(this.url, body, {headers: headers}).subscribe({
+      next: (data) => {
         console.log('POST Request sucessful', data);
       },
-      error => {
+      error: (error) => {
         console.log('Error', error);
       }
-    );
+    });
   }
 
   updateContact(updatedContact: Contact): Observable<any> {

@@ -8,15 +8,18 @@ import { AddEditContactComponent } from './pages/add-edit-contact/add-edit-conta
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AccessGuardService } from './services/access-guard.service';
+import { UnknownUrlComponent } from './pages/unknown-url/unknown-url.component';
 
 const routes: Routes = [
   { path: 'main', component: BodyComponent, canActivate: [AuthGuardService] },
-  { path: 'main/add-contact', component: AddEditContactComponent, canActivate: [AuthGuardService]},
+  { path: 'main/add-contact', component: AddEditContactComponent, canActivate: [AuthGuardService, AccessGuardService]},
   { path: 'main/deleted-contacts', component: DeletedContactsComponent, canActivate: [AuthGuardService]},
-  { path: 'main/modify-contact-list/:id', component: AddEditContactComponent, canActivate: [AuthGuardService]},
+  { path: 'main/modify-contact-list/:id', component: AddEditContactComponent, canActivate: [AuthGuardService, AccessGuardService]},
   { path: 'log-in', component: LogInComponent},
   { path: 'sign-up', component: SignUpComponent},
   { path: '', redirectTo: 'log-in', pathMatch: 'full'},
+  { path: '**', component: UnknownUrlComponent}
 ];
 
 @NgModule({

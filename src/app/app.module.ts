@@ -21,6 +21,7 @@ import { ContactRequestInterceptor } from './interceptors/contact-request.interc
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AuthServiceService } from './services/auth-service.service';
+import { UnknownUrlComponent } from './pages/unknown-url/unknown-url.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AuthServiceService } from './services/auth-service.service';
     AddEditContactComponent,
     LogInComponent,
     SignUpComponent,
+    UnknownUrlComponent,
   ],
 
   imports: [

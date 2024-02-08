@@ -3,6 +3,7 @@ import { Contact } from 'src/app/models/contact.model';
 import { Router } from '@angular/router';
 import { ContactServiceService } from 'src/app/services/contact-service.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { UserRole } from 'src/app/models/user-role.enum';
 
 @Component({
   selector: 'app-contact-card',
@@ -47,7 +48,7 @@ export class ContactCardComponent {
   }
 
   isUserAdmin(): boolean {
-    return this.authService.getRole() === 'admin';
+    return this.authService.getRole() === UserRole.Admin;
   }
 
   showAlert() {

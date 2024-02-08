@@ -24,5 +24,13 @@ export class HeaderComponent{
     this.authService.logout();
     this.router.navigate(['/log-in']);
   }
+
+  confirmLogOut(): void {
+    const isConfirmed = window.confirm('Are you sure you want to Log Out?');
+
+    if (isConfirmed) {
+      this.logout();
+    }
+  }
   
 }

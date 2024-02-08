@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Contact } from '../../models/contact.model';
 import { ContactServiceService } from '../../services/contact-service.service';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-deleted-contacts',
@@ -15,15 +16,13 @@ export class DeletedContactsComponent {
 
   constructor(private contactsService: ContactServiceService, private router: Router){
   }
+
   ngOnInit(): void {
-    this.contacts = this.contactsService.getContacts().subscribe(
-      (data: Contact[]) => {
+    this.contactsService.getContacts().pipe(
+      tap((data: Contact[]) => {
         this.contacts = data;
-      },
-      (error) => {
-        console.error('Error fetching contacts:', error);
-      }
-    );
+      })
+    ).subscribe();
   }
 
   updateList(contact: Contact[]){
