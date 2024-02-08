@@ -67,40 +67,6 @@
       "email": "james.carter@example.com"
     },
     {
-      "id": 16,
-      "mobilenumber": "0101010101",
-      "name": "Matthew Turnerr",
-      "isActive": false,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2024-01-26",
-      "email": "mathew@gmail.comm",
-      "username": "mathew 7777"
-    },
-    {
-      "name": "Antonela",
-      "contactId": "11111",
-      "mobilenumber": "131313",
-      "email": "eliada@gmail.com",
-      "username": "191911",
-      "isFavorite": true,
-      "isDeleted": false,
-      "isActive": false,
-      "contactDateCreated": "2024-01-11",
-      "id": 11111
-    },
-    {
-      "id": 11112,
-      "mobilenumber": "355683050412",
-      "name": "Eliada Ballazhi",
-      "isActive": true,
-      "isFavorite": true,
-      "isDeleted": false,
-      "contactDateCreated": "2024-01-12",
-      "email": "eliadaballazhi@gmail.comm",
-      "username": "ek9ajss"
-    },
-    {
       "id": 11113,
       "mobilenumber": "355683050412",
       "name": "Nia",
@@ -132,6 +98,17 @@
       "isDeleted": false,
       "contactDateCreated": "Mon Feb 05 2024",
       "id": 11116
+    },
+    {
+      "id": 11117,
+      "mobilenumber": "355683050412",
+      "name": "ADA",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "Tue Feb 06 2024",
+      "email": "hohohohoho00@gmail.com",
+      "username": "Eliada00"
     }
   ],
   "user": [

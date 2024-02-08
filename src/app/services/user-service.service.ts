@@ -13,22 +13,34 @@ export class UserService{
 
   constructor(private router: Router, private http: HttpClient) { }
 
+  // deprected-> returns observable that emits error msg
   isEmailTaken(email: string): Observable<boolean> {
     return this.getUsers().pipe(
       map(users => users.some(user => user.email === email)),
-      catchError(() => throwError('Failed to check email availability.'))
+      catchError(() => {
+        return new Observable<boolean>((observer) => {
+          observer.error('Failed to check email availability.'); //throwError('Failed to check email availability.'
+        });
+      })
     );
   }
 
+  // in new v of RXJS observable constuctor w error observer
   signUp(user: any): Observable<boolean> {
     return this.isEmailTaken(user.email).pipe(
       switchMap(emailTaken => {
         if (emailTaken) {
-          return throwError('Email is already taken.');
+          return new Observable<boolean>((observer) => {
+            observer.error('Email is already taken.');
+          });
         } else {
           return this.http.post<void>(this.userUrl, user).pipe(
-            map(() => true), 
-            catchError(() => throwError('Registration failed. Please try again.'))
+            map(() => true),
+            catchError(() => {
+              return new Observable<boolean>((observer) => {
+                observer.error('Registration failed. Please try again.');
+              });
+            })
           );
         }
       })

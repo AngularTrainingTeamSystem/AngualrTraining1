@@ -12,7 +12,8 @@ import { AuthenticationService } from 'src/app/services/authentication-service';
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
 
-  //1. Attempt-> private userService: UserService
+  //1. Attempt-> private userService: UserService 
+  //when user empty-> catch error fix rxjs op
   constructor(private fb: FormBuilder, private authService: AuthenticationService ,  private router: Router) { }
 
   ngOnInit(): void {

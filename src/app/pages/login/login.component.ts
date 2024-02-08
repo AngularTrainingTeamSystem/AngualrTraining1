@@ -41,18 +41,4 @@ export class LoginComponent implements OnInit {
       console.log('Form is invalid. Please check the fields.');
     }
   }
-  // onSubmit() {
-  //   if (this.loginForm.valid) {
-  //     const credentials = this.loginForm.value;
-  //     this.userService.login(credentials).subscribe(
-  //       () => {
-  //       },error => {
-  //         console.error('Login error:', error);
-  //         this.loginError = true;
-  //       }
-  //     );
-  //   } else {
-  //     console.log('Form is invalid. Please check the fields.');
-  //   }
-  // }
 }

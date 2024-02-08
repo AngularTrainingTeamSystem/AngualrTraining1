@@ -2,14 +2,14 @@
   <h2>List of all the users</h2>
   <button class="logoutButton" type="button" (click)="logout()">Logout</button>
   <div class="container">
-    <ng-container *ngFor="let user of users ">
+    <ng-container *ngFor="let user of users$ | async">
       <div class="user-container">
         <button *ngIf="!user.isDeleted" class="btn" type="button"
           [ngStyle]="{'background-color': user.isActive ? 'green' : 'gray', color: 'white' }"(click)="selectUser(user)" >
           {{ user.name }}
         </button>
         <button *ngIf="!user.isDeleted && authenticationService.isAuthorized('admin')" class="removeButton" type="button" (click)="removeUser(user.id)"> Remove </button>
-        <button *ngIf="!user.isDeleted" class="updateButton" type="button"  [routerLink]="['/form-user', user.id]"> Update </button>
+        <button *ngIf="!user.isDeleted && authenticationService.isAuthorized('admin')" class="updateButton" type="button"  [routerLink]="['/form-user', user.id]"> Update </button>
         <button *ngIf="!user.isDeleted && authenticationService.isAuthorized('admin')" class="updateButton" type="button"  [routerLink]="['/form-user']"> Add </button>
       </div>
     </ng-container>

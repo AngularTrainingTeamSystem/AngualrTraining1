@@ -44,16 +44,17 @@ export class ContactService {
   addUser(user: User): void {
     const headers = { 'Content-Type': 'application/json' };
     const body = JSON.stringify(user);
-
-    this.http.post(this.apiUrl, body, { headers }).subscribe(
-      (data) => {
+  
+    this.http.post(this.apiUrl, body, { headers }).subscribe({
+      next: (data) => {
         console.log('Post request successful:', data);
       },
-      (error) => {
-        console.error('Error in post request:', error)
+      error: (error) => {
+        console.error('Error in post request:', error);
       }
-    );
+    });
   }
+  
   //Validations
   //Map operator-> can rewrap to an observable so we can subscribe; Thats why we need pipe
   //Observables use observer to respond to data emissions

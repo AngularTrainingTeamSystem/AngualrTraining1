@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact-service.service';
 import { User } from '../../models/user.model';
-
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-list',
@@ -11,7 +11,8 @@ import { AuthenticationService } from 'src/app/services/authentication-service';
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  users: User[] = [];
+  users$: Observable<User[]> | undefined;
+
   selectedUser?: User | null;
 
   constructor(
@@ -21,18 +22,7 @@ export class UsersListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getUserInfo();
-  }
-
-  getUserInfo() {
-    this.contactService.getUsers().subscribe(
-      (users) => {
-        this.users = users;
-      },
-      (error) => {
-        console.error('Error fetching users:', error);
-      }
-    );
+    this.users$ = this.contactService.getUsers();
   }
 
   selectUser(user: User): void {
@@ -51,7 +41,7 @@ export class UsersListComponent implements OnInit {
   removeUser(userId: number): void {
     this.contactService.removeUser(userId).subscribe(
       () => {
-        this.getUserInfo(); // update user info
+        this.users$ = this.contactService.getUsers(); // update user info
         this.deselectUser(); // clear what you have selected
       },
       (error) => {

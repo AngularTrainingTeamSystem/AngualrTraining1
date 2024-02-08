@@ -13,9 +13,7 @@ import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UserDetailsComponent } from './pages/users-details/user-details.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestHeaderInterceptor } from './request-header.interceptor';
-import { FormUserComponent } from './pages/form-user/form-user.component';
 import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
 import { AuthenticationService } from './services/authentication-service';
 
 
@@ -25,11 +23,11 @@ import { AuthenticationService } from './services/authentication-service';
     HomeComponent,
     TopNavComponent,
     BottomNavComponent,
-    FormUserComponent,
+    //FormUserComponent,
     UsersListComponent,
     UserDetailsComponent,
     LoginComponent,
-    SignupComponent,
+    //SignupComponent,
   ],
   imports: [
     BrowserModule,
