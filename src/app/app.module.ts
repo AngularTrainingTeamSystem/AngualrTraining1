@@ -26,8 +26,6 @@ import { AuthGuard } from './guards/authenticationGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +41,6 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
     SignupComponent,
     NotfoundComponent,
     UserinfoComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -53,11 +50,17 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
     HttpClientModule,
     CommonModule,
   ],
-  providers: [ContactServiceService, CrudService,
-    { provide: HTTP_INTERCEPTORS, useClass: RequestheaderinterceptorInterceptor, multi: true },
-    { provide: HttpClient, useClass: HttpClient }
+  providers: [
+    ContactServiceService,
+    CrudService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestheaderinterceptorInterceptor,
+      multi: true,
+    },
+    { provide: HttpClient, useClass: HttpClient },
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

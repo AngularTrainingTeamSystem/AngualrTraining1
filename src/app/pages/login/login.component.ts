@@ -5,18 +5,20 @@ import { User } from 'src/app/models/user';
 import { AuthenticateUserService } from 'src/app/service/authenticate-user.service';
 import { CrudService } from 'src/app/service/crud.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   form!: FormGroup;
   passwordVisible = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authenticate: AuthenticateUserService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authenticate: AuthenticateUserService
+  ) {}
 
   ngOnInit() {
     this.initializeLoginForm();
@@ -25,8 +27,8 @@ export class LoginComponent implements OnInit {
   initializeLoginForm() {
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
-    })
+      password: ['', Validators.required],
+    });
   }
   ///reconstructed just like the sign up method
   logIn() {
@@ -44,8 +46,7 @@ export class LoginComponent implements OnInit {
       },
       error: (error) => {
         console.log('Error getting user info:', error);
-      }
+      },
     });
   }
-  
 }

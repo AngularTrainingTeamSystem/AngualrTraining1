@@ -8,33 +8,46 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/authenticationGuard';
 import { NotfoundComponent } from './notfound/notfound.component';
-
+import { UserInformationModule } from './user-information/user-information.module';
+import { UserdisplayComponent } from './user-information/userdisplay/userdisplay.component';
 
 const routes: Routes = [
-  //path directions
-  // { path: 'bodyholder', component: BodyHolderComponent },
   { path: 'body', component: BodyComponent },
-  // { path: 'forma', component: FormaPerdoruesComponent },
-  // { path: 'edit/:id', component: EditPerdoruesComponent },
-  // { path: 'forma/:id', component: FormaPerdoruesComponent },
-  { path: 'signup', component: SignupComponent},
-  { path: '', component: LoginComponent},
-  { path: 'forma', component: FormaPerdoruesComponent,
-  canActivate: [AuthGuard],
-        data: {role: 'admin'} },
-  { path: 'bodyholder', component: BodyHolderComponent,
-  canActivate: [AuthGuard],
-        data: {role: ['admin','user']}
-    },
-  {path: 'forma/:id', component: FormaPerdoruesComponent,
-      canActivate: [AuthGuard],
-          data: {role: 'admin'} },
+  { path: 'signup', component: SignupComponent },
+  { path: '', component: LoginComponent },
+  {
+    path: 'forma',
+    component: FormaPerdoruesComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' },
+  },
+  {
+    path: 'bodyholder',
+    component: BodyHolderComponent,
+    canActivate: [AuthGuard],
+    data: { role: ['admin', 'user'] },
+  },
+  {
+    path: 'forma/:id',
+    component: FormaPerdoruesComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' },
+  },
   { path: '**', component: NotfoundComponent },
 
+  //lazy loading
+
+  {
+    path: 'userinfo',
+    loadChildren: () =>
+      import('./user-information/user-information.module').then(
+        (m) => m.UserInformationModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

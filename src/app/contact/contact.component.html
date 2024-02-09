@@ -4,22 +4,11 @@
     <h3><a (click)="onContactClick(kontakt.id)">{{kontakt.name}}</a></h3>
     <input [(ngModel)]="input" placeholder="Write a note...">
     <h3> {{input}}</h3><br>
-    <button (click)="getUserInformation()">Get User Infromation </button>
+    <button (click)="getUserInformation()">Get User Information </button>
     <br><br>
-    <!-- component interaction -->
-    <app-userinfo  [userInformation]="userInformation"></app-userinfo> 
+    <app-userinfo [userInformation]="userInformation"></app-userinfo>
+
 </div>
-    
 
 
 
-<!-- <div *ngIf="userInformation">
-        <p>Name: {{userInformation.name}}</p>
-        <p>Id: {{userInformation.id}}</p>
-        <p>MobileNumber: {{userInformation.mobilenumber}}</p>
-        <p>Date Of Birth: {{userInformation.contactDateCreated | date}}</p>
-        <p>Username: {{userInformation.username}}</p>
-        <p>Email: {{userInformation.email}}</p>
-        <p>Active: {{userInformation.isActive}}</p>
-        <p>Favorite: {{userInformation.isFavorite}}</p>
-    </div> -->

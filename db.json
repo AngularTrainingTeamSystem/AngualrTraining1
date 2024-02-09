@@ -774,6 +774,14 @@
       "password": "",
       "role": "user",
       "id": 27
+    },
+    {
+      "name": "Aleksios Malasi",
+      "email": "charlie.brow@example.com",
+      "phone": "0693339428",
+      "password": "12345678",
+      "role": "admin",
+      "id": 28
     }
   ]
 }

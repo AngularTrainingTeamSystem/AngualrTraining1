@@ -3,7 +3,13 @@ import { ContactServiceService } from '../../service/contact-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../../service/crud.service';
 import { Kontakt } from '../../models/kontakt';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { Observable, of, throwError } from 'rxjs';
 import { AsyncValidatorFn } from '@angular/forms';
 import { map, switchMap, catchError, tap } from 'rxjs/operators';
@@ -14,7 +20,7 @@ import { UniqueUsername } from 'src/app/validators/uniqueUsername';
 @Component({
   selector: 'app-forma-perdorues',
   templateUrl: './forma-perdorues.component.html',
-  styleUrls: ['./forma-perdorues.component.scss']
+  styleUrls: ['./forma-perdorues.component.scss'],
 })
 export class FormaPerdoruesComponent implements OnInit {
   kontakt: any;
@@ -29,10 +35,17 @@ export class FormaPerdoruesComponent implements OnInit {
     isDeleted: false,
     contactDateCreated: '',
     username: '',
-    email: ''
+    email: '',
   };
 
-  constructor(private crudService: CrudService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder, private uniqueEmail: UniqueEmail, private uniqueUsername: UniqueUsername) { }
+  constructor(
+    private crudService: CrudService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private uniqueEmail: UniqueEmail,
+    private uniqueUsername: UniqueUsername
+  ) {}
 
   ngOnInit() {
     this.formIntialization();
@@ -42,14 +55,16 @@ export class FormaPerdoruesComponent implements OnInit {
   formIntialization() {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
-      number: ['', [Validators.required, Validators.pattern('[0-9]{3}[0-9]{3}[0-9]{4}')]],
+      number: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]{3}[0-9]{3}[0-9]{4}')],
+      ],
       email: ['', { validators: [Validators.required, Validators.email] }],
       isActive: [''],
       isFavorite: [''],
       isDeleted: [''],
       contactDateCreated: [''],
-      username: ['',],
-
+      username: [''],
     });
   }
 
@@ -57,27 +72,44 @@ export class FormaPerdoruesComponent implements OnInit {
   loadContactInfo() {
     console.log(this.id);
     if (this.id != null) {
-      this.crudService.getContact(this.id).pipe(
-        map((contact) => {
-          this.kontakt = contact; console.log(contact); console.log(this.kontakt)
-          this.form.setValue({
-            name: this.kontakt.name,
-            number: this.kontakt.mobilenumber,
-            username: this.kontakt.username,
-            email: this.kontakt.email,
-            isActive: this.kontakt.isActive ? 'true' : '',
-            isFavorite: this.kontakt.isFavorite ? 'true' : '',
-            isDeleted: this.kontakt.isDeleted ? 'true' : '',
-            contactDateCreated: this.kontakt.contactDateCreated
-          });
-        }),
-        catchError((error) => {
-          console.error('Error loading contact:', error);
-          return of(null);
-        })
-      ).subscribe();
-      this.form.get('email')?.valueChanges.subscribe(() => { this.form.get('email')?.addAsyncValidators(this.uniqueEmail.validate.bind(this.uniqueEmail)) })
-      this.form.get('username')?.valueChanges.subscribe(() => { this.form.get('username')?.addAsyncValidators(this.uniqueUsername.validate.bind(this.uniqueUsername)) })
+      this.crudService
+        .getContact(this.id)
+        .pipe(
+          map((contact) => {
+            this.kontakt = contact;
+            console.log(contact);
+            console.log(this.kontakt);
+            this.form.setValue({
+              name: this.kontakt.name,
+              number: this.kontakt.mobilenumber,
+              username: this.kontakt.username,
+              email: this.kontakt.email,
+              isActive: this.kontakt.isActive ? 'true' : '',
+              isFavorite: this.kontakt.isFavorite ? 'true' : '',
+              isDeleted: this.kontakt.isDeleted ? 'true' : '',
+              contactDateCreated: this.kontakt.contactDateCreated,
+            });
+          }),
+          catchError((error) => {
+            console.error('Error loading contact:', error);
+            return of(null);
+          })
+        )
+        .subscribe();
+      this.form.get('email')?.valueChanges.subscribe(() => {
+        this.form
+          .get('email')
+          ?.addAsyncValidators(
+            this.uniqueEmail.validate.bind(this.uniqueEmail)
+          );
+      });
+      this.form.get('username')?.valueChanges.subscribe(() => {
+        this.form
+          .get('username')
+          ?.addAsyncValidators(
+            this.uniqueUsername.validate.bind(this.uniqueUsername)
+          );
+      });
     }
   }
 
@@ -92,31 +124,39 @@ export class FormaPerdoruesComponent implements OnInit {
     this.kontakti.isDeleted = formData.isDeleted;
     this.kontakti.contactDateCreated = formData.contactDateCreated;
     //pipe is used to chain toghether the Observable operators
-    this.crudService.createContact(this.kontakti).pipe(  //an observable is passed to the method
-      tap(() => {                                       //it gets piped and it gets created while navigating to main
-        this.router.navigate(['bodyholder']);          //then return observable that emits null
-        alert('User saved');                          //this is done to ensure that the subscription
-                                                     //of the observable completes after the navigation of the route is done
-      }),
-      catchError((error) => {
-        console.error('Error creating contact:', error);
-        return of(null);
-      })
-    ).subscribe();
+    this.crudService
+      .createContact(this.kontakti)
+      .pipe(
+        //an observable is passed to the method
+        tap(() => {
+          //it gets piped and it gets created while navigating to main
+          this.router.navigate(['bodyholder']); //then return observable that emits null
+          alert('User saved'); //this is done to ensure that the subscription
+          //of the observable completes after the navigation of the route is done
+        }),
+        catchError((error) => {
+          console.error('Error creating contact:', error);
+          return of(null);
+        })
+      )
+      .subscribe();
   }
 
   deleteUser(): void {
     if (this.kontakt && this.kontakt.id) {
-      this.crudService.deleteContact(this.kontakt.id).pipe(
-        tap(() => {
-          this.router.navigate(['bodyholder']);
-          alert('User deleted');
-        }),
-        catchError((error) => {
-          console.error('Error deleting contact:', error);
-          return of(null);
-        })
-      ).subscribe();
+      this.crudService
+        .deleteContact(this.kontakt.id)
+        .pipe(
+          tap(() => {
+            this.router.navigate(['bodyholder']);
+            alert('User deleted');
+          }),
+          catchError((error) => {
+            console.error('Error deleting contact:', error);
+            return of(null);
+          })
+        )
+        .subscribe();
     }
   }
 
@@ -129,19 +169,24 @@ export class FormaPerdoruesComponent implements OnInit {
     this.kontakt!.isActive = formData.isActive;
     this.kontakt!.isFavorite = formData.isFavorite;
     this.kontakt!.isDeleted = formData.isDeleted;
-    this.kontakt!.contactDateCreated = formData.contactDateCreated ? new Date(formData.contactDateCreated) : undefined;
+    this.kontakt!.contactDateCreated = formData.contactDateCreated
+      ? new Date(formData.contactDateCreated)
+      : undefined;
 
-    this.crudService.updateContact(this.kontakt!).pipe(
-      switchMap(() => {
-        alert('User saved succesfully');
-        this.router.navigate(['bodyholder']);
-        return of(null);
-      }),
-      catchError((error) => {
-        console.error('Error creating contact:', error);
-        return of(null);
-      })
-    ).subscribe();
+    this.crudService
+      .updateContact(this.kontakt!)
+      .pipe(
+        switchMap(() => {
+          alert('User saved succesfully');
+          this.router.navigate(['bodyholder']);
+          return of(null);
+        }),
+        catchError((error) => {
+          console.error('Error creating contact:', error);
+          return of(null);
+        })
+      )
+      .subscribe();
     // this.crudService.updateContact(this.kontakt!)
     //   .subscribe({
     //     next: () => {
@@ -156,13 +201,14 @@ export class FormaPerdoruesComponent implements OnInit {
   //checks if we get an id while navigating to redirect to the desired form of edit or creation
   makeAction() {
     if (!this.id) {
-      this.createContact()
-    }
-    else {
+      this.createContact();
+    } else {
       this.updateUser();
     }
   }
-  usernameAsyncValidator(contactService: ContactServiceService): AsyncValidatorFn {
+  usernameAsyncValidator(
+    contactService: ContactServiceService
+  ): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       return this.crudService.isUsernameTaken(control.value).pipe(
         map((result: boolean) => {
