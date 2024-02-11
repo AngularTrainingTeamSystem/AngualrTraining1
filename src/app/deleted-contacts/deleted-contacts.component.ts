@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Contact } from '../../models/contact.model';
-import { ContactServiceService } from '../../services/contact-service.service';
+import { Contact } from '../models/contact.model';
+import { ContactServiceService } from '../services/contact-service.service';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 

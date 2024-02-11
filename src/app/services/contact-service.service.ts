@@ -13,14 +13,6 @@ export class ContactServiceService {
 
   constructor(private http: HttpClient) { }
 
-  // getContacts(): Contact[] {
-  //   return this.contacts;
-  // }
-
-  // getContactById(id: string): any {
-  //   return  this.contacts.find(contact => contact.contactId === id);
-  // }
-
   getContacts(): Observable<any> {
     return this.http.get(this.url).pipe(
       tap((res => this.totalItems = Object.values(res).length)),
@@ -75,6 +67,15 @@ export class ContactServiceService {
       catchError(() => of(false))
     );
   }
+
+
+  // getContacts(): Contact[] {
+  //   return this.contacts;
+  // }
+
+  // getContactById(id: string): any {
+  //   return  this.contacts.find(contact => contact.contactId === id);
+  // }
 
   // isUsernameTaken(username: string): boolean {
   //   return this.contacts.some(contact => contact.username === username);

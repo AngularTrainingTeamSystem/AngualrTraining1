@@ -12,7 +12,7 @@ import { EditContactComponent } from './pages/edit-contact/edit-contact.componen
 import { ContactFilterPipe } from './pipes/contactfilter.pipe';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DeletedContactsComponent } from './pages/deleted-contacts/deleted-contacts.component';
+import { DeletedContactsComponent } from './deleted-contacts/deleted-contacts.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';

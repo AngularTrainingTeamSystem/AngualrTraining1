@@ -3,7 +3,7 @@ import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { BodyComponent } from './pages/body/body.component';
 import { AddContactComponent } from './pages/add-contact/add-contact.component';
 import { EditContactComponent } from './pages/edit-contact/edit-contact.component';
-import { DeletedContactsComponent } from './pages/deleted-contacts/deleted-contacts.component';
+import { DeletedContactsComponent } from './deleted-contacts/deleted-contacts.component';
 import { AddEditContactComponent } from './pages/add-edit-contact/add-edit-contact.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'main/modify-contact-list/:id', component: AddEditContactComponent, canActivate: [AuthGuardService, AccessGuardService]},
   { path: 'log-in', component: LogInComponent},
   { path: 'sign-up', component: SignUpComponent},
+  { path: 'lazy-loading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule)},
   { path: '', redirectTo: 'log-in', pathMatch: 'full'},
   { path: '**', component: UnknownUrlComponent}
 ];
