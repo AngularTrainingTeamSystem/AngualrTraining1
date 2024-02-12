@@ -5,8 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormUserComponent } from './form-user.component';
 
 const routes: Routes = [
+
   {
     path: '',
+    component: FormUserComponent
+  },
+  {
+    path: ':id',
     component: FormUserComponent
   }
 ];

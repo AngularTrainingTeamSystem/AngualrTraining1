@@ -10,6 +10,7 @@
       <div>
         <label for="email">Email*</label>
         <input id="email" formControlName="email" />
+        <!-- <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"></div> -->
         <div *ngIf="loginForm.get('email')?.hasError('required')" class="error">Email is required.</div>
         <div *ngIf="loginForm.get('email')?.hasError('email')" class="error">Please enter a valid email address.</div>
       </div>
