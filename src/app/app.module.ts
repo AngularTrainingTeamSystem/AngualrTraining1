@@ -15,8 +15,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RequestHeaderInterceptor } from './request-header.interceptor';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthenticationService } from './services/authentication-service';
-import { TestComponentComponent } from './test/test-component/test-component.component';
-import { TestComponent2Component } from './test/test-component2/test-component2.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -31,8 +29,6 @@ import { MatInputModule } from '@angular/material/input';
     UsersListComponent,
     UserDetailsComponent,
     LoginComponent,
-    TestComponentComponent,
-    TestComponent2Component,
     //SignupComponent,
   ],
   imports: [
