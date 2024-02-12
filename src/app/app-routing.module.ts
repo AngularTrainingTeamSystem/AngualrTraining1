@@ -12,11 +12,12 @@ import { AuthGuard } from './Guard/auth.guard';
 const routes: Routes = [
   {path:'contact-list', component : BodyComponent , canActivate:[AuthGuard]},
   {path: 'contact-list/:id' , component: UserFormComponetnt , canActivate:[AuthGuard]},
-  {path: 'contact-list/add-contact' , component: UserFormComponetnt  },
+  // {path: 'contact-list/add-contact' , component: UserFormComponetnt  },
   {path:'' , redirectTo:'home', pathMatch : 'full'},
   {path:'home', component : HomePageComponent},
   {path:'login' , component : LoginFormComponent},
-  {path:'signup' , component: SignUpFormComponent}
+  {path:'signup' , component: SignUpFormComponent},
+  { path: 'lazyLoading', loadChildren: () => import('./lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule) }
 ];
 
 @NgModule({

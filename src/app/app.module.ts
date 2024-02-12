@@ -25,13 +25,27 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ReqInterceptorInterceptor } from './interceptors/req-interceptor.interceptor';
 import { UserFormComponetnt } from './user-form/user-form.component';
-import { emailValidator } from './validators/email-username-validator';
-import { EmailUnique } from './validators/emailValidator';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
+import { Routes } from '@angular/router';
+import { AuthGuard } from './Guard/auth.guard';
 
+
+// const routes: Routes = [
+//   {
+//     path:'contact-list',
+//     component : BodyComponent ,
+//     canActivate:[AuthGuard]
+//   },
+
+//   {path: 'contact-list/:id' , component: UserFormComponetnt , canActivate:[AuthGuard]},
+//   {path:'' , redirectTo:'home', pathMatch : 'full'},
+//   {path:'home', component : HomePageComponent},
+//   {path:'login' , component : LoginFormComponent},
+//   {path:'signup' , component: SignUpFormComponent}
+// ];
 
 @NgModule({
   declarations: [

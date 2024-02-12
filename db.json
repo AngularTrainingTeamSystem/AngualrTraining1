@@ -1,6 +1,17 @@
 {
   "contacts": [
     {
+      "id": "c1",
+      "mobilenumber": "1234567890",
+      "name": "John Doe",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": false,
+      "contactDateCreated": "2023-07-12",
+      "username": "john_doe_123",
+      "email": "john.doe@example.com"
+    },
+    {
       "id": "c2",
       "mobilenumber": "9876543210",
       "name": "Jane Smith",
@@ -10,6 +21,17 @@
       "contactDateCreated": "2023-05-24",
       "username": "jane_smith_987",
       "email": "jane.smith@example.com"
+    },
+    {
+      "id": "c3",
+      "mobilenumber": "5551112233",
+      "name": "Alice Johnson",
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-10-08",
+      "username": "alice_johnson_555",
+      "email": "alice.johnson@example.com"
     },
     {
       "id": "c4",
@@ -24,14 +46,14 @@
     },
     {
       "id": "c5",
-      "mobilenumber": "0685828980",
+      "mobilenumber": "3332221111",
       "name": "Eve Davis",
-      "isActive": "true",
-      "isFavorite": "true",
-      "isDeleted": "true",
-      "contactDateCreated": "2024-02-01T09:54:58.792Z",
-      "email": "eve.davis@example.com",
-      "username": "eve_davis_333"
+      "isActive": true,
+      "isFavorite": false,
+      "isDeleted": true,
+      "contactDateCreated": "2023-11-30",
+      "username": "eve_davis_333",
+      "email": "eve.davis@example.com"
     },
     {
       "id": "c6",
@@ -89,6 +111,17 @@
       "email": "liam.anderson@example.com"
     },
     {
+      "id": "c11",
+      "mobilenumber": "1112223333",
+      "name": "Olivia Parker",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2023-03-19",
+      "username": "olivia_parker_111",
+      "email": "olivia.parker@example.com"
+    },
+    {
       "id": "c12",
       "mobilenumber": "5554443333",
       "name": "Matthew Turner",
@@ -98,6 +131,17 @@
       "contactDateCreated": "2023-12-02",
       "username": "matthew_turner_555",
       "email": "matthew.turner@example.com"
+    },
+    {
+      "id": "c13",
+      "mobilenumber": "9990001111",
+      "name": "Emma Harris",
+      "isActive": true,
+      "isFavorite": true,
+      "isDeleted": false,
+      "contactDateCreated": "2023-07-28",
+      "username": "emma_harris_999",
+      "email": "emma.harris@example.com"
     },
     {
       "id": "c14",
@@ -111,26 +155,15 @@
       "email": "james.carter@example.com"
     },
     {
-      "id": "695cd6a2-6db5-4778-a1e5-aee2fd687441",
-      "mobilenumber": "0693625147",
-      "name": "Elvis",
-      "isActive": false,
-      "isFavorite": false,
+      "id": "c15",
+      "mobilenumber": "7773336666",
+      "name": "Ava Rodriguez",
+      "isActive": true,
+      "isFavorite": true,
       "isDeleted": false,
-      "contactDateCreated": "2024-02-01T11:31:02.365Z",
-      "email": "elvis@gmail.com",
-      "username": "elvisii"
-    },
-    {
-      "id": "43bb37ee-ad2d-4b39-9c0e-0b43a1909c9b",
-      "mobilenumber": "0693625147",
-      "name": "test123456",
-      "isActive": false,
-      "isFavorite": false,
-      "isDeleted": false,
-      "contactDateCreated": "2024-02-01T12:07:58.345Z",
-      "email": "1234567@gmail.com",
-      "username": "qwertyuiop"
+      "contactDateCreated": "2023-10-19",
+      "username": "ava_rodriguez_777",
+      "email": "ava.rodriguez@example.com"
     }
   ],
   "user": [

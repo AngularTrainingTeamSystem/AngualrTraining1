@@ -49,6 +49,8 @@ export class ContactCardComponent {
       if (result) {
         this.service.deleteContactById(id).subscribe(() => {
           window.location.reload();
+          
+          // this.router.navigate(['/contact-list'])
         });
       }
     });
